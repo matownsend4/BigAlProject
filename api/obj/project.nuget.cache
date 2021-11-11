@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "obrenZY7Umq4ykNBqe4hqJKWJdq9zfUl5SOF7yhAiOGDg069LGWlUa+pvGAbssf3NEkmk6uW27Y04F1zCGhZ5A==",
+  "success": true,
+  "projectFilePath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
+  "expectedPackageFiles": [
+    "/Users/makayla/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
