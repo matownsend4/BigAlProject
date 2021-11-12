@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj": {}
+    "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj": {}
   },
   "projects": {
-    "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj": {
+    "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
+        "projectUniqueName": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
-        "packagesPath": "/Users/makayla/.nuget/packages/",
-        "outputPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/obj/",
+        "projectPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+        "packagesPath": "/Users/clairewallerick/.nuget/packages/",
+        "outputPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/makayla/.nuget/NuGet/NuGet.Config"
+          "/Users/clairewallerick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }

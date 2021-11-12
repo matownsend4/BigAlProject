@@ -1,0 +1,7 @@
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.csproj.AssemblyReference.cache
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.AssemblyInfoInputs.cache
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.AssemblyInfo.cs
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.csproj.CoreCompileInputs.cache
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.MvcApplicationPartsAssemblyInfo.cs
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/Debug/net5.0/api.MvcApplicationPartsAssemblyInfo.cache
