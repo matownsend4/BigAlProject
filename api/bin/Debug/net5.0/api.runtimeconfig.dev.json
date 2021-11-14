@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/makayla/.dotnet/store/|arch|/|tfm|",
+      "/Users/makayla/.nuget/packages"
+    ]
+  }
+}
