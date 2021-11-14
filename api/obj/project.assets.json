@@ -1031,19 +1031,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/clairewallerick/.nuget/packages/": {}
+    "/Users/makayla/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+      "projectUniqueName": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
-      "packagesPath": "/Users/clairewallerick/.nuget/packages/",
-      "outputPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/",
+      "projectPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
+      "packagesPath": "/Users/makayla/.nuget/packages/",
+      "outputPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/clairewallerick/.nuget/NuGet/NuGet.Config"
+        "/Users/makayla/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
