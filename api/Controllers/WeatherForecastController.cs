@@ -1,9 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace api.Controllers;
 
-[ApiController]
-[Route("[controller]")]
+namespace api.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -29,4 +36,4 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
-}
+}}
