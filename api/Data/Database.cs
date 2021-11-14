@@ -18,7 +18,7 @@ namespace api.Data
 
         public Database()
         {
-            string server = "	ro2padgkirvcf55m.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+            string server = "ro2padgkirvcf55m.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
             string name = "h1o2pnaoi2qqs44x";
             string port = "3306";
             string username = "mvyjw0pq74mcwa1b";
