@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = api
+<<<<<<< HEAD
 build_property.ProjectDir = /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/
+=======
+build_property.ProjectDir = /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/
+>>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4

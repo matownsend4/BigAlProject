@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj": {}
+    "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj": {}
   },
   "projects": {
-    "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj": {
+    "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
+        "projectUniqueName": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
-        "packagesPath": "/Users/makayla/.nuget/packages/",
-        "outputPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/obj/",
+        "projectPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+        "packagesPath": "/Users/clairewallerick/.nuget/packages/",
+        "outputPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/makayla/.nuget/NuGet/NuGet.Config"
+          "/Users/clairewallerick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -41,6 +41,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "mysql.data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
             }
           },
           "imports": [
