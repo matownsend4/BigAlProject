@@ -1,9 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "anCseBRiOq9cQYSobg2U69gdg1KCPBfRH14O7Ka/XB97DmNqarCPTxBWAyGMGixduQWiraIJsJVCJ/II+DUriw==",
+=======
+  "dgSpecHash": "Vj4+KZaRJzqG5wz7ei1qFDEtrV8KmGPKEKVY1xBbCj7fB2lyaYmzbYY+VV0eEjTu7H6FS+uGpzWPsApZ6gvY/Q==",
+>>>>>>> fa13e9153a15eed4ccfe8097be06e5654b9a040b
   "success": true,
-  "projectFilePath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+  "projectFilePath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
   "expectedPackageFiles": [
+<<<<<<< HEAD
     "/Users/clairewallerick/.nuget/packages/bouncycastle.netcore/1.8.5/bouncycastle.netcore.1.8.5.nupkg.sha512",
     "/Users/clairewallerick/.nuget/packages/google.protobuf/3.14.0/google.protobuf.3.14.0.nupkg.sha512",
     "/Users/clairewallerick/.nuget/packages/humanizer.core/2.2.0/humanizer.core.2.2.0.nupkg.sha512",
@@ -143,6 +148,14 @@
     "/Users/clairewallerick/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512",
     "/Users/clairewallerick/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/clairewallerick/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+=======
+    "/Users/makayla/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+>>>>>>> fa13e9153a15eed4ccfe8097be06e5654b9a040b
   ],
   "logs": []
 }
