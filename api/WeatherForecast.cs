@@ -1,11 +1,6 @@
 using System;
 
 namespace api
-<<<<<<< HEAD
-{
-public class WeatherForecast
-=======
->>>>>>> fa13e9153a15eed4ccfe8097be06e5654b9a040b
 {
     public class WeatherForecast
     {
@@ -18,4 +13,4 @@ public class WeatherForecast
         public string Summary { get; set; }
     }
 }
-}
+

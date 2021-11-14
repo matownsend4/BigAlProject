@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +12,7 @@ namespace api.Controllers
     [ApiController]
     [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-namespace api.Controllers
->>>>>>> fa13e9153a15eed4ccfe8097be06e5654b9a040b
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
-    {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -53,4 +38,4 @@ namespace api.Controllers
             .ToArray();
         }
     }
-}}
+}
