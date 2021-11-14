@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "huKxuAQ07TArkr+JMYyookFLooJvm7YN8YTI0+uRpA7QVPqUZr6SZFlMWULV7UocreZY4wLt+Ea85v+JeGigoQ==",
+  "dgSpecHash": "Vj4+KZaRJzqG5wz7ei1qFDEtrV8KmGPKEKVY1xBbCj7fB2lyaYmzbYY+VV0eEjTu7H6FS+uGpzWPsApZ6gvY/Q==",
   "success": true,
-  "projectFilePath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+  "projectFilePath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
   "expectedPackageFiles": [
-    "/Users/clairewallerick/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "/Users/clairewallerick/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/Users/clairewallerick/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "/Users/clairewallerick/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "/Users/clairewallerick/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "/Users/clairewallerick/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "/Users/makayla/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/Users/makayla/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
   ],
   "logs": []
 }
