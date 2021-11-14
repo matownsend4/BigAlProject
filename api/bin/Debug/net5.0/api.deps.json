@@ -34,10 +34,7 @@
       "api/1.0.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore": "5.6.3",
-<<<<<<< HEAD
-=======
           "MySql.Data": "8.0.27",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -168,11 +165,7 @@
           "mscorlib": "4.0.0.0",
           "netstandard": "2.1.0.0",
           "System.AppContext": "5.0.0.0",
-<<<<<<< HEAD
-          "System.Buffers": "5.0.0.0",
-=======
           "System.Buffers.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Collections.Concurrent": "5.0.0.0",
           "System.Collections": "5.0.0.0",
           "System.Collections.Immutable": "5.0.0.0",
@@ -227,11 +220,7 @@
           "System.Linq.Expressions": "5.0.0.0",
           "System.Linq.Parallel": "5.0.0.0",
           "System.Linq.Queryable": "5.0.0.0",
-<<<<<<< HEAD
-          "System.Memory": "5.0.0.0",
-=======
           "System.Memory.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Net": "4.0.0.0",
           "System.Net.Http": "5.0.0.0",
           "System.Net.Http.Json": "5.0.0.0",
@@ -265,11 +254,7 @@
           "System.Resources.Reader": "5.0.0.0",
           "System.Resources.ResourceManager": "5.0.0.0",
           "System.Resources.Writer": "5.0.0.0",
-<<<<<<< HEAD
-          "System.Runtime.CompilerServices.Unsafe": "5.0.0.0",
-=======
           "System.Runtime.CompilerServices.Unsafe.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Runtime.CompilerServices.VisualC": "5.0.0.0",
           "System.Runtime": "5.0.0.0",
           "System.Runtime.Extensions": "5.0.0.0",
@@ -284,11 +269,7 @@
           "System.Runtime.Serialization.Json": "5.0.0.0",
           "System.Runtime.Serialization.Primitives": "5.0.0.0",
           "System.Runtime.Serialization.Xml": "5.0.0.0",
-<<<<<<< HEAD
-          "System.Security.AccessControl": "5.0.0.0",
-=======
           "System.Security.AccessControl.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Security.Claims": "5.0.0.0",
           "System.Security.Cryptography.Algorithms": "5.0.0.0",
           "System.Security.Cryptography.Cng": "5.0.0.0",
@@ -298,15 +279,6 @@
           "System.Security.Cryptography.X509Certificates": "5.0.0.0",
           "System.Security.Cryptography.Xml": "5.0.0.0",
           "System.Security": "4.0.0.0",
-<<<<<<< HEAD
-          "System.Security.Permissions": "5.0.0.0",
-          "System.Security.Principal": "5.0.0.0",
-          "System.Security.Principal.Windows": "5.0.0.0",
-          "System.Security.SecureString": "5.0.0.0",
-          "System.ServiceModel.Web": "4.0.0.0",
-          "System.ServiceProcess": "4.0.0.0",
-          "System.Text.Encoding.CodePages": "5.0.0.0",
-=======
           "System.Security.Permissions.Reference": "5.0.0.0",
           "System.Security.Principal": "5.0.0.0",
           "System.Security.Principal.Windows.Reference": "5.0.0.0",
@@ -314,7 +286,6 @@
           "System.ServiceModel.Web": "4.0.0.0",
           "System.ServiceProcess": "4.0.0.0",
           "System.Text.Encoding.CodePages.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Text.Encoding": "5.0.0.0",
           "System.Text.Encoding.Extensions": "5.0.0.0",
           "System.Text.Encodings.Web": "5.0.0.0",
@@ -336,11 +307,7 @@
           "System.Web": "4.0.0.0",
           "System.Web.HttpUtility": "5.0.0.0",
           "System.Windows": "4.0.0.0",
-<<<<<<< HEAD
-          "System.Windows.Extensions": "5.0.0.0",
-=======
           "System.Windows.Extensions.Reference": "5.0.0.0",
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
           "System.Xml": "4.0.0.0",
           "System.Xml.Linq": "4.0.0.0",
           "System.Xml.ReaderWriter": "5.0.0.0",
@@ -359,9 +326,6 @@
           "api.dll": {}
         }
       },
-<<<<<<< HEAD
-      "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
-=======
       "BouncyCastle.NetCore/1.8.5": {
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
@@ -433,7 +397,6 @@
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
       "Microsoft.NETCore.Platforms/3.1.0": {},
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
@@ -445,8 +408,6 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         }
       },
-<<<<<<< HEAD
-=======
       "Microsoft.Win32.SystemEvents/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0"
@@ -483,7 +444,6 @@
           "lib/net5.0/ZstdNet.dll": {}
         }
       },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "Swashbuckle.AspNetCore/5.6.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -531,8 +491,6 @@
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
-<<<<<<< HEAD
-=======
       "System.Buffers/4.5.1": {},
       "System.Configuration.ConfigurationManager/4.4.1": {
         "dependencies": {
@@ -595,7 +553,6 @@
           "System.Drawing.Common": "4.7.0"
         }
       },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
@@ -1376,11 +1333,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Buffers/5.0.0.0": {
-=======
       "System.Buffers.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Buffers.dll": {}
         },
@@ -1710,11 +1663,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Memory/5.0.0.0": {
-=======
       "System.Memory.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Memory.dll": {}
         },
@@ -1918,11 +1867,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Runtime.CompilerServices.Unsafe/5.0.0.0": {
-=======
       "System.Runtime.CompilerServices.Unsafe.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Runtime.CompilerServices.Unsafe.dll": {}
         },
@@ -2012,11 +1957,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Security.AccessControl/5.0.0.0": {
-=======
       "System.Security.AccessControl.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Security.AccessControl.dll": {}
         },
@@ -2076,11 +2017,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Security.Permissions/5.0.0.0": {
-=======
       "System.Security.Permissions.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Security.Permissions.dll": {}
         },
@@ -2092,11 +2029,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Security.Principal.Windows/5.0.0.0": {
-=======
       "System.Security.Principal.Windows.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Security.Principal.Windows.dll": {}
         },
@@ -2120,11 +2053,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Text.Encoding.CodePages/5.0.0.0": {
-=======
       "System.Text.Encoding.CodePages.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Text.Encoding.CodePages.dll": {}
         },
@@ -2256,11 +2185,7 @@
         },
         "compileOnly": true
       },
-<<<<<<< HEAD
-      "System.Windows.Extensions/5.0.0.0": {
-=======
       "System.Windows.Extensions.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
         "compile": {
           "System.Windows.Extensions.dll": {}
         },
@@ -2334,8 +2259,6 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-=======
     "BouncyCastle.NetCore/1.8.5": {
       "type": "package",
       "serviceable": true,
@@ -2371,7 +2294,6 @@
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
     },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2379,8 +2301,6 @@
       "path": "microsoft.extensions.apidescription.server/3.0.0",
       "hashPath": "microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
       "serviceable": true,
@@ -2388,7 +2308,6 @@
       "path": "microsoft.netcore.platforms/3.1.0",
       "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
     },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
       "serviceable": true,
@@ -2396,8 +2315,6 @@
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "Microsoft.Win32.SystemEvents/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -2412,7 +2329,6 @@
       "path": "mysql.data/8.0.27",
       "hashPath": "mysql.data.8.0.27.nupkg.sha512"
     },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
     "Swashbuckle.AspNetCore/5.6.3": {
       "type": "package",
       "serviceable": true,
@@ -2441,8 +2357,6 @@
       "path": "swashbuckle.aspnetcore.swaggerui/5.6.3",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
@@ -2520,7 +2434,6 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -3171,11 +3084,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Buffers/5.0.0.0": {
-=======
     "System.Buffers.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3450,11 +3359,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Memory/5.0.0.0": {
-=======
     "System.Memory.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3624,11 +3529,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Runtime.CompilerServices.Unsafe/5.0.0.0": {
-=======
     "System.Runtime.CompilerServices.Unsafe.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3703,11 +3604,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Security.AccessControl/5.0.0.0": {
-=======
     "System.Security.AccessControl.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3757,11 +3654,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Security.Permissions/5.0.0.0": {
-=======
     "System.Security.Permissions.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3771,11 +3664,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Security.Principal.Windows/5.0.0.0": {
-=======
     "System.Security.Principal.Windows.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3795,11 +3684,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Text.Encoding.CodePages/5.0.0.0": {
-=======
     "System.Text.Encoding.CodePages.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3909,11 +3794,7 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "System.Windows.Extensions/5.0.0.0": {
-=======
     "System.Windows.Extensions.Reference/5.0.0.0": {
->>>>>>> 746fbd1796537074e035b1f3f055dafcbd983ec4
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
