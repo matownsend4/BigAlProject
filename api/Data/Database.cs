@@ -29,7 +29,7 @@ namespace api.Data
             // string username = Environment.GetEnvironmentVariable("");
             // string password = Environment.GetEnvironmentVariable("");
             
-            //Console.WriteLine("got the datbase " + server);
+            Console.WriteLine("got the datbase " + server);
 
             this.ConnString = $@"server = {server};user={username};database={name};port={port};password={password};AllowLoadLocalInfile=true";
             this.Conn = new MySqlConnection(this.ConnString);
