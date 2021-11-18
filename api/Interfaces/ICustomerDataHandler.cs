@@ -5,6 +5,9 @@ namespace api.Interfaces
 {
     public interface ICustomerDataHandler
     {
-         
+        public List<Customer> Select();
+        public void Delete(Customer customer);
+        public void Update(Customer customer);
+        public void Insert(Customer customer);
     }
 }

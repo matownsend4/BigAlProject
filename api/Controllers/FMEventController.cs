@@ -16,9 +16,10 @@ namespace api.Controllers
     {
         // GET: api/FMEvent
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<FMEvent> Get()
         {
-            return new string[] { "value1", "value2" };
+            IFMEventDataHandler fMEventDataHandler = new FMEventDataHandler();
+            return fMEventDataHandler.Select();
         }
 
         // GET: api/FMEvent/5

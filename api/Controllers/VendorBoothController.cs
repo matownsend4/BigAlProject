@@ -16,9 +16,10 @@ namespace api.Controllers
     {
         // GET: api/VendorBooth
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<VendorBooth> Get()
         {
-            return new string[] { "value1", "value2" };
+            IVendorBoothDataHandler vendorBoothDataHandler = new VendorBoothDataHandler();
+            return vendorBoothDataHandler.Select();
         }
 
         // GET: api/VendorBooth/5

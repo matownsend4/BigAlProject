@@ -15,9 +15,10 @@ namespace api.Controllers
     {
         // GET: api/Ticket
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Ticket> Get()
         {
-            return new string[] { "value1", "value2" };
+            ITicketDataHandler ticketDataHandler = new TicketDataHandler();
+            return ticketDataHandler.Select();
         }
 
         // GET: api/Ticket/5

@@ -16,9 +16,10 @@ namespace api.Controllers
     {
         // GET: api/Customer
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            ICustomerDataHandler customerDataHandler = new CustomerDataHandler();
+            return customerDataHandler.Select();
         }
 
         // GET: api/Customer/5

@@ -5,6 +5,9 @@ namespace api.Interfaces
 {
     public interface IVendorBoothDataHandler
     {
-         
+        public List<VendorBooth> Select();
+        public void Delete(VendorBooth vendorBooth);
+        public void Update(VendorBooth vendorBooth);
+        public void Insert(VendorBooth vendorBooth);
     }
 }
