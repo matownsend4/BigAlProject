@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using api.Model;
+using api.Data;
+using api.Interfaces;
 
 namespace api.Controllers
 {
