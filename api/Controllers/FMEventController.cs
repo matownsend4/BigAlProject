@@ -19,7 +19,7 @@ namespace api.Controllers
         }
 
         // GET: api/FMEvent/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetFMEvent")]
         public string Get(int id)
         {
             return "value";
