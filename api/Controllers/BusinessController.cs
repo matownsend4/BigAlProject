@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using api.Model;
+using api.Data;
+using api.Interfaces;
 namespace api.Controllers
 {
     [Route("api/[controller]")]
@@ -13,9 +15,10 @@ namespace api.Controllers
     {
         // GET: api/Business
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Business> Get()
         {
-            return new string[] { "value1", "value2" };
+            IBusinessDataHandler businessDataHandler = new BusinessDataHandler();
+            return businessDataHandler.Select();
         }
 
         // GET: api/Business/5

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using api.Model;
+using api.Data;
+using api.Interfaces;
 
 namespace api.Controllers
 {
@@ -13,9 +16,10 @@ namespace api.Controllers
     {
         // GET: api/FMEvent
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<FMEvent> Get()
         {
-            return new string[] { "value1", "value2" };
+            IFMEventDataHandler fMEventDataHandler = new FMEventDataHandler();
+            return fMEventDataHandler.Select();
         }
 
         // GET: api/FMEvent/5
