@@ -34,7 +34,7 @@ namespace api.Data
         public List<VendorBooth> Select()
         {
             db.Open();
-            string sql = "SELECT * FROM vendor_both WHERE deleted = 'N'";
+            string sql = "SELECT * FROM vendor_booth WHERE deleted = 'N'";
             List<ExpandoObject> results = db.Select(sql);
 
             List<VendorBooth> vendorBooths = new List<VendorBooth>();
