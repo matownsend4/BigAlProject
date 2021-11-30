@@ -11806,7 +11806,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-.h7{
+.login-info{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -11816,5 +11816,150 @@ input[type=text], input[type=password] {
   background-color: var(--bs-yellow);
   font-size: 1.3rem;
   font-weight: var(--bs-gray-dark);
+}
 
+a{
+  color: black;
+}
+
+.Customer-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.Customer-button:hover, .Customer-button:focus {
+  color: white;
+}
+.Customer-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.Vendor-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.Vendor-button:hover, .Vendor-button:focus {
+  color: white;
+}
+.Vendor-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.Admin-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.Admin-button:hover, .Admin-button:focus {
+  color: white;
+}
+.Admin-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.Create-Customer-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.Create-Customer-button:hover, .Create-Customer-button:focus {
+  color: white;
+}
+.Create-Customer-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.Create-Vendor-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.Create-Vendor-button:hover, .Create-Vendor-button:focus {
+  color: white;
+}
+.Create-Vendor-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.Create-Admin-button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.Create-Admin-button:hover, .Create-Admin-button:focus {
+  color: white;
+}
+.Create-Admin-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
 }
