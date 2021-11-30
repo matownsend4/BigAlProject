@@ -236,3 +236,5 @@
 /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/MailKit.dll
 /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/MimeKit.dll
 >>>>>>> dd2d6e32cc40642a58634afc8ea5a77d9b36db0c
+/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/MailKit.dll
+/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/MimeKit.dll
