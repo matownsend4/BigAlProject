@@ -15,6 +15,7 @@ namespace api.Data
         public void Delete(Admin admin)
         {
             string sql = "UPDATE post SET deleted = 'Y' WHERE admin_id = @id";
+            
             var values = GetValues(admin);
             db.Open();
             db.Update(sql, values);
