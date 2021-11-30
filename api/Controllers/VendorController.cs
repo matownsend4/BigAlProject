@@ -35,15 +35,17 @@ namespace api.Controllers
         // POST: api/Vendor
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Vendor value)
         {
+          // value.vendorDataHandler.Insert(value);
         }
 
         // PUT: api/Vendor/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Vendor value)
         {
+           // value.vendorDataHandler.Update(value);
         }
 
         // DELETE: api/Vendor/5
@@ -51,6 +53,7 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }
