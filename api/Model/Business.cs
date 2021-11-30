@@ -1,3 +1,7 @@
+using System;
+using api.Interfaces;
+using api.Data;
+
 namespace api.Model
 {
     public class Business
@@ -7,5 +11,10 @@ namespace api.Model
         public string BusinessType {get; set;}
         public string BusinessRevenue {get; set;}
         public string BusinessDescription {get; set;}
+        public IBusinessDataHandler businessDataHandler {get; set;}
+        public Business()
+        {
+            businessDataHandler = new BusinessDataHandler();
+        }
     }
 }

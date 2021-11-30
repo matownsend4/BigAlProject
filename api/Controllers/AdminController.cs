@@ -43,8 +43,9 @@ namespace api.Controllers
         // PUT: api/Admin/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Admin value)
         {
+             value.adminDataHandler.Update(value);
         }
 
         // DELETE: api/Admin/5
@@ -52,6 +53,8 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            Admin value = new Admin(){AdminID = id};
+            value.adminDataHandler.Delete(value);
         }
     }
 }
