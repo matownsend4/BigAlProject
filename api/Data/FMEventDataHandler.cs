@@ -34,7 +34,7 @@ namespace api.Data
         public List<FMEvent> Select()
         {
             db.Open();
-            string sql = "SELECT * FROM farmers_market_event WHERE deleted = 'N'";
+            string sql = "SELECT * FROM farmers_market_event WHERE deleted = 'N' ORDER BY fm_date desc";
             List<ExpandoObject> results = db.Select(sql);
 
             List<FMEvent> fMEvents = new List<FMEvent>();

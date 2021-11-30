@@ -23,12 +23,7 @@ namespace api.Data
             string port = "3306";
             string username = "mvyjw0pq74mcwa1b";
             string password = "aeyn9dqea7cjgu4t";
-            // string server = Environment.GetEnvironmentVariable("");
-            // string name = Environment.GetEnvironmentVariable("");
-            // string port = Environment.GetEnvironmentVariable("");
-            // string username = Environment.GetEnvironmentVariable("");
-            // string password = Environment.GetEnvironmentVariable("");
-            
+           
             Console.WriteLine("got the datbase " + server);
 
             this.ConnString = $@"server = {server};user={username};database={name};port={port};password={password};AllowLoadLocalInfile=true";

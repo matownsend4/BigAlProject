@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using api.Model;
 using api.Data;
 using api.Interfaces;
+using Microsoft.AspNetCore.Cors;
 
 namespace api.Controllers
 {
@@ -15,6 +16,7 @@ namespace api.Controllers
     public class FMEventController : ControllerBase
     {
         // GET: api/FMEvent
+        [EnableCors("OpenPolicy")]
         [HttpGet]
         public List<FMEvent> Get()
         {
@@ -23,6 +25,7 @@ namespace api.Controllers
         }
 
         // GET: api/FMEvent/5
+        [EnableCors("OpenPolicy")]
         [HttpGet("{id}", Name = "GetFMEvent")]
         public string Get(int id)
         {
@@ -30,18 +33,21 @@ namespace api.Controllers
         }
 
         // POST: api/FMEvent
+        [EnableCors("OpenPolicy")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/FMEvent/5
+        [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/FMEvent/5
+        [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

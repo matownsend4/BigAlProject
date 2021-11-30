@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using api.Model;
 using api.Data;
 using api.Interfaces;
+using Microsoft.AspNetCore.Cors;
+
 namespace api.Controllers
 {
     [Route("api/[controller]")]
@@ -14,6 +16,7 @@ namespace api.Controllers
     public class BusinessController : ControllerBase
     {
         // GET: api/Business
+        [EnableCors("OpenPolicy")]
         [HttpGet]
         public List<Business> Get()
         {
@@ -22,6 +25,7 @@ namespace api.Controllers
         }
 
         // GET: api/Business/5
+        [EnableCors("OpenPolicy")]
         [HttpGet("{id}", Name = "GetBusiness")]
         public string Get(int id)
         {
@@ -29,18 +33,21 @@ namespace api.Controllers
         }
 
         // POST: api/Business
+        [EnableCors("OpenPolicy")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/Business/5
+        [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/Business/5
+        [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
