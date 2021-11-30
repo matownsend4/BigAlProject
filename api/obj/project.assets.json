@@ -7638,19 +7638,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/makayla/.nuget/packages/": {}
+    "/Users/clairewallerick/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
+      "projectUniqueName": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/api.csproj",
-      "packagesPath": "/Users/makayla/.nuget/packages/",
-      "outputPath": "/Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/obj/",
+      "projectPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/api.csproj",
+      "packagesPath": "/Users/clairewallerick/.nuget/packages/",
+      "outputPath": "/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/makayla/.nuget/NuGet/NuGet.Config"
+        "/Users/clairewallerick/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7720,13 +7720,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
