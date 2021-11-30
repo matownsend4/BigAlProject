@@ -11785,7 +11785,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: inline-block;
   font-family: "Montserrat";
   text-align: center;
-  background-color: var(--bs-yellow);
 }
 
 .login{
@@ -11795,7 +11794,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: inline-block;
   font-family: "Montserrat";
   text-align: center;
-  background-color: var(--bs-yellow);
 }
 input[type=text], input[type=password] {
   width: 100%;
@@ -11813,7 +11811,6 @@ input[type=text], input[type=password] {
   display: inline-block;
   font-family: "Montserrat";
   text-align: center;
-  background-color: var(--bs-yellow);
   font-size: 1.3rem;
   font-weight: var(--bs-gray-dark);
 }
@@ -11946,6 +11943,32 @@ a{
   color: white;
 }
 .Create-Vendor-button.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}
+
+.login-button{
+  width: 100%;
+  background-color: black;
+  display: inline-block;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #ffc800;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.login-button:hover, .login-button:focus {
+  color: white;
+}
+.login-button.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
