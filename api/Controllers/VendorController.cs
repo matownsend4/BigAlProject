@@ -37,7 +37,7 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] Vendor value)
         {
-          // value.vendorDataHandler.Insert(value);
+          value.vendorDataHandler.Insert(value);
         }
 
         // PUT: api/Vendor/5
@@ -45,7 +45,7 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Vendor value)
         {
-           // value.vendorDataHandler.Update(value);
+           value.vendorDataHandler.Update(value);
         }
 
         // DELETE: api/Vendor/5

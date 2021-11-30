@@ -35,8 +35,9 @@ namespace api.Controllers
         // POST: api/Ticket
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Ticket value)
         {
+            value.ticketDataHandler.Insert(value);
         }
 
         // PUT: api/Ticket/5
