@@ -11779,7 +11779,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .signup{
-
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -11787,4 +11786,35 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-family: "Montserrat";
   text-align: center;
   background-color: var(--bs-yellow);
+}
+
+.login{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  font-family: "Montserrat";
+  text-align: center;
+  background-color: var(--bs-yellow);
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.h7{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  font-family: "Montserrat";
+  text-align: center;
+  background-color: var(--bs-yellow);
+  font-size: 1.3rem;
+  font-weight: var(--bs-gray-dark);
+
 }
