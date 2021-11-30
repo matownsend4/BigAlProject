@@ -157,6 +157,7 @@
 /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/runtimes/win-arm/lib/net5.0/dotnet-aspnet-codegenerator-design.exe
 /Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/runtimes/win-arm64/lib/net5.0/dotnet-aspnet-codegenerator-design.exe
+<<<<<<< HEAD
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/Humanizer.dll
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/Microsoft.AspNetCore.Razor.Language.dll
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/Microsoft.Bcl.AsyncInterfaces.dll
@@ -233,3 +234,7 @@
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/runtimes/win-arm/lib/net5.0/dotnet-aspnet-codegenerator-design.exe
 /Users/makayla/Downloads/Documents/Source/Repos/mis321/groupproject/api/bin/Debug/net5.0/runtimes/win-arm64/lib/net5.0/dotnet-aspnet-codegenerator-design.exe
+=======
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/MailKit.dll
+/Users/clairewallerick/Desktop/groupproject321/BigAlProject/api/bin/Debug/net5.0/MimeKit.dll
+>>>>>>> dd2d6e32cc40642a58634afc8ea5a77d9b36db0c

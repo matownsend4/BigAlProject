@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="#page-top">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -41,103 +41,72 @@
             <div class="container">
                 <div class="masthead-subheading">Welcome To Big Al's Farmers Market!</div>
                 <div class="masthead-heading text-uppercase">It's Great to See You</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
             </div>
         </header>
         <!-- Log In-->
         <section class="page-section" id="services">
+        <div class="signup">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Log In</h2>
                     <body>
-                    <div class="Login">
                         <form action="action_page.php" method="post">
                             <div class="imgcontainer">
-                              <img src="C:\Users\hunte\OneDrive - The University of Alabama\Repos\MIS321\Mis321_gPA\Images\generic-avatar-1.jpg" alt="Avatar" class="avatar">
+                              <img class="rounded-circle img-fluid" src="data:image/png;base64,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" alt="Avatar" class="avatar">
                             </div>
-                          
-                            <div class="container">
-                              <label for="uname"><b>Username</b></label>
-                              <input type="text" placeholder="Enter Username" name="uname" required>
-                          
-                              <label for="psw"><b>Password</b></label>
-                              <input type="password" placeholder="Enter Password" name="psw" required>
-                          
-                              <button type="submit">Login</button>
-                              <label>
-                                <input type="checkbox" checked="checked" name="remember"> Remember me
-                              </label>
-                            </div>
-                          </form> 
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <button class="Customer-button">Customer Login</button>
+                    <button class="Vendor-button">Vendor Login</button>
+                    <button class="Admin-button">Admin Login</button>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Fresh Ingredents</h4>
-                        <p class="text-muted">From farm to talbe, as it should be with any ingredents for any meal.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Local Farmers</h4>
-                        <p class="text-muted">Get to know the men and women who produce and provide for the comunity.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Meet Friends</h4>
-                        <p class="text-muted">Spend time with like minded people and build connections to expand your culinary designs.</p>
-                    </div>
-                </div>
-            </div>
+            </div>    
+        </div>
         </section>
         <!-- Create Account-->
+        <section class="page-section bg-light" id="Create Account">
         <section class="page-section bg-light" id="portfolio">
+        <div class ="signup">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Create Account</h2>
-                    <h3 class="section-subheading text-muted">*Create an account to purchase tickets or booths for upcoming events.</h3>
+                    <h3 class="section-subheading text-muted">Create an account to purchase tickets or booths for upcoming events.</h3>
                     <form action="action_page.php" method="post">
                         <div class="imgcontainer">
                           <img class="rounded-circle img-fluid" src="data:image/png;base64,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" alt="Avatar" class="avatar">
                         </div>
-                    <form action="action_page.php" style="border:3px solid #ccc">
-                        <div class="container">
-                            <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
-                        
-                            <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-                        
-                            <label for="psw-repeat"><b>Repeat Password</b></label>
-                            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                        
-                            <label>
-                              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                            </label>
-                            <div class="container signin">
-                              <p>Already have an account? <a href="#">Log In</a>.</p>
-                            </div>
-                            <div class="clearfix">
-                              <button type="button" class="cancelbtn">Cancel</button>
-                              <button type="submit" class="signupbtn">Sign Up</button>
-                            </div>
                 </div>
             </div>
+        <button class="Create-Customer-button"><a href = "./CreateAccounts/CreateCustomer.html"></a>Create Customer Account</button>
+        <button class="Create-Vendor-button"><a href = "./CreateAccounts/CreateVendor.html"></a>Create Vendor Account</button>
+        </div>
         </section>
         <!-- About-->
         <section class="page-section" id="about">
-            <p>
-                About
-            </p>
+        <div class="signup">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About</h2>
+                    <p>
+                        Come on out to Big Al's Farmers Market to enjoy some of the freshest produce Tuscaloosa has to offer! 
+                        Our vendors are happy to show off their hard work at each event. We can be found every other Saturday in Tuscaloosa, Alabama. 
+                    </p>
+                    <p>
+                        Tickets for the next event goes on sale every Sunday after the previous event. 
+                        Customers may purchase tickets here on our website through the events page. Vendors may purchase booths as well through the vendor portal.
+                    </p>
+                    <h5>
+                        Why Big Al's?
+                    </h5>
+                    <p>
+                        The farmer's market allows you to eat with the seasons. Seasonal food is fresher and more nutritious than out of season food.
+                    </p>
+                    <p>
+                        With the addition of BigAl's Farmers Market, customers can personally meet the growers of the food they are consuming. Here you can see the care the farmers put in growing the food for the community.
+                        It allows you to boost your local economy and keep it running. Our local vendors love serving you, and what better way to support them than to give back directly to them instead of a large chain of grocery stores.
+                    </p>
+                </div>
+            </div>
+        </div>
         </section>
         <!-- Events-->
         <section class="page-section bg-light" id="team">
@@ -151,26 +120,25 @@
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="https://patch.com/img/cdn20/users/24390419/20210327/091102/styles/raw/public/processed_images/Screen%20Shot%202021-03-27%20at%208.10.51%20PM.png" alt="..." />
                             <h4>Event 1</h4>
-                            <p class="text-muted">1 Week Away</p>
+                            <p class="text-muted">2 Weeks Away</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="https://www.tuscaloosa.com/__aws/posts/2942_huge.jpg?1522853918" alt="..." />
                             <h4>Event 2</h4>
-                            <p class="text-muted">2 Weeks Away</p>
+                            <p class="text-muted">4 Weeks Away</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="https://food.unl.edu/newsletters/images/farmers-market-baskets.jpg" alt="..." />
                             <h4>Event 3</h4>
-                            <p class="text-muted">3 Weeks Away</p>
+                            <p class="text-muted">6 Weeks Away</p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                    <button class="Create-Customer-button"><a href = "./CreateAccounts/CreateCustomer.html"></a>Purchase Tickets</button>
+                    <button class="Create-Customer-button"><a href = "./CreateAccounts/CreateCustomer.html"></a>Purchase a Booth</button>
                 </div>
             </div>
         </section>
@@ -179,293 +147,18 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Profile</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                <button class="Create-Customer-button"><a href = "./CreateAccounts/CreateCustomer.html"></a>Account Details</button>
+                <button class="Create-Vendor-button"><a href = "./CreateAccounts/CreateVendor.html"></a>Event History</button>
                 </form>
             </div>
         </section>
         <!-- Footer-->
         <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Big Al's Farmers Market</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
+            <div class="text-center">
+                <div class="text-muted">Copyright &copy; Big Al's Farmers Market</div>
             </div>
         </footer>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Threads
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Illustration
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 3 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 6 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
