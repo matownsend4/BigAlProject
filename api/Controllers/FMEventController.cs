@@ -35,8 +35,9 @@ namespace api.Controllers
         // POST: api/FMEvent
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] FMEvent value)
         {
+            value.fMEventDataHandler.Insert(value);
         }
 
         // PUT: api/FMEvent/5

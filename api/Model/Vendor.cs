@@ -1,3 +1,7 @@
+using System;
+using api.Interfaces;
+using api.Data;
+
 namespace api.Model
 {
     public class Vendor
@@ -7,5 +11,10 @@ namespace api.Model
         public string VendorEmail {get; set;}
         public string VendorPassword {get; set;}
         public string VendorPhoneNo {get; set;}
+        public IVendorDataHandler vendorDataHandler {get; set;}
+        public Vendor()
+        {
+            vendorDataHandler = new VendorDataHandler();
+        }
     }
 }

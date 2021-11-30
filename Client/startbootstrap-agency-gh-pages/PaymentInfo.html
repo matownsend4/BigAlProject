@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Purchase Tickets</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/TicketHeading.png" />
+  <title>Payment Information</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/Booth.png" />
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
   <!-- Google fonts-->
@@ -33,28 +33,29 @@
                 </div>
             </div>
         </nav>
-<!-- Purchase Tickets-->
-<section class="page-section bg-light" id="PurchaseTickets">
-    <div class ="tickets">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Purchase Tickets</h2>
-                <h3 class="section-subheading text-muted"></h3>
-                <form action="action_page.php" method="post">
-                    <div class="imgcontainer">
-                      <img class="rounded-circle img-fluid" src="assets/img/Ticket.jpg" alt="Avatar" class="avatar">
-                    </div>
-                <form action="action_page.php" style="border:3px solid #ccc">
-                    <div class="container">
-                        <label for="adultTickets"><b>Adult Tickets</b></label>
-                        <input type="text" placeholder="Enter Number of Adult Tickets" name="adultTickets">
+<!-- Payment Information-->
+    <section class="page-section bg-light" id="PaymentInfo">
+        <div class ="Payment">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Enter Payment Information to Complete Purchase</h2>
+                    <form action="action_page.php" method="post">
+                    <form action="action_page.php" style="border:3px solid #ccc">
+                        <div class="container">
+                            <label for="cardNumber"><b>Card Number</b></label>
+                            <input type="text" placeholder="Enter Card Number" name="cardNumber" required>
 
-                        <label for="scTickets"><b>Senior/Child Tickets</b></label>
-                        <input type="text" placeholder="Enter Number of Senior/Child Tickets" name="scTickets">
-                    </div>
+                            <label for="expDate"><b>Expiration Date</b></label>
+                            <input type="text" placeholder="Enter Expiration Date" name="expDate" required>
+
+                            <label for="cvc"><b>CVC/Securuty Code</b></label>
+                            <input type="text" placeholder="Enter 3 Digit CVC" name="cvc" required>
+
+                            <label for="name"><b>Name on Card</b></label>
+                            <input type="text" placeholder="Enter Name on Card" name="name" required>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </body>
 </html>

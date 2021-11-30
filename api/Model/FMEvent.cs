@@ -1,3 +1,6 @@
+using api.Data;
+using api.Interfaces;
+
 namespace api.Model
 {
     public class FMEvent
@@ -7,5 +10,10 @@ namespace api.Model
         public string FMLocation {get; set;}
         public string FMAttendees {get; set;}
         public string FMTotalRevenue {get; set;}
+        public IFMEventDataHandler fMEventDataHandler {get; set;}
+        public FMEvent()
+        {
+            fMEventDataHandler = new FMEventDataHandler();
+        }
     }
 }
