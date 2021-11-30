@@ -26,7 +26,7 @@ namespace api.Controllers
 
         // GET: api/Admin/5
         [EnableCors("OpenPolicy")]
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetAdmin")]
         public string Get(int id)
         {
             return "value";

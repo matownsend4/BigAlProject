@@ -41,7 +41,7 @@ namespace api.Controllers
         }
 
         // GET: api/MailCotroller/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetMail")]
         public string Get(int id)
         {
             return "value";
