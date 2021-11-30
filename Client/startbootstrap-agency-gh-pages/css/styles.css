@@ -11823,7 +11823,9 @@ a{
 }
 
 .Customer-button {
+  width: 100%;
   background-color: black;
+  display: inline-block;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -11847,7 +11849,9 @@ a{
 }
 
 .Vendor-button {
+  width: 100%;
   background-color: black;
+  display: inline-block;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -11871,7 +11875,9 @@ a{
 }
 
 .Admin-button {
+  width: 100%;
   background-color: black;
+  display: inline-block;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -11894,7 +11900,9 @@ a{
 }
 
 .Create-Customer-button {
+  width: 100%;
   background-color: black;
+  display: inline-block;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -11918,7 +11926,9 @@ a{
 }
 
 .Create-Vendor-button {
+  width: 100%;
   background-color: black;
+  display: inline-block;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -11936,29 +11946,6 @@ a{
   color: white;
 }
 .Create-Vendor-button.disabled {
-  color: #6c757d;
-  pointer-events: none;
-  cursor: default;
-}
-
-.Create-Admin-button {
-  background-color: black;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
-  color: #ffc800;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-.Create-Admin-button:hover, .Create-Admin-button:focus {
-  color: white;
-}
-.Create-Admin-button.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
