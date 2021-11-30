@@ -43,10 +43,11 @@ namespace api.Data
             {
                 Customer temp = new Customer(){
                     CustomerID = item.customer_id,
-                    CustomerName = item.customer_name,
+                    CustomerFName = item.customer_first_name,
+                    CustomerLName = item.customer_last_name,
                     CustomerEmail = item.customer_email,
-                    CustomerPassword = item.customer_password,
-                    CustomerPhoneNo = item.customer_phone_no
+                    CustomerPhoneNo = item.customer_phone_no,
+                    CustomerPassword = item.customer_password
                 };
             customers.Add(temp);
             }
@@ -63,11 +64,12 @@ namespace api.Data
         public Dictionary<string,object> GetValues(Customer customer)
         {
             var values = new Dictionary<string,object>(){
-                {"@customerId", customer.CustomerID},
-                {"@customerName", customer.CustomerName},
-                {"@customerEmail", customer.CustomerEmail},
-                {"@customerPassword", customer.CustomerPassword},
-                {"@customerPhoneNo", customer.CustomerPhoneNo},
+                {"@customer_id", customer.CustomerID},
+                {"@customer_first_name", customer.CustomerFName},
+                {"@customer_last_name", customer.CustomerLName},
+                {"@customer_email", customer.CustomerEmail},
+                {"@customer_phoneNo", customer.CustomerPhoneNo},
+                {"@customer_password", customer.CustomerPassword}
             };
             return values;
         }
