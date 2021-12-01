@@ -43,8 +43,9 @@ namespace api.Controllers
         // PUT: api/Customer/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Customer value)
         {
+            value.customerDataHandler.Update(value);
         }
 
         // DELETE: api/Customer/5
