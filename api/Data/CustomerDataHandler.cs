@@ -23,11 +23,9 @@ namespace api.Data
 
         public void Insert(Customer customer)
         {
-<<<<<<< HEAD
+
             string sql = "INSERT INTO customer(customer_id, customer_first_name, customer_last_name, customer_email, customer_phone_no, customer_password) VALUES (@customerId, @customerFName, @customerLName, @customerEmail, @customerPhoneNo, @customerPassword)";
-=======
-            string sql = "INSERT INTO customer(customer_id, customer_name, customer_email, customer_password, customer_phone_no) VALUES(@customerId, @customerName, @customerEmail, @customerPassword, @customerPhoneNo)";
->>>>>>> cb0ea075b38722a58c8b4343204a12d5ab1f893a
+
       
             var values = GetValues(customer);
             db.Open();
@@ -51,11 +49,7 @@ namespace api.Data
                     CustomerLName = item.customer_last_name,
                     CustomerEmail = item.customer_email,
                     CustomerPhoneNo = item.customer_phone_no,
-<<<<<<< HEAD
-                    CustomerPassword = item.customer_password          
-=======
                     CustomerPassword = item.customer_password
->>>>>>> cb0ea075b38722a58c8b4343204a12d5ab1f893a
                 };
             customers.Add(temp);
             }
@@ -72,21 +66,13 @@ namespace api.Data
         public Dictionary<string,object> GetValues(Customer customer)
         {
             var values = new Dictionary<string,object>(){
-<<<<<<< HEAD
                 {"@customerId", customer.CustomerID},
                 {"@customerFName", customer.CustomerFName},
                 {"@customerLName", customer.CustomerLName},
                 {"@customerEmail", customer.CustomerEmail},
                 {"@customerPhoneNo", customer.CustomerPhoneNo},
                 {"@customerPassword", customer.CustomerPassword}
-=======
-                {"@customer_id", customer.CustomerID},
-                {"@customer_first_name", customer.CustomerFName},
-                {"@customer_last_name", customer.CustomerLName},
-                {"@customer_email", customer.CustomerEmail},
-                {"@customer_phoneNo", customer.CustomerPhoneNo},
-                {"@customer_password", customer.CustomerPassword}
->>>>>>> cb0ea075b38722a58c8b4343204a12d5ab1f893a
+
             };
             return values;
         }
