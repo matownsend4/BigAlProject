@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Vendor vendor)
         {
-            string sql = "INSERT INTO vendor(vendor_id, vendor_name, vendor_email, vendor_password, vendor_phone_no) VALUES(@vendorId, @vendorName, @vendorEmail, @vendorPassword, @vendorPhoneNo";
+            string sql = "INSERT INTO vendor(vendor_id, vendor_name, vendor_email, vendor_password, vendor_phone_no) VALUES(@vendorId, @vendorName, @vendorEmail, @vendorPassword, @vendorPhoneNo)";
       
             var values = GetValues(vendor);
             db.Open();

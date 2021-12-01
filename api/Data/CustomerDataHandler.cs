@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Customer customer)
         {
-            string sql = "INSERT INTO customer(customer_id, customer_name, customer_email, customer_password, customer_phone_no) VALUES(@customerId, @customerName, @customerEmail, @customerPassword, @customerPhoneNo";
+            string sql = "INSERT INTO customer(customer_id, customer_first_name, customer_last_name, customer_email, customer_phone_no, customer_password) VALUES (@customerId, @customerFName, @customerLName, @customerEmail, @customerPhoneNo, @customerPassword)";
       
             var values = GetValues(customer);
             db.Open();
@@ -43,10 +43,11 @@ namespace api.Data
             {
                 Customer temp = new Customer(){
                     CustomerID = item.customer_id,
-                    CustomerName = item.customer_name,
+                    CustomerFName = item.customer_first_name,
+                    CustomerLName = item.customer_last_name,
                     CustomerEmail = item.customer_email,
-                    CustomerPassword = item.customer_password,
-                    CustomerPhoneNo = item.customer_phone_no
+                    CustomerPhoneNo = item.customer_phone_no,
+                    CustomerPassword = item.customer_password          
                 };
             customers.Add(temp);
             }
@@ -64,10 +65,11 @@ namespace api.Data
         {
             var values = new Dictionary<string,object>(){
                 {"@customerId", customer.CustomerID},
-                {"@customerName", customer.CustomerName},
+                {"@customerFName", customer.CustomerFName},
+                {"@customerLName", customer.CustomerLName},
                 {"@customerEmail", customer.CustomerEmail},
-                {"@customerPassword", customer.CustomerPassword},
                 {"@customerPhoneNo", customer.CustomerPhoneNo},
+                {"@customerPassword", customer.CustomerPassword}
             };
             return values;
         }

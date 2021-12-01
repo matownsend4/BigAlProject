@@ -1,37 +1,15 @@
-// function getPosts(){
-//     const allPostsUrl = "https://localhost:7200/api/posts";
+function getCustomerAccounts(){
+    const allPostsUrl = "https://localhost:5001/api/customer";
 
-//     fetch(allPostsUrl).then(function(response){
-//         console.log(response);
-//         return response.json();
-//     }).then(function(json){
-//         let html = "<ul>";
-//         json.slice().reverse().forEach((post)=>{
-//             html += "<li><div class = \"avatar\"></div><span>" + "&emsp;" + "&emsp;" +
-//             post.postText + "</span></li></div><div class = \"editbutton\">" + 
-//             "<form id=\"submission\" onsubmit = \"return false\"; method = \"put\">" +
-//             "<input type = \"text\" name = \"update\"  placeholder = \"Edit Status\" id = \"update\"/>" +
-//             "<input type = \"submit\" value = \"Edit\" onclick = \"editStatus("+post.postID+")\"/>"  
-//             + "</form></div>" 
-//             + "<div class = \"deletebutton\">" + 
-//             "<form id=\"submission\" onsubmit = \"return false\"; method = \"delete\">" +
-//             "<button  onclick = \"deleteStatus("+post.postID+");\">Delete</button>" +
-//             "</form>" + "</div>"
-
-//             // "<form id=\"submission\" onsubmit = \"return false\"; method = \"put\">" +
-//             // "<input type = \"text\" name = \"edit\" placeholder = \"Enter ID to Edit\" id = \"edit\"/>" +
-//             // "<input type = \"text\" name = \"update\"  placeholder = \"What would you like to say?\" id = \"update\"/>" + 
-//             // "<input type = \"submit\" value = \"Edit Post\" onclick = \"editStatus()\"/>" + 
-//             // + "</form>" +
-            
-//         })
-//         html += "</ul>";
-//         document.getElementById("posts").innerHTML = html;
-//         console.log(json);
-//     }).catch(function(error){
-//         console.log(error);
-//     });  
-// }
+    fetch(allPostsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";
@@ -41,6 +19,7 @@ function postCustomerAccount(){
     const phone = document.getElementById("phone").value;
     const psw = document.getElementById("psw").value;
     const pswrepeat = document.getElementById("psw-repeat").value;
+    const del = 'N';
 
     fetch(postUrl, {
         method: "POST",
@@ -53,12 +32,13 @@ function postCustomerAccount(){
             customer_last_name: lname,
             customer_email: email,
             customer_phone_no: phone,
-            customer_password: psw
+            customer_password: psw,
+            deleted: del
         })
     })
     .then((response)=>{
         console.log(response);
-        // getPosts();
+        getCustomerAccounts();
     })
 }
 
