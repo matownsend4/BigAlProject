@@ -32,6 +32,19 @@
 //         console.log(error);
 //     });  
 // }
+function handleOnLoad()
+{
+    const postUrl = "https://localhost:5001/api/customer";
+    console.log(postUrl);
+
+    fetch(postUrl).then(function(response){
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });
+}
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";

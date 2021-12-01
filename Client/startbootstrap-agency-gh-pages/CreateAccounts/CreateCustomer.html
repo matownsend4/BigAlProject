@@ -52,19 +52,24 @@
                             onsubmit = "return false"; method=post>
                             
                             <label for="Lname"><b>Last Name</b></label>
-                            <input type="text" placeholder="Enter Name" id="Lname" required>
+                            <input type="text" placeholder="Enter Name" id="Lname" required
+                            onsubmit = "return false"; method=post>
 
                             <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" id="email" required>
+                            <input type="text" placeholder="Enter Email" id="email" required
+                            onsubmit = "return false"; method=post>
 
                             <label for="phone"><b>Phone Number</b></label>
-                            <input type="text" placeholder="Enter Phone Number" id="phone" required>
+                            <input type="text" placeholder="Enter Phone Number" id="phone" required
+                            onsubmit = "return false"; method=post>
                         
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" id="psw" required>
+                            <input type="password" placeholder="Enter Password" id="psw" required
+                            onsubmit = "return false"; method=post>
                         
                             <label for="psw-repeat"><b>Repeat Password</b></label>
-                            <input type="password" placeholder="Repeat Password" id="psw-repeat" required>
+                            <input type="password" placeholder="Repeat Password" id="psw-repeat" required
+                            onsubmit = "return false"; method=post>
                         
                             <label>
                               <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -74,7 +79,7 @@
                             </div>
                             <div class="clearfix">
                               <button class="login-button" type="button" class="cancelbtn" onclick=" window.location.href = '../index.html';">Cancel</button>
-                              <button class="login-button" type="submit" class="signupbtn" onclick=" window.location.href = '../index.html';" onclick = "handleOnSubmit()" >Sign Up</button>
+                              <button class="login-button" type="submit" class="signupbtn" onclick=" window.location.href = '../index.html';" onclick = "postCustomerAccount()" >Sign Up</button>
                             </div>
                 </div>
             </div>
