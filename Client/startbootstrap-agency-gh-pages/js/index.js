@@ -13,11 +13,19 @@ function getCustomerAccounts(){
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";
-    const CustomerFName = document.getElementById("CustomerFName").value;
-    const CustomerLName = document.getElementById("CustomerLName").value;
-    const CustomerEmail = document.getElementById("CustomerEmail").value;
-    const CustomerPhone = document.getElementById("CustomerPhone").value;
-    const CustomerPassword = document.getElementById("CustomerPassword").value;
+    // const fname = document.getElementById("Fname").value;
+    // const lname = document.getElementById("Lname").value;
+    // const email = document.getElementById("email").value;
+    // const phone = document.getElementById("phone").value;
+    // const psw = document.getElementById("psw").value;
+
+    const fname = document.getElementById("Fname").value;
+    const lname = document.getElementById("Lname").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const psw = document.getElementById("psw").value;
+
+    console.log("made it");
 
     fetch(postUrl, {
         method: "POST",
@@ -26,17 +34,19 @@ function postCustomerAccount(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            customer_first_name : CustomerFName,
-            customer_last_name : CustomerLName,
-            customer_email : CustomerEmail,
-            customer_phone_no : CustomerPhone,
-            customer_password : CustomerPassword,
+            customer_first_name: fname,
+            customer_last_name: lname,
+            customer_email: email,
+            customer_phone_no: phone,
+            customer_password: psw,
         })
     })
     .then((response)=>{
         console.log(response);
         getCustomerAccounts();
     })
+
+    console.log("made it 2");
 }
 function getVendorAccounts(){
     const allPostsUrl = "https://localhost:5001/api/vendor";
@@ -62,7 +72,6 @@ function postVendorAccount(){
     const BusinessType = document.getElementById("BusinessType").value;
     const BusinessDescription = document.getElementById("BusinessDescription").value;
 
-
     fetch(vendorUrl, {
         method: "POST",
         headers: {
@@ -78,7 +87,6 @@ function postVendorAccount(){
             business_name : BusinessName,
             business_type : BusinessType,
             business_description : BusinessDescription,
-          
         })
     })
     .then((response)=>{
@@ -86,6 +94,8 @@ function postVendorAccount(){
         getVendorAccount();
     })
 }
+
+
 
 
 // function editStatus(id){

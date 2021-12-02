@@ -23,9 +23,8 @@ namespace api.Data
 
         public void Insert(Customer customer)
         {
-
             string sql = "INSERT INTO customer(customer_id, customer_first_name, customer_last_name, customer_email, customer_phone_no, customer_password) VALUES (@customerId, @customerFName, @customerLName, @customerEmail, @customerPhoneNo, @customerPassword)";
-
+      
             var values = GetValues(customer);
             db.Open();
             db.Insert(sql, values);
@@ -71,7 +70,6 @@ namespace api.Data
                 {"@customerEmail", customer.CustomerEmail},
                 {"@customerPhoneNo", customer.CustomerPhoneNo},
                 {"@customerPassword", customer.CustomerPassword}
-
             };
             return values;
         }
