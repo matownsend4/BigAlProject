@@ -24,7 +24,7 @@ namespace api.Data
 
         public void Insert(Admin admin)
         {
-            string sql = "INSERT INTO admin(id, admin_email, admin_password) VALUES(@adminId, @adminEmail, @adminPassword";
+            string sql = "INSERT INTO admin(admin_id, admin_email, admin_password) VALUES(@adminId, @adminEmail, @adminPassword)";
       
             var values = GetValues(admin);
             db.Open();

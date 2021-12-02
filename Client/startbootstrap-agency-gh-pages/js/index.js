@@ -13,13 +13,11 @@ function getCustomerAccounts(){
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";
-    const fname = document.getElementById("Fname").value;
-    const lname = document.getElementById("Lname").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const psw = document.getElementById("psw").value;
-    const pswrepeat = document.getElementById("psw-repeat").value;
-    const del = 'N';
+    const CustomerFName = document.getElementById("CustomerFName").value;
+    const CustomerLName = document.getElementById("CustomerLName").value;
+    const CustomerEmail = document.getElementById("CustomerEmail").value;
+    const CustomerPhone = document.getElementById("CustomerPhone").value;
+    const CustomerPassword = document.getElementById("CustomerPassword").value;
 
     fetch(postUrl, {
         method: "POST",
@@ -28,12 +26,11 @@ function postCustomerAccount(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            customer_first_name: fname,
-            customer_last_name: lname,
-            customer_email: email,
-            customer_phone_no: phone,
-            customer_password: psw,
-            deleted: del
+            customer_first_name : CustomerFName,
+            customer_last_name : CustomerLName,
+            customer_email : CustomerEmail,
+            customer_phone_no : CustomerPhone,
+            customer_password : CustomerPassword,
         })
     })
     .then((response)=>{
@@ -44,9 +41,14 @@ function postCustomerAccount(){
 
 function postVendorAccount(){
     const vendorUrl = "https://localhost:5001/api/vendor";
-    const businessUrl = "https://localhost:5001/api/vendorbooth";
-    const text = document.getElementById("post").value;
-    const date = document.getElementById("dateTime").innerHTML = new Date();
+    const VendorFName = document.getElementById("VendorFName").value;
+    const VendorLName = document.getElementById("VendorLName").value;
+    const VendorEmail = document.getElementById("VendorEmail").value;
+    const VendorPhone = document.getElementById("VendorPhone").value;
+    const VendorPassword = document.getElementById("VendorPassword").value;
+    const BusinessName = document.getElementById("BusinessName").value;
+    const BusinessType = document.getElementById("BusinessType").value;
+    const BusinessDescription = document.getElementById("BusinessDescription").value;
 
     fetch(vendorUrl, {
         method: "POST",
@@ -71,8 +73,15 @@ function postVendorAccount(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            postText: text,
-            stamp: date
+            vendor_first_name : VendorFName,
+            vendor_last_name : VendorLName,
+            vendor_email : VendorEmail,
+            vendor_phone_no : VendorPhone,
+            vendor_password : VendorPassword,
+            business_name : BusinessName,
+            business_type : BusinessType,
+            business_description : BusinnessDescription,
+          
         })
     })
     .then((response)=>{
