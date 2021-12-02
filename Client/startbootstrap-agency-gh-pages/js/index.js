@@ -13,17 +13,17 @@ function getCustomerAccounts(){
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";
-    // const fname = document.getElementById("Fname").value;
-    // const lname = document.getElementById("Lname").value;
-    // const email = document.getElementById("email").value;
-    // const phone = document.getElementById("phone").value;
-    // const psw = document.getElementById("psw").value;
 
     const fname = document.getElementById("Fname").value;
+    console.log(fname);
     const lname = document.getElementById("Lname").value;
+    console.log(lname);
     const email = document.getElementById("email").value;
+    console.log(email);
     const phone = document.getElementById("phone").value;
+    console.log(phone);
     const psw = document.getElementById("psw").value;
+    console.log(psw);
 
     console.log("made it");
 
@@ -34,11 +34,11 @@ function postCustomerAccount(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            customer_first_name: fname,
-            customer_last_name: lname,
-            customer_email: email,
-            customer_phone_no: phone,
-            customer_password: psw,
+            customerFName: fname,
+            customerLName: lname,
+            customerEmail: email,
+            customerPassword: psw,
+            customerPhoneNo: phone
         })
     })
     .then((response)=>{
