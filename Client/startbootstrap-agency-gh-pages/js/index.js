@@ -13,13 +13,19 @@ function getCustomerAccounts(){
 
 function postCustomerAccount(){
     const postUrl = "https://localhost:5001/api/customer";
+    // const fname = document.getElementById("Fname").value;
+    // const lname = document.getElementById("Lname").value;
+    // const email = document.getElementById("email").value;
+    // const phone = document.getElementById("phone").value;
+    // const psw = document.getElementById("psw").value;
+
     const fname = document.getElementById("Fname").value;
     const lname = document.getElementById("Lname").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const psw = document.getElementById("psw").value;
-    const pswrepeat = document.getElementById("psw-repeat").value;
-    const del = 'N';
+
+    console.log("made it");
 
     fetch(postUrl, {
         method: "POST",
@@ -33,13 +39,14 @@ function postCustomerAccount(){
             customer_email: email,
             customer_phone_no: phone,
             customer_password: psw,
-            deleted: del
         })
     })
     .then((response)=>{
         console.log(response);
         getCustomerAccounts();
     })
+
+    console.log("made it 2");
 }
 
 function postVendorAccount(){

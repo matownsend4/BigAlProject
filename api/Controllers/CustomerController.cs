@@ -31,12 +31,13 @@ namespace api.Controllers
         {
             return "value";
         }
-
+        
         // POST: api/Customer
         [EnableCors("OpenPolicy")]
         [HttpPost]
         public void Post([FromBody] Customer value)
         {
+            ICustomerDataHandler customerDataHandler = new CustomerDataHandler();
             value.customerDataHandler.Insert(value);
         }
 
