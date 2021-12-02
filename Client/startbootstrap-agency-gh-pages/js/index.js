@@ -1,3 +1,4 @@
+// customers //
 function getCustomerAccounts(){
     const allPostsUrl = "https://localhost:5001/api/customer";
 
@@ -48,6 +49,8 @@ function postCustomerAccount(){
 
     console.log("made it 2");
 }
+
+// vendors //
 function getVendorAccounts(){
     const allPostsUrl = "https://localhost:5001/api/vendor";
 
@@ -64,13 +67,23 @@ function getVendorAccounts(){
 function postVendorAccount(){
     const vendorUrl = "https://localhost:5001/api/vendor";
     const VendorFName = document.getElementById("VendorFName").value;
+    console.log(VendorFName);
     const VendorLName = document.getElementById("VendorLName").value;
+    console.log(VendorLName);
     const VendorEmail = document.getElementById("VendorEmail").value;
+    console.log(VendorEmail);
     const VendorPhone = document.getElementById("VendorPhone").value;
+    console.log(VendorPhone);
     const VendorPassword = document.getElementById("VendorPassword").value;
+    console.log(VendorPassword);
     const BusinessName = document.getElementById("BusinessName").value;
+    console.log(BusinessName);
     const BusinessType = document.getElementById("BusinessType").value;
+    console.log(BusinessType);
     const BusinessDescription = document.getElementById("BusinessDescription").value;
+    console.log(BusinessDescription);
+
+    console.log("made it"); 
 
     fetch(vendorUrl, {
         method: "POST",
@@ -79,14 +92,14 @@ function postVendorAccount(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            vendor_first_name : VendorFName,
-            vendor_last_name : VendorLName,
-            vendor_email : VendorEmail,
-            vendor_phone_no : VendorPhone,
-            vendor_password : VendorPassword,
-            business_name : BusinessName,
-            business_type : BusinessType,
-            business_description : BusinessDescription,
+            vendorFName : VendorFName,
+            vendorLName : VendorLName,
+            vendorEmail : VendorEmail,
+            vendorPassword : VendorPassword,
+            vendorPhoneNo : VendorPhone,
+            businessName : BusinessName,
+            businessType : BusinessType,
+            businessDescription : BusinessDescription,
         })
     })
     .then((response)=>{
@@ -95,7 +108,49 @@ function postVendorAccount(){
     })
 }
 
+// tickets //
+function getTickets(){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
 
+    fetch(allTicketsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
+
+function postTicket(){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    const adultTickets = document.getElementById("adultTickets").value;
+    console.log(adultTickets);
+    const scTickets = document.getElementById("scTickets").value;
+    console.log(scTickets);
+    
+
+    console.log("made it");
+
+    fetch(postUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: adultTickets, 
+            ticketType: scTickets
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+    console.log("made it 2");
+}
 
 
 // function editStatus(id){
