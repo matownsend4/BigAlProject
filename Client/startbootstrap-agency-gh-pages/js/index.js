@@ -38,6 +38,18 @@ function postCustomerAccount(){
         getCustomerAccounts();
     })
 }
+function getVendorAccounts(){
+    const allPostsUrl = "https://localhost:5001/api/vendor";
+
+    fetch(allPostsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
 
 function postVendorAccount(){
     const vendorUrl = "https://localhost:5001/api/vendor";
@@ -50,23 +62,8 @@ function postVendorAccount(){
     const BusinessType = document.getElementById("BusinessType").value;
     const BusinessDescription = document.getElementById("BusinessDescription").value;
 
-    fetch(vendorUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            postText: text,
-            stamp: date
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        // getPosts();
-    })
 
-    fetch(businessUrl, {
+    fetch(vendorUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -80,13 +77,13 @@ function postVendorAccount(){
             vendor_password : VendorPassword,
             business_name : BusinessName,
             business_type : BusinessType,
-            business_description : BusinnessDescription,
+            business_description : BusinessDescription,
           
         })
     })
     .then((response)=>{
         console.log(response);
-        // getPosts();
+        getVendorAccount();
     })
 }
 
