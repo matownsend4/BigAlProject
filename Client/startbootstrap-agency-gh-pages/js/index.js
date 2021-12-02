@@ -52,9 +52,9 @@ function postCustomerAccount(){
 
 // vendors //
 function getVendorAccounts(){
-    const allPostsUrl = "https://localhost:5001/api/vendor";
+    const allVendorsUrl = "https://localhost:5001/api/vendor";
 
-    fetch(allPostsUrl).then(function(response){
+    fetch(allVendorsUrl).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
@@ -66,6 +66,7 @@ function getVendorAccounts(){
 
 function postVendorAccount(){
     const vendorUrl = "https://localhost:5001/api/vendor";
+
     const VendorFName = document.getElementById("VendorFName").value;
     console.log(VendorFName);
     const VendorLName = document.getElementById("VendorLName").value;
@@ -104,7 +105,7 @@ function postVendorAccount(){
     })
     .then((response)=>{
         console.log(response);
-        getVendorAccount();
+        getVendorAccounts();
     })
 }
 
@@ -133,7 +134,7 @@ function postTicket(){
 
     console.log("made it");
 
-    fetch(postUrl, {
+    fetch(allTicketsUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -151,6 +152,59 @@ function postTicket(){
 
     console.log("made it 2");
 }
+
+ // booth //
+ function getBooths(){
+    const allBoothsUrl = "https://localhost:5001/api/booth";
+
+    fetch(allBoothsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
+
+function postBooth(){
+    const allBoothsUrl = "https://localhost:5001/api/booth";
+
+    const booth = document.getElementById("booth").value;
+    console.log(adultTickets);
+    const scTickets = document.getElementById("scTickets").value;
+    console.log(scTickets);
+    
+
+    console.log("made it");
+
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: adultTickets, 
+            ticketType: scTickets
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+    console.log("made it 2");
+}
+
+
+
+
+
+
+
+
+
 
 
 // function editStatus(id){

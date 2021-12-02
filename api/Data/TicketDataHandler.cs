@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Ticket ticket)
         {
-            string sql = "INSERT INTO ticket(ticket_id, ticket_type, ticket_price) VALUES(@ticketId, @ticketType, @ticketPrice";
+            string sql = "INSERT INTO ticket(ticket_id, ticket_type, ticket_price) VALUES(@ticketId, @ticketType, @ticketPrice)";
       
             var values = GetValues(ticket);
             db.Open();
