@@ -24,7 +24,11 @@ namespace api.Data
         public void Insert(Customer customer)
         {
             string sql = "INSERT INTO customer(customer_id, customer_first_name, customer_last_name, customer_email, customer_phone_no, customer_password) VALUES (@customerId, @customerFName, @customerLName, @customerEmail, @customerPhoneNo, @customerPassword)";
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> f8f823542d4e12dc1a912a17520d9332363edf00
             var values = GetValues(customer);
             db.Open();
             db.Insert(sql, values);

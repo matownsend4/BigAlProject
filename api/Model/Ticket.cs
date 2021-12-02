@@ -13,6 +13,5 @@ namespace api.Model
         {
             ticketDataHandler = new TicketDataHandler();
         }
-
     }
 }

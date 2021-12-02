@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Vendor vendor)
         {
-            string sql = "INSERT INTO vendor(vendor_id, vendor_name, vendor_email, vendor_password, vendor_phone_no) VALUES(@vendorId, @vendorName, @vendorEmail, @vendorPassword, @vendorPhoneNo)";
+            string sql = "INSERT INTO vendor(vendor_id, vendor_first_name, vendor_last_name, vendor_email, vendor_phone_no, vendor_password, business_id, business_name, business_type, business_description) VALUES(@vendorId, @vendorName, @vendorEmail, @vendorPassword, @vendorPhoneNo, @businessId, @businessName, @businessType, @businessDescription)";
       
             var values = GetValues(vendor);
             db.Open();
@@ -43,10 +43,15 @@ namespace api.Data
             {
                 Vendor temp = new Vendor(){
                     VendorID = item.vendor_id,
-                    VendorName = item.vendor_name,
+                    VendorFName = item.vendor_first_name,
+                    VendorLName = item.vendor_last_name,
                     VendorEmail = item.vendor_email,
                     VendorPassword = item.vendor_password,
-                    VendorPhoneNo = item.vendor_phone_no
+                    VendorPhoneNo = item.vendor_phone_no,
+                    BusinessID = item.business_id,
+                    BusinessName = item.business_name,
+                    BusinessType = item.business_type,
+                    BusinessDescription = item.business_description
                 };
             vendors.Add(temp);
             }
@@ -63,11 +68,16 @@ namespace api.Data
         public Dictionary<string,object> GetValues(Vendor vendor)
         {
             var values = new Dictionary<string,object>(){
-                {"@vendrId", vendor.VendorID},
-                {"@vendorName", vendor.VendorName},
+                {"@vendorId", vendor.VendorID},
+                {"@vendorFName", vendor.VendorFName},
+                {"@vendorLName", vendor.VendorLName},
                 {"@vendorEmail", vendor.VendorEmail},
                 {"@vendorPassword", vendor.VendorPassword},
                 {"@vendorPhoneNo", vendor.VendorPhoneNo},
+                {"@businessId", vendor.BusinessID},
+                {"@businessName", vendor.BusinessName},
+                {"@businessType", vendor.BusinessType},
+                {"@businessDescription", vendor.BusinessDescription},
             };
             return values;
         }
