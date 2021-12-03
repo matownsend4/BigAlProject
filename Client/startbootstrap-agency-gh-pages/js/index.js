@@ -185,7 +185,7 @@ function postBooth(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            boothID: booth,
+           // boothID: booth,
             boothCost : '50'
         })
     })
