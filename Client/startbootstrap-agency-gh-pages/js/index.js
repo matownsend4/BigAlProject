@@ -350,3 +350,6 @@ function validateVendor()
 //         getPosts();
 //     })
 // }
+
+
+
