@@ -31,20 +31,22 @@ namespace api.Controllers
         {
             return "value";
         }
-
+        
         // POST: api/Customer
         [EnableCors("OpenPolicy")]
         [HttpPost]
         public void Post([FromBody] Customer value)
         {
+            ICustomerDataHandler customerDataHandler = new CustomerDataHandler();
             value.customerDataHandler.Insert(value);
         }
 
         // PUT: api/Customer/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Customer value)
         {
+            value.customerDataHandler.Update(value);
         }
 
         // DELETE: api/Customer/5
