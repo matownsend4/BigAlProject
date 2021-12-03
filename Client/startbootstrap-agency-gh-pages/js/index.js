@@ -295,15 +295,27 @@ function searchCustomer(){
 
     var passwordIndex = custobj.findIndex(obj => obj.customerPassword==customerPasswordLogin);
     console.log(passwordIndex);
+
+    var found;
+    if((emailIndex == passwordIndex) && (emailIndex != -1))
+    {
+        found = true;
+    }
+    else
+    {
+        found = false;
+    }
+
+    validateCustomer(found);
 }
 
-function validateCustomer()
+function validateCustomer(found)
 {
     // var customerEmailLogin = document.getElementById("customeremail").value;
     // var customerPasswordLogin = document.getElementById("customerpsw").value;
 
-    searchCustomer();
-    if(customerEmailLogin == BLANK && customerPasswordLogin == BLANK)
+    //searchCustomer();
+    if(found)
     {
         alert("Login Successful");
         return false;
