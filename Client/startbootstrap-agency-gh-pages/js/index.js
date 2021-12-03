@@ -55,13 +55,13 @@ function postCustomerAccount(){
 
 // vendors //
 function getVendorAccounts(){
-    const allVendorsUrl = "https://localhost:5001/api/vendor";
+    const vendorUrl = "https://localhost:5001/api/vendor";
 
-    fetch(allVendorsUrl).then(function(response){
+    fetch(vendorUrl).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
-        console.log(custobj); //test
+        console.log(vendobj); //test
         console.log(json);
     }).catch(function(error){
         console.log(error);
@@ -239,7 +239,6 @@ function postBooth(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-           // boothID: booth,
             boothCost : '50'
         })
     })
@@ -251,16 +250,50 @@ function postBooth(){
     console.log("made it 2");
 }
 
+var adminobj;
 function searchAdmin(){
+    const adminUrl = "https://localhost:5001/api/admin";
 
+    fetch(adminUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        adminobj = json;
+        console.log(adminobj);
+        console.log(json);
+        return adminobj;
+    }).catch(function(error){
+        console.log(error);
+    });
+
+    var emailLogin = document.getElementById("adminemail").value;
+    var passwordLogin = document.getElementById("adminpsw").value;
+
+    var emailIndex = adminobj.findIndex(obj => obj.adminEmail==emailLogin);
+    console.log(emailIndex);
+
+    var passwordIndex = adminobj.findIndex(obj => obj.adminPassword==passwordLogin);
+    console.log(passwordIndex);
+
+    var foundAdmin;
+    if((emailIndex == passwordIndex) && (emailIndex != -1))
+    {
+        foundAdmin = true;
+    }
+    else
+    {
+        foundAdmin = false;
+    }
+
+    validateAdmin(foundAdmin);
 }
 
-function validateAdmin()
+function validateAdmin(foundAdmin)
 {
-    var adminEmailLogin = document.getElementById("adminemail").value;
-    var adminPasswordLogin = document.getElementById("adminpsw").value;
+    // var adminEmailLogin = document.getElementById("adminemail").value;
+    // var adminPasswordLogin = document.getElementById("adminpsw").value;
 
-    if(adminEmailLogin == 'admin@gmail.com' && adminPasswordLogin == 'test123')
+    if(foundAdmin)
     {
         alert("Login Successful");
         return false;
@@ -325,17 +358,50 @@ function validateCustomer(found)
         alert("Login Failed");
     }
 }
-
+var vendobj;
 function searchVendor(){
-
+    const vendorUrl = "https://localhost:5001/api/vendor";
+  
+    fetch(vendorUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        vendobj = json;
+        console.log(vendobj);
+        console.log(json);
+        return vendobj;
+    }).catch(function(error){
+        console.log(error);
+    });
+    
+        var vendorEmailLogin = document.getElementById("vendoremail").value;
+        var vendorPasswordLogin = document.getElementById("vendorpsw").value;
+    
+        var emailIndex = vendobj.findIndex(obj => obj.vendorEmail==vendorEmailLogin);
+        console.log(emailIndex);
+    
+        var passwordIndex = vendobj.findIndex(obj => obj.vendorPassword==vendorPasswordLogin);
+        console.log(passwordIndex);
+    
+        var vendorFound;
+        if((emailIndex == passwordIndex) && (emailIndex != -1))
+        {
+            vendorFound = true;
+        }
+        else
+        {
+            vendorFound = false;
+        }
+    
+       validateVendor(vendorFound);
 }
 
-function validateVendor()
+function validateVendor(vendorFound)
 {
-    var vendorEmailLogin = document.getElementById("vendoremail").value;
-    var vendorPasswordLogin = document.getElementById("vendorpsw").value;
+    // var vendorEmailLogin = document.getElementById("vendoremail").value;
+    // var vendorPasswordLogin = document.getElementById("vendorpsw").value;
 
-    if(vendorEmailLogin == BLANK && vendorPasswordLogin == BLANK)
+    if(vendorFound)
     {
         alert("Login Successful");
         return false;
