@@ -129,10 +129,17 @@ function getTickets(){
 function postTicket(){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
 
-    const adultTickets = document.getElementById("adultTickets").value;
-    console.log(adultTickets);
-    const scTickets = document.getElementById("scTickets").value;
-    console.log(scTickets);
+    // const adultTickets = document.getElementById("adultTickets").value;
+    // console.log(adultTickets);
+    // const scTickets = document.getElementById("scTickets").value;
+    // console.log(scTickets);
+
+    var x = document.getElementById("TicketType").selectedIndex;
+    const selectedTicket = document.getElementsByName("TicketType")[x].value;
+    console.log(selectedTicket);
+
+    const numberOfTickets = document.getElementById("numberOfTickets").value;
+    console.log(numberOfTickets);
     
 
     console.log("made it");
@@ -144,8 +151,8 @@ function postTicket(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ticketPrice: adultTickets, 
-            ticketType: scTickets
+            ticketPrice: numberOfTickets, 
+            ticketType: selectedTicket
         })
     })
     .then((response)=>{
