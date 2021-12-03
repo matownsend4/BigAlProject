@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" />
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/index.js"></script>
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -40,33 +41,33 @@
                     <form id = "AddVendor"  style="border:3px solid #ccc" onsubmit = "return false"; method = "POST">
                         <div class="container">
                             <label for="VendorFName"><b>First Name</b></label>
-                            <input type="text" placeholder="Enter First Name" name="VendorFName" required>
+                            <input type="text" placeholder="Enter First Name" id="VendorFName" required>
 
                             <label for="VendorLName"><b>Last Name</b></label>
-                            <input type="text" placeholder="Enter Last Name" name="VendorLName" required>
+                            <input type="text" placeholder="Enter Last Name" id="VendorLName" required>
 
                             <label for="VendorEmail"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="VendorEmail" required>
+                            <input type="text" placeholder="Enter Email" id="VendorEmail" required>
 
                             <label for="VendorPhone"><b>Phone Number</b></label>
-                            <input type="text" placeholder="Enter Phone Number" name="VendorPhone" required>
+                            <input type="text" placeholder="Enter Phone Number" id="VendorPhone" required>
                         
                             <label for="VendorPassword"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="VendorPassword" required>
 
                             <label for="BusinessName"><b>Business Name</b></label>
-                            <input type="text" placeholder="Enter Business Name" name="BusinessName" required>
+                            <input type="text" placeholder="Enter Business Name" id="BusinessName" required>
 
                             <label for="BusinessDescription"><b>Business Description</b></label>
-                            <input type="text" placeholder="Enter Description" name="BusinessDescription" required>
+                            <input type="text" placeholder="Enter Description" id="BusinessDescription" required>
 
                             <label for="BusinessType"><b>Choose a Business Type:</b></label>
-                            <select name="BusinessType" id="BusinessType">
-                            <option value="food/beverage">Food/Beverage</option>
-                            <option value="attire">Attire</option>
-                            <option value="arts/crafts">Arts/Crafts</option>
-                            <option value="services">Services</option>
-                            <option value="miscellaneous">Miscellaneous</option>
+                            <select id="BusinessType">
+                            <option  name="BusinessType" value="food/beverage">Food/Beverage</option>
+                            <option  name="BusinessType" value="attire">Attire</option>
+                            <option  name="BusinessType" value="arts/crafts">Arts/Crafts</option>
+                            <option  name="BusinessType" value="services">Services</option>
+                            <option  name="BusinessType" value="miscellaneous">Miscellaneous</option>
                             </select>
                         
                             <label>
@@ -79,6 +80,7 @@
                               <button class="login-button" type="button" class="cancelbtn" onclick=" window.location.href = '../index.html';">Cancel</button>
                               <input type="submit" class="login-button" class="signupbtn" onclick = "postVendorAccount()" value="Sign Up"/>
                             </div>
+                        </form>
                 </div>
             </div>
         </div>
