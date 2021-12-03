@@ -191,10 +191,7 @@ function postBooth(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-<<<<<<< HEAD
-=======
            // boothID: booth,
->>>>>>> 6d2ba4c7094e4b27371d9c51c018f6bd02a9b753
             boothCost : '50'
         })
     })
