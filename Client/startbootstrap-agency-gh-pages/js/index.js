@@ -1,19 +1,22 @@
 // customers //
 function getCustomerAccounts(){
-    const allPostsUrl = "https://localhost:5001/api/customer";
+    const allCustomersUrl = "https://localhost:5001/api/customer";
 
-    fetch(allPostsUrl).then(function(response){
+    fetch(allCustomersUrl).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
+        var custobj = json;
+        console.log(custobj);
         console.log(json);
+        return custobj;
     }).catch(function(error){
         console.log(error);
     });  
 }
 
 function postCustomerAccount(){
-    const postUrl = "https://localhost:5001/api/customer";
+    const customerUrl = "https://localhost:5001/api/customer";
 
     const fname = document.getElementById("Fname").value;
     console.log(fname);
@@ -28,7 +31,7 @@ function postCustomerAccount(){
 
     console.log("made it");
 
-    fetch(postUrl, {
+    fetch(customerUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -58,6 +61,7 @@ function getVendorAccounts(){
         console.log(response);
         return response.json();
     }).then(function(json){
+        console.log(custobj); //test
         console.log(json);
     }).catch(function(error){
         console.log(error);
@@ -247,6 +251,10 @@ function postBooth(){
     console.log("made it 2");
 }
 
+function searchAdmin(){
+
+}
+
 function validateAdmin()
 {
     var adminEmailLogin = document.getElementById("adminemail").value;
@@ -263,11 +271,38 @@ function validateAdmin()
     }
 }
 
-function validateCustomer()
-{
+var custobj;
+function searchCustomer(){
+    const allPostsUrl = "https://localhost:5001/api/customer";
+
+    fetch(allPostsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        custobj = json;
+        console.log(custobj);
+        console.log(json);
+        return custobj;
+    }).catch(function(error){
+        console.log(error);
+    });
+
     var customerEmailLogin = document.getElementById("customeremail").value;
     var customerPasswordLogin = document.getElementById("customerpsw").value;
 
+    var emailIndex = custobj.findIndex(obj => obj.customerEmail==customerEmailLogin);
+    console.log(emailIndex);
+
+    var passwordIndex = custobj.findIndex(obj => obj.customerPassword==customerPasswordLogin);
+    console.log(passwordIndex);
+}
+
+function validateCustomer()
+{
+    // var customerEmailLogin = document.getElementById("customeremail").value;
+    // var customerPasswordLogin = document.getElementById("customerpsw").value;
+
+    searchCustomer();
     if(customerEmailLogin == BLANK && customerPasswordLogin == BLANK)
     {
         alert("Login Successful");
@@ -277,6 +312,10 @@ function validateCustomer()
     {
         alert("Login Failed");
     }
+}
+
+function searchVendor(){
+
 }
 
 function validateVendor()
