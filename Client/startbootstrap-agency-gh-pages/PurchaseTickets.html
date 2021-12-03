@@ -37,12 +37,13 @@
                       <img class="rounded-circle img-fluid" src="assets/img/Ticket.jpg" alt="Avatar" class="avatar">
                     </div>
                     <div class="container">
-                        <label for="adultTickets"><b>Adult Tickets $5</b></label>
-                        <input type="text" placeholder="Enter Number of Adult Tickets" id="adultTickets">
+                        <label for="TicketType"><b>Choose a Ticket Type:</b></label>
+                            <select id="TicketType">
+                            <option  name="TicketType" value="food/beverage">Senior/Child Ticket ($3)</option>
+                            <option  name="TicketType" value="adult">Adult Ticket ($5)</option>
+                            </select>
 
-                        <label for="scTickets"><b>Senior/Child Tickets $3</b></label>
-                        <input type="text" placeholder="Enter Number of Senior/Child Tickets" id="scTickets">
-                  <!-- <button class="Create-button" onclick = "postTicket()" >Submit</button> -->
+                        <input type="text" placeholder="Enter Number of Tickets" id="numberOfTickets">
 
                         <div class="clearfix">
 

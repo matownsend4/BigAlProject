@@ -23,7 +23,11 @@ namespace api.Data
 
         public void Insert(VendorBooth vendorBooth)
         {
+<<<<<<< HEAD
             string sql = "INSERT INTO vendor_booth(booth_id, booth_cost) VALUES(@boothId, @boothCost)";
+=======
+            string sql = "INSERT INTO vendor_booth (booth_id, booth_cost) VALUES(@boothId, @boothCost)";
+>>>>>>> 71c355f75d67bbde70f46f7b3d950fb1aa57c1ea
       
             var values = GetValues(vendorBooth);
             db.Open();
