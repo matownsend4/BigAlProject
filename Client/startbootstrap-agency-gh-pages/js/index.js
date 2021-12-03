@@ -203,7 +203,54 @@ function postBooth(){
     console.log("made it 2");
 }
 
+function validateAdmin()
+{
+    var adminEmailLogin = document.getElementById("adminemail").value;
+    var adminPasswordLogin = document.getElementById("adminpsw").value;
 
+    if(adminEmailLogin == 'admin@gmail.com' && adminPasswordLogin == 'test123')
+    {
+        alert("Login Successful");
+        return false;
+    }
+    else
+    {
+        alert("Login Failed");
+    }
+}
+
+function validateCustomer()
+{
+    var customerEmailLogin = document.getElementById("customeremail").value;
+    var customerPasswordLogin = document.getElementById("customerpsw").value;
+
+    if(customerEmailLogin == BLANK && customerPasswordLogin == BLANK)
+    {
+        alert("Login Successful");
+        return false;
+    }
+    else
+    {
+        alert("Login Failed");
+    }
+}
+
+function validateVendor()
+{
+    var vendorEmailLogin = document.getElementById("vendoremail").value;
+    var vendorPasswordLogin = document.getElementById("vendorpsw").value;
+
+    if(vendorEmailLogin == BLANK && vendorPasswordLogin == BLANK)
+    {
+        alert("Login Successful");
+        return false;
+    }
+    else
+    {
+        alert("Login Failed");
+    }
+
+}
 
 
 
