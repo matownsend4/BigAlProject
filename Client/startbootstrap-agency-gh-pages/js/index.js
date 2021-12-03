@@ -79,11 +79,8 @@ function postVendorAccount(){
     console.log(VendorPassword);
     const BusinessName = document.getElementById("BusinessName").value;
     console.log(BusinessName);
-
     var x = document.getElementById("BusinessType").selectedIndex;
-    // const BusinessType = document.getElementById("BusinessType").value;
     const selectedBusiness = document.getElementsByName("BusinessType")[x].value;
-    // const selectedBusiness = BusinessType.options[BusinessType.selectedIndex].text;
     console.log(selectedBusiness);
 
 
