@@ -127,12 +127,6 @@ function getTickets(){
 }
 
 function postTicket(){
-    const allTicketsUrl = "https://localhost:5001/api/ticket";
-
-    // const adultTickets = document.getElementById("adultTickets").value;
-    // console.log(adultTickets);
-    // const scTickets = document.getElementById("scTickets").value;
-    // console.log(scTickets);
 
     var x = document.getElementById("TicketType").selectedIndex;
     const selectedTicket = document.getElementsByName("TicketType")[x].value;
@@ -141,9 +135,28 @@ function postTicket(){
     const numberOfTickets = document.getElementById("numberOfTickets").value;
     console.log(numberOfTickets);
     
+    var intNumTickets = parseInt(numberOfTickets);
+
+    if(selectedTicket == "adult")
+    {
+        postAdultTicket(selectedTicket, intNumTickets);
+    }
+    else if(selectedTicket=="seniorchild")
+    {
+        postSenChildTicket(selectedTicket, intNumTickets);
+    }
+    
+}
+
+
+function postAdultTicket(selectedTicket, intNumTickets){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
 
     console.log("made it");
 
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
     fetch(allTicketsUrl, {
         method: "POST",
         headers: {
@@ -151,7 +164,7 @@ function postTicket(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ticketPrice: numberOfTickets, 
+            ticketPrice: '5', 
             ticketType: selectedTicket
         })
     })
@@ -160,7 +173,38 @@ function postTicket(){
         getTickets();
     })
 
-    console.log("made it 2");
+        console.log("made it 2"); 
+    }
+    
+}
+
+function postSenChildTicket(selectedTicket, intNumTickets){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    console.log("made it");
+
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: '3', 
+            ticketType: selectedTicket
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+        console.log("made it 2"); 
+    }
+    
 }
 
  // booth //
