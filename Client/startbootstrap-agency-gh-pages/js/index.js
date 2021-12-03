@@ -176,7 +176,6 @@ function postBooth(){
     const booth = document.getElementById("booth").value;
     console.log(booth);
 
-
     console.log("made it");
     fetch(allBoothsUrl, {
         method: "POST",
@@ -185,7 +184,6 @@ function postBooth(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            boothID: booth,
             boothCost : '50'
         })
     })
