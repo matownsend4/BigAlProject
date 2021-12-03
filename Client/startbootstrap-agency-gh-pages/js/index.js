@@ -155,7 +155,7 @@ function postTicket(){
 
  // booth //
  function getBooths(){
-    const allBoothsUrl = "https://localhost:5001/api/booth";
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
 
     fetch(allBoothsUrl).then(function(response){
         console.log(response);
@@ -168,30 +168,27 @@ function postTicket(){
 }
 
 function postBooth(){
-    const allBoothsUrl = "https://localhost:5001/api/booth";
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
 
     const booth = document.getElementById("booth").value;
-    console.log(adultTickets);
-    const scTickets = document.getElementById("scTickets").value;
-    console.log(scTickets);
-    
+    console.log(booth);
+
 
     console.log("made it");
-
-    fetch(allTicketsUrl, {
+    fetch(allBoothsUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ticketPrice: adultTickets, 
-            ticketType: scTickets
+            boothID: booth,
+            boothCost : '50'
         })
     })
     .then((response)=>{
         console.log(response);
-        getTickets();
+        getBooths();
     })
 
     console.log("made it 2");
