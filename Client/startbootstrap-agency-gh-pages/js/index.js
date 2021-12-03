@@ -78,8 +78,14 @@ function postVendorAccount(){
     console.log(VendorPassword);
     const BusinessName = document.getElementById("BusinessName").value;
     console.log(BusinessName);
-    const BusinessType = document.getElementById("BusinessType").value;
-    console.log(BusinessType);
+
+    var x = document.getElementById("BusinessType").selectedIndex;
+    // const BusinessType = document.getElementById("BusinessType").value;
+    const selectedBusiness = document.getElementsByName("BusinessType")[x].value;
+    // const selectedBusiness = BusinessType.options[BusinessType.selectedIndex].text;
+    console.log(selectedBusiness);
+
+
     const BusinessDescription = document.getElementById("BusinessDescription").value;
     console.log(BusinessDescription);
 
@@ -98,13 +104,13 @@ function postVendorAccount(){
             vendorPassword : VendorPassword,
             vendorPhoneNo : VendorPhone,
             businessName : BusinessName,
-            businessType : BusinessType,
-            businessDescription : BusinessDescription,
+            businessType : selectedBusiness,
+            businessDescription : BusinessDescription
         })
     })
     .then((response)=>{
         console.log(response);
-        getVendorAccount();
+        getVendorAccounts();
     })
 }
 

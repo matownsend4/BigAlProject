@@ -37,6 +37,7 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] VendorBooth value)
         {
+            IVendorBoothDataHandler vendorBoothDataHandler = new VendorBoothDataHandler();
             value.vendorBoothDataHandler.Insert(value);
         }
 
