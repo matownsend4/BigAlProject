@@ -11821,17 +11821,17 @@ a{
 
 .Create-button {
   width: 100%;
-  background-color: black;
+  background-color: #ffc800;
   display: inline-block;
   border: none;
-  padding: 10px 20px;
+  padding: 30px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  margin: 30px 2px;
   cursor: pointer;
   border-radius: 16px;
-  color: #ffc800;
+  color: white;
   text-decoration: none;
   font-family: "Montserrat";
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -11848,7 +11848,7 @@ a{
 
 .login-button{
   width: 100%;
-  background-color: black;
+  background-color: #ffc800;
   display: inline-block;
   border: none;
   padding: 10px 20px;
@@ -11858,13 +11858,13 @@ a{
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 16px;
-  color: #ffc800;
+  color:white;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 .login-button:hover, .login-button:focus {
-  color: white;
+  color: whitesmoke;
 }
 .login-button.disabled {
   color: #6c757d;
