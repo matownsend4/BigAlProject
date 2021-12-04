@@ -24,7 +24,6 @@ namespace api.Data
         public void Insert(Vendor vendor)
         {
             string sql = "INSERT INTO vendor(vendor_id, vendor_first_name, vendor_last_name, vendor_email, vendor_phone_no, vendor_password, business_name, business_type, business_description) VALUES(@vendorId, @vendorFName, @vendorLName, @vendorEmail, @vendorPassword, @vendorPhoneNo, @businessName, @businessType, @businessDescription)";
-           // string sql = "INSERT INTO vendor(vendor_id, vendor_first_name, vendor_last_name, vendor_email, vendor_phone_no, vendor_password, business_name, business_description) VALUES(@vendorId, @vendorFName, @vendorLName, @vendorEmail, @vendorPassword, @vendorPhoneNo, @businessName, @businessDescription)";
 
             var values = GetValues(vendor);
             db.Open();
@@ -49,7 +48,6 @@ namespace api.Data
                     VendorEmail = item.vendor_email,
                     VendorPassword = item.vendor_password,
                     VendorPhoneNo = item.vendor_phone_no,
-                    // BusinessID = item.business_id,
                     BusinessName = item.business_name,
                     BusinessType = item.business_type,
                     BusinessDescription = item.business_description
