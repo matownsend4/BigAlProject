@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="client/calendar.css" rel="stylesheet"/>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css" rel="stylesheet"/> -->
+    <!-- <script type="text/javascript" src="calendar/client/calendar.js"></script> -->
+    <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js'></script>
+    <!-- <script type="text/javascript" src="client/scripts/index.js"></script> -->
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next,today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+        selectable: true,
+
+        dateClick: function(info) {
+            alert('Date: ' + info.dateStr);
+            alert('Resource ID: ' + info.resource.id);
+        }
+        });
+        calendar.render();
+
+        // new Draggable(draggableEl, {
+        //     eventData: {
+        //         title: 'my event',
+        //         duration: '02:00'
+        //     }
+        // });
+      });
+
+    </script>
+</head>
+<body onload="displayCalendar()">
+
+    <input type="datetime-local" id="fmeventdateandtime">
+    <input type="date" id="fmeventdate">
+    <input type="time" id="fmeventtime">
+    <input type="submit" onclick="getDate()">
+
+    <input type="email">
+    <input type="datetime">
+    <input type="number" placeholder="Enter Number of Tickets" id="numberOfTickets" maxlength='12'>
+    <div id="calendar"></div>
+</body>
+</html>

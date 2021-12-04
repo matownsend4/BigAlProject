@@ -15,6 +15,12 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- calendar links -->
+        <link href="calendar/client/calendar.css" rel ="stylesheet"/>
+        <script type="text/javascript" src="calendar/client/calendar.js"></script>
+        <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js'></script>
+
     </head>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -35,22 +41,22 @@
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://patch.com/img/cdn20/users/24390419/20210327/091102/styles/raw/public/processed_images/Screen%20Shot%202021-03-27%20at%208.10.51%20PM.png" alt="..." />
-                        <h4>Event 1</h4>
-                        <p class="text-muted">2 Weeks Away</p>
+                        <!-- <h4>Event 1</h4>
+                        <p class="text-muted">2 Weeks Away</p> -->
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://www.tuscaloosa.com/__aws/posts/2942_huge.jpg?1522853918" alt="..." />
-                        <h4>Event 2</h4>
-                        <p class="text-muted">4 Weeks Away</p>
+                        <!-- <h4>Event 2</h4>
+                        <p class="text-muted">4 Weeks Away</p> -->
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://food.unl.edu/newsletters/images/farmers-market-baskets.jpg" alt="..." />
-                        <h4>Event 3</h4>
-                        <p class="text-muted">6 Weeks Away</p>
+                        <!-- <h4>Event 3</h4>
+                        <p class="text-muted">6 Weeks Away</p> -->
                     </div>
                 </div>
                 <div class="text-center">
@@ -59,8 +65,56 @@
             </div>
         </div>
     </section>
+    <!-- Caldendar -->
+           <section>
+    <script>
+    
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          headerToolbar: {
+              left: 'prev,next,today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          selectable: true,
+  
+          dateClick: function(info) {
+              alert('Date: ' + info.dateStr);
+              alert('Resource ID: ' + info.resource.id);
+          }
+          });
+          calendar.render();
+  
+          // new Draggable(draggableEl, {
+          //     eventData: {
+          //         title: 'my event',
+          //         duration: '02:00'
+          //     }
+          // });
+        });
+  
+      </script>
+  </head>
+  <body onload="displayCalendar()">
+  
+      <input type="datetime-local" id="fmeventdateandtime">
+      <input type="submit" onclick="getDate()">
+      <br><br>
+      <!-- <input type="date" id="fmeventdate">
+      <input type="time" id="fmeventtime"> -->
+      
+  
+      <!-- <input type="email">
+      <input type="datetime"> -->
+      <!-- <input type="number" placeholder="Enter Number of Tickets" id="numberOfTickets" maxlength='12'> -->
+      <div id="calendar"></div>
+  </body>
+</section> 
     <!-- Reports -->
     <div class="text-center">
+        <br> 
         <h2 class="section-heading text-uppercase">Reports</h2>
         <div class="business-type-report">
             <h4>Distribution of Business Type Report</h4>
@@ -72,3 +126,4 @@
             <h4>Total Revenue Report</h4>
         </div>
     </div>
+            
