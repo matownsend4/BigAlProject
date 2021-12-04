@@ -29,19 +29,20 @@
   <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Vendor Log In</h2>
+            <h2 class="section-heading text-uppercase" id="vendorloginheader">Vendor Log In</h2>
             <body>
             <div class="signup">
               <form onsubmit = "return false"; method="post">
                     <div class="container">
-                      <label for="email"><b>Email</b></label>
+                      <label for="email" id="vendoremaillabel"><b>Email</b></label>
                       <input type="text" placeholder="Enter Email" id="vendoremail" required>
                   
-                      <label for="psw"><b>Password</b></label>
+                      <label for="psw" id="vendorpswlabel"><b>Password</b></label>
                       <input type="password" placeholder="Enter Password" id="vendorpsw" required>
                   
                       <!-- <button class="login-button" type="submit" onclick=" window.location.href = '../index.html';">Login</button> -->
-                      <input type="submit" class="login-button" onclick = "searchVendor()" value="Login"/>
+                      <input type="submit" class="login-button" id="vendorloginbtn" onclick = "searchVendor()" value="Login"/>
+                      <div id="vendorprofileinfo"></div>
                     </div>
               </form> 
             </div>
