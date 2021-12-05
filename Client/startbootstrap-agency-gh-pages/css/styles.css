@@ -10,6 +10,16 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+#customerprofileinfo{
+  padding-top: 70px;
+}
+
+#vendorprofileinfo{
+  padding-top: 70px;
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -105,7 +115,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -11305,6 +11315,7 @@ p {
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2rem;
+  padding-top: 3.5rem;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -11820,7 +11831,8 @@ a{
 }
 
 .Create-button {
-  width: 100%;
+  width: auto;
+  height: auto;
   background-color: #ffc800;
   display: inline-block;
   border: none;
@@ -11847,7 +11859,8 @@ a{
 }
 
 .login-button{
-  width: 100%;
+  width: auto;
+  height: auto;
   background-color: #ffc800;
   display: inline-block;
   border: none;

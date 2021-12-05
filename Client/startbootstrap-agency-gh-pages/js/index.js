@@ -128,85 +128,6 @@ function getTickets(){
     });  
 }
 
-function postTicket(){
-    var x = document.getElementById("TicketType").selectedIndex;
-    const selectedTicket = document.getElementsByName("TicketType")[x].value;
-    console.log(selectedTicket);
-
-    const numberOfTickets = document.getElementById("numberOfTickets").value;
-    console.log(numberOfTickets);
-    
-    var intNumTickets = parseInt(numberOfTickets);
-
-    if(selectedTicket == "adult")
-    {
-        postAdultTicket(selectedTicket, intNumTickets);
-    }
-    else if(selectedTicket=="seniorchild")
-    {
-        postSenChildTicket(selectedTicket, intNumTickets);
-    }  
-}
-
-
-function postAdultTicket(selectedTicket, intNumTickets){
-    const allTicketsUrl = "https://localhost:5001/api/ticket";
-
-    console.log("made it");
-
-    console.log(intNumTickets);
-    for(let i=0; i<intNumTickets; i++)
-    {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '5', 
-            ticketType: selectedTicket
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
-
-        console.log("made it 2"); 
-    }
-    
-}
-
-function postSenChildTicket(selectedTicket, intNumTickets){
-    const allTicketsUrl = "https://localhost:5001/api/ticket";
-
-    console.log("made it");
-
-    console.log(intNumTickets);
-    for(let i=0; i<intNumTickets; i++)
-    {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '3', 
-            ticketType: selectedTicket
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
-
-        console.log("made it 2"); 
-    }
-    
-}
-
  // booth //
  function getBooths(){
     const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
@@ -367,6 +288,7 @@ function searchCustomer(){
     const customerfirstname = custobj[emailIndex].customerFName;
     const customerlastname = custobj[emailIndex].customerLName;
     const customeremail = custobj[emailIndex].customerEmail;
+    const customerid = custobj[emailIndex].customerID;
 
     var found;
     if((emailIndex == passwordIndex) && (emailIndex != -1))
@@ -378,10 +300,10 @@ function searchCustomer(){
         found = false;
     }
 
-    validateCustomer(found, customerfirstname, customerlastname, customeremail);
+    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid);
 }
 
-function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail)
+function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid)
 {
     // var customerEmailLogin = document.getElementById("customeremail").value;
     // var customerPasswordLogin = document.getElementById("customerpsw").value;
@@ -394,7 +316,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
        // window.location.href = "../indexCustomer.html";
         let html = `<h1>CUSTOMER ACCOUNT</h1><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
         html += `<h6>Email: ${_customeremail}</h6>`;
-       
+        html+='<br></br>';
         html+='<section class=\"page-section bg-light\" id=\"PurchaseTickets\">';
         html+='<div class =\"tickets\">';
         html+='<div class=\"container\">';
@@ -403,14 +325,17 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<h3 class=\"section-subheading text-muted\"></h3>';
         html+='<div class="imgcontainer\">';
         html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Ticket.jpg\" alt=\"Avatar\" class=\"avatar\"></div>';     
-        html+='<div class=\"container\"><p></p><p></p><p></p>';
+        html+='<div class=\"container\"><br></br>';
         html+='<label for=\"TicketType\"><b>Choose a Ticket Type: &emsp;</b></label>';
         html+='<select id=\"TicketType\">';
         html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
         html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
-        html+='<input type=\"text\" placeholder=\"Enter Number of Tickets\" id=\"numberOfTickets\">';
+        html+='<br></br>';
+        html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
+        html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
         html+='<div class=\"clearfix\">';
-        html+='<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket()\" value=\"Purchase\"/>';
+        html+='<br></br>';
+        html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
         html+='</div></div></div></div></div>';
 
@@ -433,6 +358,86 @@ function hideCustomerLogin()
     document.getElementById("customerlogin").style.display="none";
 }
 
+function postTicket(_customerid){
+    var x = document.getElementById("TicketType").selectedIndex;
+    const selectedTicket = document.getElementsByName("TicketType")[x].value;
+    console.log(selectedTicket);
+
+    const numberOfTickets = document.getElementById("numberOfTickets").value;
+    console.log(numberOfTickets);
+    
+    var intNumTickets = parseInt(numberOfTickets);
+
+    if(selectedTicket == "adult")
+    {
+        postAdultTicket(selectedTicket, intNumTickets, _customerid);
+    }
+    else if(selectedTicket=="seniorchild")
+    {
+        postSenChildTicket(selectedTicket, intNumTickets, _customerid);
+    }  
+}
+
+
+function postAdultTicket(selectedTicket, intNumTickets, _customerid){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    console.log("made it");
+
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: '5', 
+            ticketType: selectedTicket,
+            customerId: _customerid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+        console.log("made it 2"); 
+    }
+    
+}
+
+function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    console.log("made it");
+
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: '3', 
+            ticketType: selectedTicket,
+            customerId: _customerid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+        console.log("made it 2"); 
+    }
+    
+}
 
 var vendobj;
 
@@ -484,19 +489,20 @@ function validateVendor(vendorFound)
         hideVendorLogin();
         // window.location.href = "../indexVendor.html";
 
-        let html = '<div class =\"tickets\">';
+        let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: $$</h6>`
+        html+='<section class=\"page-section bg-light\" id=\"PurchaseBooth\">';
+        html+= '<div class =\"tickets\">';
         html+='<div class=\"container\">';
         html+= '<div class=\"text-center\">';
         html+='<h2 class=\"section-heading text-uppercase\">Purchase Booth</h2>';
         html+='<div class=\"imgcontainer\">';
         html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
         html+='<div class=\"container\">'
-        html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';
-                        // <!-- <button class="Create-button" onclick=" window.location.href = './index.html';">Purchase</button> -->                   
+        html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
         html+='<div class=\"clearfix\">';
         html+='<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth()\" value=\"Purchase\"/>';
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
-        html+='</div></div></div></div>';
+        html+='</div></div></div></div></section>';
 
         document.getElementById("vendorprofileinfo").innerHTML = html;
 
