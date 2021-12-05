@@ -409,6 +409,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
         html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
         html+='<p></p><p></p>';
+        html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
         html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
         html+='<div class=\"clearfix\">';
         html+='<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket()\" value=\"Purchase\"/>';
@@ -494,8 +495,7 @@ function validateVendor(vendorFound)
         html+='<div class=\"imgcontainer\">';
         html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
         html+='<div class=\"container\">'
-        html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';
-                        // <!-- <button class="Create-button" onclick=" window.location.href = './index.html';">Purchase</button> -->                   
+        html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
         html+='<div class=\"clearfix\">';
         html+='<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth()\" value=\"Purchase\"/>';
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
