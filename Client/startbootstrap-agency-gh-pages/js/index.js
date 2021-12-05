@@ -128,85 +128,6 @@ function getTickets(){
     });  
 }
 
-function postTicket(){
-    var x = document.getElementById("TicketType").selectedIndex;
-    const selectedTicket = document.getElementsByName("TicketType")[x].value;
-    console.log(selectedTicket);
-
-    const numberOfTickets = document.getElementById("numberOfTickets").value;
-    console.log(numberOfTickets);
-    
-    var intNumTickets = parseInt(numberOfTickets);
-
-    if(selectedTicket == "adult")
-    {
-        postAdultTicket(selectedTicket, intNumTickets);
-    }
-    else if(selectedTicket=="seniorchild")
-    {
-        postSenChildTicket(selectedTicket, intNumTickets);
-    }  
-}
-
-
-function postAdultTicket(selectedTicket, intNumTickets){
-    const allTicketsUrl = "https://localhost:5001/api/ticket";
-
-    console.log("made it");
-
-    console.log(intNumTickets);
-    for(let i=0; i<intNumTickets; i++)
-    {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '5', 
-            ticketType: selectedTicket
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
-
-        console.log("made it 2"); 
-    }
-    
-}
-
-function postSenChildTicket(selectedTicket, intNumTickets){
-    const allTicketsUrl = "https://localhost:5001/api/ticket";
-
-    console.log("made it");
-
-    console.log(intNumTickets);
-    for(let i=0; i<intNumTickets; i++)
-    {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '3', 
-            ticketType: selectedTicket
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
-
-        console.log("made it 2"); 
-    }
-    
-}
-
  // booth //
  function getBooths(){
     const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
@@ -367,6 +288,7 @@ function searchCustomer(){
     const customerfirstname = custobj[emailIndex].customerFName;
     const customerlastname = custobj[emailIndex].customerLName;
     const customeremail = custobj[emailIndex].customerEmail;
+    const customerid = custobj[emailIndex].customerID;
 
     var found;
     if((emailIndex == passwordIndex) && (emailIndex != -1))
@@ -378,10 +300,10 @@ function searchCustomer(){
         found = false;
     }
 
-    validateCustomer(found, customerfirstname, customerlastname, customeremail);
+    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid);
 }
 
-function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail)
+function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid)
 {
     // var customerEmailLogin = document.getElementById("customeremail").value;
     // var customerPasswordLogin = document.getElementById("customerpsw").value;
@@ -412,7 +334,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
         html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
         html+='<div class=\"clearfix\">';
-        html+='<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket()\" value=\"Purchase\"/>';
+        html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
         html+='</div></div></div></div></div>';
 
@@ -435,6 +357,86 @@ function hideCustomerLogin()
     document.getElementById("customerlogin").style.display="none";
 }
 
+function postTicket(_customerid){
+    var x = document.getElementById("TicketType").selectedIndex;
+    const selectedTicket = document.getElementsByName("TicketType")[x].value;
+    console.log(selectedTicket);
+
+    const numberOfTickets = document.getElementById("numberOfTickets").value;
+    console.log(numberOfTickets);
+    
+    var intNumTickets = parseInt(numberOfTickets);
+
+    if(selectedTicket == "adult")
+    {
+        postAdultTicket(selectedTicket, intNumTickets, _customerid);
+    }
+    else if(selectedTicket=="seniorchild")
+    {
+        postSenChildTicket(selectedTicket, intNumTickets, _customerid);
+    }  
+}
+
+
+function postAdultTicket(selectedTicket, intNumTickets, _customerid){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    console.log("made it");
+
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: '5', 
+            ticketType: selectedTicket,
+            customerId: _customerid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+        console.log("made it 2"); 
+    }
+    
+}
+
+function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    console.log("made it");
+
+    console.log(intNumTickets);
+    for(let i=0; i<intNumTickets; i++)
+    {
+    fetch(allTicketsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ticketPrice: '3', 
+            ticketType: selectedTicket,
+            customerId: _customerid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getTickets();
+    })
+
+        console.log("made it 2"); 
+    }
+    
+}
 
 var vendobj;
 
