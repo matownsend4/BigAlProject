@@ -316,7 +316,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
        // window.location.href = "../indexCustomer.html";
         let html = `<h1>CUSTOMER ACCOUNT</h1><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
         html += `<h6>Email: ${_customeremail}</h6>`;
-       
+        html+='<br></br>';
         html+='<section class=\"page-section bg-light\" id=\"PurchaseTickets\">';
         html+='<div class =\"tickets\">';
         html+='<div class=\"container\">';
@@ -325,15 +325,16 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<h3 class=\"section-subheading text-muted\"></h3>';
         html+='<div class="imgcontainer\">';
         html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Ticket.jpg\" alt=\"Avatar\" class=\"avatar\"></div>';     
-        html+='<div class=\"container\"><p></p><p></p><p></p>';
+        html+='<div class=\"container\"><br></br>';
         html+='<label for=\"TicketType\"><b>Choose a Ticket Type: &emsp;</b></label>';
         html+='<select id=\"TicketType\">';
         html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
         html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
-        html+='<p></p><p></p>';
+        html+='<br></br>';
         html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
         html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
         html+='<div class=\"clearfix\">';
+        html+='<br></br>';
         html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
         html+='</div></div></div></div></div>';
