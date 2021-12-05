@@ -408,7 +408,8 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<select id=\"TicketType\">';
         html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
         html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
-        html+='<input type=\"text\" placeholder=\"Enter Number of Tickets\" id=\"numberOfTickets\">';
+        html+='<p></p><p></p>';
+        html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
         html+='<div class=\"clearfix\">';
         html+='<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket()\" value=\"Purchase\"/>';
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
