@@ -337,7 +337,9 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         html+='<br></br>';
         html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
-        html+='</div></div></div></div></div>';
+        html+='</div></div></div></div></div></section>';
+        html+='<br></br>';
+        html+='<button onclick=\"genPDF('+_customerid+')\">Download PDF Receipt</button>';
 
         document.getElementById("customerprofileinfo").innerHTML = html;
         return false;
@@ -346,6 +348,19 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
     {
         alert("Login Failed");
     }
+}
+
+function genPDF(_customerid)
+{
+
+    const doc = new jsPDF();
+    const receiptheader = "Customer Number: " + _customerid;
+    // const nameheader =  "Customer Name: " + _customerfirstname + " " + _customerlastname;
+    // const emailheader = "Customer Email: " + _customeremail;
+    doc.text(20,20, receiptheader);
+    // doc.text(20,20, nameheader);
+    // doc.text(20,20, emailheader);
+    doc.save('savefile.pdf');
 }
 
 function hideCustomerLogin()
@@ -387,56 +402,58 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
     {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '5', 
-            ticketType: selectedTicket,
-            customerId: _customerid
+        fetch(allTicketsUrl, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ticketPrice: '5', 
+                ticketType: selectedTicket,
+                customerId: _customerid
+            })
         })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
+        .then((response)=>{
+            console.log(response);
+            getTickets();
+        })
 
         console.log("made it 2"); 
     }
+
+    alert(`Purchase Confirmation\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
     
 }
 
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
 
-    console.log("made it");
+   // console.log("made it");
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
     {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '3', 
-            ticketType: selectedTicket,
-            customerId: _customerid
+        fetch(allTicketsUrl, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ticketPrice: '3', 
+                ticketType: selectedTicket,
+                customerId: _customerid
+            })
         })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
+        .then((response)=>{
+            console.log(response);
+            getTickets();
+        })
 
-        console.log("made it 2"); 
+       // console.log("made it 2"); 
     }
-    
+    alert(`Purchase Confirmation\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
 }
 
 var vendobj;
