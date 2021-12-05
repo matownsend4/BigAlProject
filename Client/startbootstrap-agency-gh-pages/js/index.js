@@ -550,7 +550,48 @@ function renderRows(){
         }
     }))
 }
+ // fm event  //
+ function getFMEvents(){
+    const eventsUrl = "https://localhost:5001/api/fmevent";
 
+    fetch(eventsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        var eventobj = json;
+        console.log(eventobj);
+        console.log(json);
+        return eventobj;
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
+
+function postFMEvent(){
+    const eventUrl = "https://localhost:5001/api/fmevent";
+
+    const fmDate = document.getElementById("fmeventdateandtime").value;
+    console.log(fmDate);
+    
+    console.log("made it");
+
+    fetch(eventUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fmDate : fmeventdateandtime
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getFMEvents();
+    })
+
+    console.log("made it 2");
+}
 
 
 
