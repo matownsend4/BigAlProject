@@ -485,7 +485,9 @@ function validateVendor(vendorFound)
         hideVendorLogin();
         // window.location.href = "../indexVendor.html";
 
-        let html = '<div class =\"tickets\">';
+        let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: $$</h6>`
+        html+='<section class=\"page-section bg-light\" id=\"PurchaseBooth\">';
+        html+= '<div class =\"tickets\">';
         html+='<div class=\"container\">';
         html+= '<div class=\"text-center\">';
         html+='<h2 class=\"section-heading text-uppercase\">Purchase Booth</h2>';
@@ -497,7 +499,7 @@ function validateVendor(vendorFound)
         html+='<div class=\"clearfix\">';
         html+='<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth()\" value=\"Purchase\"/>';
         html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
-        html+='</div></div></div></div>';
+        html+='</div></div></div></div></section>';
 
         document.getElementById("vendorprofileinfo").innerHTML = html;
 
