@@ -18,10 +18,12 @@
 
         <!-- calendar links -->
         <link href="calendar/client/calendar.css" rel ="stylesheet"/>
+        <script type="text/javascript" src = "js/index.js"></script>
         <script type="text/javascript" src="calendar/client/calendar.js"></script>
         <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js'></script>
 
     </head>
+    <body onload="getFMEvents()"></body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -67,7 +69,8 @@
     </section>
     <!-- Caldendar -->
            <section>
-    <script>
+            
+        <script>
     
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
@@ -98,18 +101,13 @@
       </script>
   </head>
   <body onload="displayCalendar()">
-  
+    <form id = addEvent onsubmit = "return false"; method="POST">
       <input type="datetime-local" id="fmeventdateandtime">
-      <input type="submit" onclick="getDate()">
+      <!-- <input type="submit"  onclick="postFMEvent()" onclick="getDate()">  -->
+      <input type="submit" class="login-button" onclick="postFMEvent()" class="signupbtn" value="Create Event"/>
+    </form>
       <br><br>
-      <!-- <input type="date" id="fmeventdate">
-      <input type="time" id="fmeventtime"> -->
-      
-  
-      <!-- <input type="email">
-      <input type="datetime"> -->
-      <!-- <input type="number" placeholder="Enter Number of Tickets" id="numberOfTickets" maxlength='12'> -->
-      <div id="calendar"></div>
+       <div id="calendar"></div>
   </body>
 </section> 
     <!-- Reports -->

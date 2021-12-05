@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(FMEvent fMEvent)
         {
-            string sql = "INSERT INTO farmers_market_event(fm_event_id, fm_date, fm_location, fm_attendees, fm_total_revenue) VALUES(@fMEventId, @fMDate, @fMLocation, @fMAttendees, @fMTotalRevenue";
+            string sql = "INSERT INTO farmers_market_event(fm_event_id, fm_date) VALUES(@fMEventId, @fMDate)";
  
             var values = GetValues(fMEvent);
             db.Open();
@@ -44,9 +44,6 @@ namespace api.Data
                 FMEvent temp = new FMEvent(){
                     FMEventID = item.fm_event_id,
                     FMDate = item.fm_date,
-                    FMLocation = item.fm_location,
-                    FMAttendees = item.fm_attendees,
-                    FMTotalRevenue = item.fm_total_revenue
                 };
             fMEvents.Add(temp);
             }
@@ -65,9 +62,6 @@ namespace api.Data
             var values = new Dictionary<string,object>(){
                 {"@fMEventID", fMEvent.FMEventID},
                 {"@fMDate", fMEvent.FMDate},
-                {"@fMLocation", fMEvent.FMLocation},
-                {"@fMAttendees", fMEvent.FMAttendees},
-                {"@fMTotalRevenue", fMEvent.FMTotalRevenue},
             };
             return values;
         }
