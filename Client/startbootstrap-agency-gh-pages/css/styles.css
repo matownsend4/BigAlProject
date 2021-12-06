@@ -11839,10 +11839,9 @@ a{
   padding: 30px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   margin: 30px 2px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 6px;
   color: white;
   text-decoration: none;
   font-family: "Montserrat";
@@ -11850,7 +11849,7 @@ a{
 }
 
 .Create-button:hover, .Create-button:focus {
-  color: white;
+  color: #6c757d;
 }
 .Create-button.disabled {
   color: #6c757d;
@@ -11867,17 +11866,16 @@ a{
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 6px;
   color:white;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 .login-button:hover, .login-button:focus {
-  color: whitesmoke;
+  color: #6c757d;
 }
 .login-button.disabled {
   color: #6c757d;
