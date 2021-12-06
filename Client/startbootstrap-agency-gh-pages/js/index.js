@@ -675,6 +675,37 @@ function postFMEvent(){
     console.log("made it 2");
 }
 
+function getBusinessTypeCount(){
+    const businessUrl = "https://localhost:5001/api/business";
+    var foodbevCount;
+    var attireCount;
+    var artCount;
+    var serviceCount;
+    var miscCount;
+    foreach (businessType in  getVendorAccounts())
+    {
+        if(businessType = 'food/beverage')
+        {
+            foodbevCount++;
+        }
+        if(businessType = 'attire')
+        {
+            attireCount++;
+        }
+        if(businessType = 'arts/crafts')
+        {
+            artCount++;
+        }
+        if(businessType = 'services')
+        {
+            serviceCount++;
+        }
+        if(businessType = 'miscellaneous')
+        {
+            miscCount++;
+        }
+    }
+}
 
 
 

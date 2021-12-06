@@ -61,9 +61,10 @@
                         <p class="text-muted">6 Weeks Away</p> -->
                     </div>
                 </div>
-                <div class="text-center">
+                <!-- <div class="text-center">
                     <button class="Create-button" onclick=" window.location.href = './AddEvents.html';">Add Event</button>
-                </div>
+                </div> -->
+                <br>
             </div>
         </div>
     </section>
@@ -101,10 +102,9 @@
       </script>
   </head>
   <body onload="displayCalendar()">
-    <form id = addEvent onsubmit = "return false"; method="POST">
+    <form id = addEvent onsubmit = "return false" method="POST">
       <input type="datetime-local" id="fmeventdateandtime">
-      <!-- <input type="submit"  onclick="postFMEvent()" onclick="getDate()">  -->
-      <input type="submit" class="login-button" onclick="postFMEvent()" class="signupbtn" value="Create Event"/>
+      <input type="submit" class="login-button" onclick="postFMEvent()"  class="signupbtn" value="Create Event"/>
     </form>
       <br><br>
        <div id="calendar"></div>
@@ -116,12 +116,77 @@
         <h2 class="section-heading text-uppercase">Reports</h2>
         <div class="business-type-report">
             <h4>Distribution of Business Type Report</h4>
+            <label for="EventDate"><b>Choose Event Date: </b></label>
+                <select id="EventDate">
+                <option  name="EventDate" value="food/beverage">Date 1</option>
+                <option  name="EventDate" value="attire">Date 2</option>
+                <option  name="EventDate" value="arts/crafts">Date 3</option>
+                <option  name="EventDate" value="services">Date 4</option>
+                <option  name="EventDate" value="miscellaneous">Date 5</option>
+                </select>
+            <canvas id="myChart" width fixed ="50" height fixed ="50"></canvas> 
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('myChart');
+                const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Food/Beverage', 'Attire', 'Arts/Crafts', 'Services', 'Miscellaneous'],
+        datasets: [{
+            label: 'Number of Vendors per Category',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
         </div>
         <div class="number-of-attendees-report">
             <h4>Number of Attendees Report</h4>
+            <label for="EventDate"><b>Choose Event Date: </b></label>
+                <select id="EventDate">
+                <option  name="EventDate" value="date1">Date 1</option>
+                <option  name="EventDate" value="date2">Date 2</option>
+                <option  name="EventDate" value="date3">Date 3</option>
+                <option  name="EventDate" value="date4">Date 4</option>
+                <option  name="EventDate" value="date5">Date 5</option>
+                </select>
         </div>
         <div class="total-revenue-report">
             <h4>Total Revenue Report</h4>
+            <label for="EventDate"><b>Choose Event Date: </b></label>
+                <select id="EventDate">
+                <option  name="EventDate" value="date1">Date 1</option>
+                <option  name="EventDate" value="date2">Date 2</option>
+                <option  name="EventDate" value="date3">Date 3</option>
+                <option  name="EventDate" value="date4">Date 4</option>
+                <option  name="EventDate" value="date5">Date 5</option>
+                </select>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+
+                </script>
         </div>
     </div>
             
