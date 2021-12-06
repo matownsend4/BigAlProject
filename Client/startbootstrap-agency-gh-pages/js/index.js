@@ -552,7 +552,7 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
 }
 
 // _vendorid, _vendorbusiness, _businesstype, _businessdesc
-function postBooth(_vendorid){
+function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
 
     console.log("made it");
@@ -576,28 +576,28 @@ function postBooth(_vendorid){
 
     alert(`You have purchased a booth\n\n`);
 
-    // const doc = new jsPDF();
-    // const receiptheader = "Vendor Number: " + _vendorid;
-    // const name = `Business Name: ${_vendorbusiness}`;
-    // const type = `Business Type: ${_businesstype}`;
-    // const desc = `Business Description: ${_businessdesc}`;
-    // const total = `Total: $$50`;
+    const doc = new jsPDF();
+    const receiptheader = "Vendor Number: " + _vendorid;
+    const name = `Business Name: ${_vendorbusiness}`;
+    const type = `Business Type: ${_businesstype}`;
+    const desc = `Business Description: ${_businessdesc}`;
+    const total = `Total: $$50`;
 
-    // doc.setFontSize(25);
-    // doc.setTextColor(85, 107, 47);
-    // doc.setFont('helvetica');
-    // doc.setFontType('bold');
-    // doc.text(20,20, receiptheader);
-    // doc.setTextColor(0);
-    // doc.setFontType('normal');
-    // doc.setFontSize(16);
-    // doc.text(20,30, name);
-    // doc.text(20,30, type);
-    // doc.text(20,30, desc);
-    // //doc.text(20,40, );
-    // doc.line(20, 43, 100, 43);
-    // doc.text(20,50, total);
-    // doc.save('receipt.pdf');  
+    doc.setFontSize(25);
+    doc.setTextColor(85, 107, 47);
+    doc.setFont('helvetica');
+    doc.setFontType('bold');
+    doc.text(20,20, receiptheader);
+    doc.setTextColor(0);
+    doc.setFontType('normal');
+    doc.setFontSize(16);
+    doc.text(20,30, name);
+    doc.text(20,40, type);
+    doc.text(20,50, desc);
+    //doc.text(20,40, );
+    doc.line(20, 43, 100, 43);
+    doc.text(20,55, total);
+    doc.save('receipt.pdf');  
 }
 
 // ${_vendorid}, ${_vendorbusiness},${_businesstype}, ${_businessdesc}
