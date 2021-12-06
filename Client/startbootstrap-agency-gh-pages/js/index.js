@@ -401,7 +401,7 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
         console.log("made it 2"); 
     }
 
-    alert(`Purchase Confirmation\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
+    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
     
 
 
@@ -421,7 +421,7 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     doc.setFontSize(16);
     doc.text(20,30, type);
     doc.text(20,40, qty);
-    doc.line(20, 42, 70, 42);
+    doc.line(20, 43, 70, 43);
     doc.text(20,50, total);
     doc.save('receipt.pdf');  
 }
@@ -453,7 +453,7 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
 
        // console.log("made it 2"); 
     }
-    alert(`Purchase Confirmation\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
+    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
 
      const doc = new jsPDF();
     const receiptheader = "Customer Number: " + _customerid;
@@ -471,7 +471,7 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     doc.setFontSize(16);
     doc.text(20,30, type);
     doc.text(20,40, qty);
-    doc.line(20, 42, 70, 42);
+    doc.line(20, 43, 100, 43);
     doc.text(20,50, total);
     doc.save('receipt.pdf');  
 }
