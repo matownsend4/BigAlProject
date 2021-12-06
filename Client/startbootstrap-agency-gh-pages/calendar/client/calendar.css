@@ -1299,3 +1299,8 @@ A HORIZONTAL event
     color: inherit; /* natural color for navlinks */
   }
 
+  .center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }

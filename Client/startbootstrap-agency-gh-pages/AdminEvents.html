@@ -24,6 +24,7 @@
 
     </head>
     <body onload="getFMEvents()"></body>
+
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -35,6 +36,7 @@
         </div>
     </nav>
     <!-- Events-->
+
     <section class="page-section bg-light" id="team">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Events</h2>
@@ -64,7 +66,6 @@
                 <!-- <div class="text-center">
                     <button class="Create-button" onclick=" window.location.href = './AddEvents.html';">Add Event</button>
                 </div> -->
-                <br>
             </div>
         </div>
     </section>
@@ -102,12 +103,12 @@
       </script>
   </head>
   <body onload="displayCalendar()">
-    <form id = addEvent onsubmit = "return false" method="POST">
+    <form id = addEvent onsubmit = "return false" method="POST" class = "center"  >
       <input type="datetime-local" id="fmeventdateandtime">
-      <input type="submit" class="login-button" onclick="postFMEvent()"  class="signupbtn" value="Create Event"/>
+      <input type="submit" class="login-button" onclick="postFMEvent()" class="signupbtn" value="Create Event"/>
     </form>
       <br><br>
-       <div id="calendar"></div>
+       <div class = "center" id="calendar"></div>
   </body>
 </section> 
     <!-- Reports -->
@@ -172,6 +173,25 @@
                 <option  name="EventDate" value="date4">Date 4</option>
                 <option  name="EventDate" value="date5">Date 5</option>
                 </select>
+                <script>
+                const data = {
+                    labels: [
+                      'Red',
+                      'Blue',
+                      'Yellow'
+                    ],
+                    datasets: [{
+                      label: 'My First Dataset',
+                      data: [300, 50, 100],
+                      backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                      ],
+                      hoverOffset: 4
+                    }]
+                  };
+                </script>
         </div>
         <div class="total-revenue-report">
             <h4>Total Revenue Report</h4>
