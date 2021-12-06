@@ -8,6 +8,7 @@ namespace api.Model
     {
         public int BoothID {get; set;}
         public string BoothCost {get; set;}
+        public int VendorID {get; set;}
         public IVendorBoothDataHandler vendorBoothDataHandler {get; set;}
         public VendorBooth()
         {

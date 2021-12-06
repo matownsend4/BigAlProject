@@ -128,64 +128,6 @@ function getTickets(){
     });  
 }
 
- // booth //
- function getBooths(){
-    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-
-    fetch(allBoothsUrl).then(function(response){
-        console.log(response);
-        return response.json();
-    }).then(function(json){
-        console.log(json);
-    }).catch(function(error){
-        console.log(error);
-    });  
-}
-
-function postBooth(){
-    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-
-    // const booth = document.getElementById("booth").value;
-    // console.log(booth);
-
-    console.log("made it");
-    fetch(allBoothsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            boothCost : '50'
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getBooths();
-    })
-
-    console.log("made it 2");
-}
-
-function displayProfile()
-{
-    let html = "<h3>Customer Account</h3>";
-    document.getElementById("profileinfo").innerHTML = html;
-}
-
-// function displayProfile()
-// {
-//     let html = "<h3>Customer Account</h3>";
-//     document.getElementById("profileinfo").innerHTML = html;
-// }
-
-// function displayProfile()
-// {
-//     let html = "<h3>Customer Account</h3>";
-//     document.getElementById("profileinfo").innerHTML = html;
-// }
-
-
 var adminobj;
 function searchAdmin(){
     const adminUrl = "https://localhost:5001/api/admin";
@@ -231,7 +173,7 @@ function validateAdmin(foundAdmin)
 
     if(foundAdmin)
     {
-        alert("Login Successful");
+       // alert("Login Successful");
         hideAdminLogin();
         window.location.href = "../indexAdmin.html";
         return false;
@@ -253,13 +195,12 @@ function hideAdminLogin()
 }
 
 
+// Handling Customer Account info and purchasing tickets
 var custobj;
-// const customerfirstname;
-// const customerlastname;
 function searchCustomer(){
-    const allPostsUrl = "https://localhost:5001/api/customer";
+    const customersUrl = "https://localhost:5001/api/customer";
 
-    fetch(allPostsUrl).then(function(response){
+    fetch(customersUrl).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
@@ -281,13 +222,13 @@ function searchCustomer(){
     console.log(passwordIndex);
 
     console.log(custobj[emailIndex].customerID); //gets id of logged in customer
-
     console.log(custobj[emailIndex].customerFName);
     console.log(custobj[emailIndex].customerLName);
 
     const customerfirstname = custobj[emailIndex].customerFName;
     const customerlastname = custobj[emailIndex].customerLName;
     const customeremail = custobj[emailIndex].customerEmail;
+    const customerphoneno = custobj[emailIndex].customerPhoneNo;
     const customerid = custobj[emailIndex].customerID;
 
     var found;
@@ -300,46 +241,16 @@ function searchCustomer(){
         found = false;
     }
 
-    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid);
+    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid, customerphoneno);
 }
 
-function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid)
+function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno)
 {
-    // var customerEmailLogin = document.getElementById("customeremail").value;
-    // var customerPasswordLogin = document.getElementById("customerpsw").value;
-
-    //searchCustomer();
     if(found)
     {
         alert("Login Successful");
         hideCustomerLogin();
-       // window.location.href = "../indexCustomer.html";
-        let html = `<h1>CUSTOMER ACCOUNT</h1><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
-        html += `<h6>Email: ${_customeremail}</h6>`;
-        html+='<br></br>';
-        html+='<section class=\"page-section bg-light\" id=\"PurchaseTickets\">';
-        html+='<div class =\"tickets\">';
-        html+='<div class=\"container\">';
-        html+='<div class=\"text-center\">';
-        html+='<h2 class=\"section-heading text-uppercase\">Purchase Tickets</h2>'
-        html+='<h3 class=\"section-subheading text-muted\"></h3>';
-        html+='<div class="imgcontainer\">';
-        html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Ticket.jpg\" alt=\"Avatar\" class=\"avatar\"></div>';     
-        html+='<div class=\"container\"><br></br>';
-        html+='<label for=\"TicketType\"><b>Choose a Ticket Type: &emsp;</b></label>';
-        html+='<select id=\"TicketType\">';
-        html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
-        html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
-        html+='<br></br>';
-        html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
-        html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
-        html+='<div class=\"clearfix\">';
-        html+='<br></br>';
-        html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
-        html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
-        html+='</div></div></div></div></div>';
-
-        document.getElementById("customerprofileinfo").innerHTML = html;
+        displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno);
         return false;
     }
     else
@@ -347,6 +258,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
         alert("Login Failed");
     }
 }
+
 
 function hideCustomerLogin()
 {
@@ -356,6 +268,51 @@ function hideCustomerLogin()
     document.getElementById("customeremail").style.display="none";
     document.getElementById("customerpsw").style.display="none";
     document.getElementById("customerlogin").style.display="none";
+}
+
+function displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno)
+{
+    // Customer personal info
+    let html = `<h1>CUSTOMER ACCOUNT</h1><br></br><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
+    html += `<h6>Email: ${_customeremail}</h6><h6>Phone Number: ${_customerphoneno}</h6>`;
+    html+='<br></br>';
+
+    // Purchase tickets section
+    html+='<section class=\"page-section bg-light\" id=\"PurchaseTickets\">';
+    html+='<div class =\"tickets\">';
+    html+='<div class=\"container\">';
+    html+='<div class=\"text-center\">';
+    html+='<h2 class=\"section-heading text-uppercase\">Purchase Tickets</h2>'
+    html+='<h3 class=\"section-subheading text-muted\"></h3>';
+    html+='<div class="imgcontainer\">';
+    html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Ticket.jpg\" alt=\"Avatar\" class=\"avatar\"></div>';     
+    html+='<div class=\"container\"><br></br>';
+    html+='<label for=\"TicketType\"><b>Choose a Ticket Type: &emsp;</b></label>';
+    html+='<select id=\"TicketType\">';
+    html+='<option  name=\"TicketType\" value=\"seniorchild\">Senior/Child Ticket ($3)</option>';
+    html+='<option  name=\"TicketType\" value=\"adult\">Adult Ticket ($5)</option></select>';
+    html+='<br></br>';
+    html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
+    html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
+    html+='<div class=\"clearfix\">';
+    html+='<br></br>';
+    html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
+    html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
+    html+='</div></div></div></div></div></section>';
+    html+='<br></br>';
+
+    // view past and currently registered for events
+    html+='<br></br>';
+    html+='<section class=\"page-section bg-light\">';
+    html+='<div class =\"tickets\">';
+    html+='<div class=\"container\">';
+    html+='<div class=\"text-center\">';
+    html+='<h2 class=\"section-heading text-uppercase\"></h2>'
+    html+='<h3 class=\"section-subheading text-muted\"></h3>';
+    html+='</div></div></div></div></div></section>';
+    
+    document.getElementById("customerlogout").innerHTML = "Logout";
+    document.getElementById("customerprofileinfo").innerHTML = html;
 }
 
 function postTicket(_customerid){
@@ -378,7 +335,6 @@ function postTicket(_customerid){
     }  
 }
 
-
 function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
 
@@ -387,60 +343,102 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
     {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '5', 
-            ticketType: selectedTicket,
-            customerId: _customerid
+        fetch(allTicketsUrl, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ticketPrice: '5', 
+                ticketType: selectedTicket,
+                customerId: _customerid
+            })
         })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
+        .then((response)=>{
+            console.log(response);
+            getTickets();
+        })
 
         console.log("made it 2"); 
     }
+
+    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
     
+    const doc = new jsPDF();
+    const receiptheader = "Customer Number: " + _customerid;
+    const type = `Ticket type: ${selectedTicket}`;
+    const qty = `Quantity: ${intNumTickets}`;
+    const total = `Total: $${intNumTickets*5}`;
+
+    doc.setFontSize(25);
+    doc.setTextColor(85, 107, 47);
+    doc.setFont('helvetica');
+    doc.setFontType('bold');
+    doc.text(20,20, receiptheader);
+    doc.setTextColor(0);
+    doc.setFontType('normal');
+    doc.setFontSize(16);
+    doc.text(20,30, type);
+    doc.text(20,40, qty);
+    doc.line(20, 43, 70, 43);
+    doc.text(20,50, total);
+    doc.save('receipt.pdf');  
 }
 
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
 
-    console.log("made it");
+   // console.log("made it");
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
     {
-    fetch(allTicketsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            ticketPrice: '3', 
-            ticketType: selectedTicket,
-            customerId: _customerid
+        fetch(allTicketsUrl, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ticketPrice: '3', 
+                ticketType: selectedTicket,
+                customerId: _customerid
+            })
         })
-    })
-    .then((response)=>{
-        console.log(response);
-        getTickets();
-    })
-
-        console.log("made it 2"); 
+        .then((response)=>{
+            console.log(response);
+            getTickets();
+        })
+       // console.log("made it 2"); 
     }
-    
+
+    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
+
+     const doc = new jsPDF();
+    const receiptheader = "Customer Number: " + _customerid;
+    const type = `Ticket type: ${selectedTicket}`;
+    const qty = `Quantity: ${intNumTickets}`;
+    const total = `Total: $${intNumTickets*5}`;
+
+    doc.setFontSize(25);
+    doc.setTextColor(85, 107, 47);
+    doc.setFont('helvetica');
+    doc.setFontType('bold');
+    doc.text(20,20, receiptheader);
+    doc.setTextColor(0);
+    doc.setFontType('normal');
+    doc.setFontSize(16);
+    doc.text(20,30, type);
+    doc.text(20,40, qty);
+    doc.line(20, 43, 100, 43);
+    doc.text(20,50, total);
+    doc.save('receipt.pdf');  
 }
 
-var vendobj;
 
+// Handling Vendor Account info and booth purchases
+var vendobj;
 function searchVendor(){
     const vendorUrl = "https://localhost:5001/api/vendor";
   
@@ -455,7 +453,7 @@ function searchVendor(){
     }).catch(function(error){
         console.log(error);
     });
-    
+   
         var vendorEmailLogin = document.getElementById("vendoremail").value;
         var vendorPasswordLogin = document.getElementById("vendorpsw").value;
     
@@ -464,55 +462,48 @@ function searchVendor(){
     
         var passwordIndex = vendobj.findIndex(obj => obj.vendorPassword==vendorPasswordLogin);
         console.log(passwordIndex);
+
+        const vendoremail = vendobj[emailIndex].vendorEmail;
+        const vendorpassword = vendobj[emailIndex].vendorPassword;
+
+        const vendorfirstname = vendobj[emailIndex].vendorFName;
+        const vendorlastname = vendobj[emailIndex].vendorLName;
+        const vendorphoneno = vendobj[emailIndex].vendorPhoneNo;
+        const vendorid = vendobj[emailIndex].vendorID;
+        const vendorbusiness = vendobj[emailIndex].businessName;
+        const businesstype = vendobj[emailIndex].businessType;
+        const businessdesc = vendobj[emailIndex].businessDescription;
     
         var vendorFound;
-        if((emailIndex == passwordIndex) && (emailIndex != -1))
+        if((emailIndex != -1) && (vendorEmailLogin == vendoremail) && (vendorPasswordLogin == vendorpassword))
         {
             vendorFound = true;
         }
+        // if((emailIndex == passwordIndex) && (emailIndex != -1))
+        // {
+        //     vendorFound = true;
+        // }
         else
         {
             vendorFound = false;
         }
     
-       validateVendor(vendorFound);
+       validateVendor(vendorFound, vendoremail, vendorfirstname, vendorlastname, vendorphoneno, vendorid, vendorbusiness, businesstype, businessdesc);
 }
 
-function validateVendor(vendorFound)
+function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
 {
-    // var vendorEmailLogin = document.getElementById("vendoremail").value;
-    // var vendorPasswordLogin = document.getElementById("vendorpsw").value;
-
     if(vendorFound)
     {
         alert("Login Successful");
         hideVendorLogin();
-        // window.location.href = "../indexVendor.html";
-
-        let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: $$</h6>`
-        html+='<section class=\"page-section bg-light\" id=\"PurchaseBooth\">';
-        html+= '<div class =\"tickets\">';
-        html+='<div class=\"container\">';
-        html+= '<div class=\"text-center\">';
-        html+='<h2 class=\"section-heading text-uppercase\">Purchase Booth</h2>';
-        html+='<div class=\"imgcontainer\">';
-        html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
-        html+='<div class=\"container\">'
-        html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
-        html+='<div class=\"clearfix\">';
-        html+='<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth()\" value=\"Purchase\"/>';
-        html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
-        html+='</div></div></div></div></section>';
-
-        document.getElementById("vendorprofileinfo").innerHTML = html;
-
+        displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc);
         return false;
     }
     else
     {
         alert("Login Failed");
     }
-
 }
 
 function hideVendorLogin()
@@ -525,6 +516,91 @@ function hideVendorLogin()
     document.getElementById("vendorloginbtn").style.display="none";
 }
 
+function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
+{
+    let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: ${_vendorfirstname} ${_vendorlastname}</h6>`
+    html+='<section class=\"page-section bg-light\" id=\"PurchaseBooth\">';
+    html+= '<div class =\"tickets\">';
+    html+='<div class=\"container\">';
+    html+= '<div class=\"text-center\">';
+    html+='<h2 class=\"section-heading text-uppercase\">Purchase Booth</h2>';
+    html+='<div class=\"imgcontainer\">';
+    html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
+    html+='<div class=\"container\">'
+    html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
+    html+='<div class=\"clearfix\">';
+    html+=`<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth(${_vendorid})\" value=\"Purchase\"/>`;
+    html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
+    html+='</div></div></div></div></section>';
+    
+    document.getElementById("vendorlogout").innerHTML = "Logout";
+    document.getElementById("vendorprofileinfo").innerHTML = html;
+}
+
+ // booth //
+ function getBooths(){
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+
+    fetch(allBoothsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
+
+// _vendorid, _vendorbusiness, _businesstype, _businessdesc
+function postBooth(_vendorid){
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+
+    console.log("made it");
+    fetch(allBoothsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            boothCost : '50',
+           vendorID: _vendorid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getBooths();
+    })
+
+    console.log("made it 2");
+
+    alert(`You have purchased a booth\n\n`);
+
+    // const doc = new jsPDF();
+    // const receiptheader = "Vendor Number: " + _vendorid;
+    // const name = `Business Name: ${_vendorbusiness}`;
+    // const type = `Business Type: ${_businesstype}`;
+    // const desc = `Business Description: ${_businessdesc}`;
+    // const total = `Total: $$50`;
+
+    // doc.setFontSize(25);
+    // doc.setTextColor(85, 107, 47);
+    // doc.setFont('helvetica');
+    // doc.setFontType('bold');
+    // doc.text(20,20, receiptheader);
+    // doc.setTextColor(0);
+    // doc.setFontType('normal');
+    // doc.setFontSize(16);
+    // doc.text(20,30, name);
+    // doc.text(20,30, type);
+    // doc.text(20,30, desc);
+    // //doc.text(20,40, );
+    // doc.line(20, 43, 100, 43);
+    // doc.text(20,50, total);
+    // doc.save('receipt.pdf');  
+}
+
+// ${_vendorid}, ${_vendorbusiness},${_businesstype}, ${_businessdesc}
 
 function displayCalendar(){
     document.addEventListener('DOMContentLoaded', function() {
