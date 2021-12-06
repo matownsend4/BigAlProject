@@ -128,51 +128,6 @@ function getTickets(){
     });  
 }
 
- // booth //
- function getBooths(){
-    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-
-    fetch(allBoothsUrl).then(function(response){
-        console.log(response);
-        return response.json();
-    }).then(function(json){
-        console.log(json);
-    }).catch(function(error){
-        console.log(error);
-    });  
-}
-
-function postBooth(){
-    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-
-    // const booth = document.getElementById("booth").value;
-    // console.log(booth);
-
-    console.log("made it");
-    fetch(allBoothsUrl, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            boothCost : '50'
-        })
-    })
-    .then((response)=>{
-        console.log(response);
-        getBooths();
-    })
-
-    console.log("made it 2");
-}
-
-function displayProfile()
-{
-    let html = "<h3>Customer Account</h3>";
-    document.getElementById("profileinfo").innerHTML = html;
-}
-
 var adminobj;
 function searchAdmin(){
     const adminUrl = "https://localhost:5001/api/admin";
@@ -240,9 +195,8 @@ function hideAdminLogin()
 }
 
 
+// Handling Customer Account info and purchasing tickets
 var custobj;
-// const customerfirstname;
-// const customerlastname;
 function searchCustomer(){
     const customersUrl = "https://localhost:5001/api/customer";
 
@@ -268,7 +222,6 @@ function searchCustomer(){
     console.log(passwordIndex);
 
     console.log(custobj[emailIndex].customerID); //gets id of logged in customer
-
     console.log(custobj[emailIndex].customerFName);
     console.log(custobj[emailIndex].customerLName);
 
@@ -319,9 +272,12 @@ function hideCustomerLogin()
 
 function displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno)
 {
+    // Customer personal info
     let html = `<h1>CUSTOMER ACCOUNT</h1><br></br><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
     html += `<h6>Email: ${_customeremail}</h6><h6>Phone Number: ${_customerphoneno}</h6>`;
     html+='<br></br>';
+
+    // Purchase tickets section
     html+='<section class=\"page-section bg-light\" id=\"PurchaseTickets\">';
     html+='<div class =\"tickets\">';
     html+='<div class=\"container\">';
@@ -344,13 +300,20 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>';
     html+='</div></div></div></div></div></section>';
     html+='<br></br>';
-    // html+='<button onclick=\"genPDF('+_customerid+')\">Download PDF Receipt</button>';
+
+    // view past and currently registered for events
+    html+='<br></br>';
+    html+='<section class=\"page-section bg-light\">';
+    html+='<div class =\"tickets\">';
+    html+='<div class=\"container\">';
+    html+='<div class=\"text-center\">';
+    html+='<h2 class=\"section-heading text-uppercase\"></h2>'
+    html+='<h3 class=\"section-subheading text-muted\"></h3>';
+    html+='</div></div></div></div></div></section>';
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
 }
-
-
 
 function postTicket(_customerid){
     var x = document.getElementById("TicketType").selectedIndex;
@@ -371,7 +334,6 @@ function postTicket(_customerid){
         postSenChildTicket(selectedTicket, intNumTickets, _customerid);
     }  
 }
-
 
 function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
@@ -403,8 +365,6 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
 
     alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
     
-
-
     const doc = new jsPDF();
     const receiptheader = "Customer Number: " + _customerid;
     const type = `Ticket type: ${selectedTicket}`;
@@ -450,9 +410,9 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
             console.log(response);
             getTickets();
         })
-
        // console.log("made it 2"); 
     }
+
     alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
 
      const doc = new jsPDF();
@@ -476,6 +436,8 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     doc.save('receipt.pdf');  
 }
 
+
+// Handling Vendor Account info and booth purchases
 var vendobj;
 function searchVendor(){
     const vendorUrl = "https://localhost:5001/api/vendor";
@@ -531,9 +493,6 @@ function searchVendor(){
 
 function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
 {
-    // var vendorEmailLogin = document.getElementById("vendoremail").value;
-    // var vendorPasswordLogin = document.getElementById("vendorpsw").value;
-
     if(vendorFound)
     {
         alert("Login Successful");
@@ -545,7 +504,6 @@ function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlast
     {
         alert("Login Failed");
     }
-
 }
 
 function hideVendorLogin()
@@ -571,7 +529,7 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<div class=\"container\">'
     html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
     html+='<div class=\"clearfix\">';
-    html+='<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth()\" value=\"Purchase\"/>';
+    html+=`<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth(${_vendorid})\" value=\"Purchase\"/>`;
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
@@ -579,6 +537,70 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     document.getElementById("vendorprofileinfo").innerHTML = html;
 }
 
+ // booth //
+ function getBooths(){
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+
+    fetch(allBoothsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    });  
+}
+
+// _vendorid, _vendorbusiness, _businesstype, _businessdesc
+function postBooth(_vendorid){
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+
+    console.log("made it");
+    fetch(allBoothsUrl, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            boothCost : '50',
+           vendorID: _vendorid
+        })
+    })
+    .then((response)=>{
+        console.log(response);
+        getBooths();
+    })
+
+    console.log("made it 2");
+
+    alert(`You have purchased a booth\n\n`);
+
+    // const doc = new jsPDF();
+    // const receiptheader = "Vendor Number: " + _vendorid;
+    // const name = `Business Name: ${_vendorbusiness}`;
+    // const type = `Business Type: ${_businesstype}`;
+    // const desc = `Business Description: ${_businessdesc}`;
+    // const total = `Total: $$50`;
+
+    // doc.setFontSize(25);
+    // doc.setTextColor(85, 107, 47);
+    // doc.setFont('helvetica');
+    // doc.setFontType('bold');
+    // doc.text(20,20, receiptheader);
+    // doc.setTextColor(0);
+    // doc.setFontType('normal');
+    // doc.setFontSize(16);
+    // doc.text(20,30, name);
+    // doc.text(20,30, type);
+    // doc.text(20,30, desc);
+    // //doc.text(20,40, );
+    // doc.line(20, 43, 100, 43);
+    // doc.text(20,50, total);
+    // doc.save('receipt.pdf');  
+}
+
+// ${_vendorid}, ${_vendorbusiness},${_businesstype}, ${_businessdesc}
 
 function displayCalendar(){
     document.addEventListener('DOMContentLoaded', function() {
