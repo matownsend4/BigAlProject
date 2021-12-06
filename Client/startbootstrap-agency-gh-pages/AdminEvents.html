@@ -61,9 +61,10 @@
                         <p class="text-muted">6 Weeks Away</p> -->
                     </div>
                 </div>
-                <div class="text-center">
+                <!-- <div class="text-center">
                     <button class="Create-button" onclick=" window.location.href = './AddEvents.html';">Add Event</button>
-                </div>
+                </div> -->
+                <br>
             </div>
         </div>
     </section>
@@ -103,7 +104,7 @@
   <body onload="displayCalendar()">
     <form id = addEvent onsubmit = "return false" method="POST">
       <input type="datetime-local" id="fmeventdateandtime">
-      <input type="submit" class="login-button" onclick="postFMEvent()"  onclick="getDate()" class="signupbtn" value="Create Event"/>
+      <input type="submit" class="login-button" onclick="postFMEvent()"  class="signupbtn" value="Create Event"/>
     </form>
       <br><br>
        <div id="calendar"></div>
