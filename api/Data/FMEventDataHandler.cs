@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(FMEvent fMEvent)
         {
-            string sql = "INSERT INTO farmers_market_event(fm_event_id, fm_date) VALUES(@fMEventId, @fMDate)";
+            string sql = "INSERT INTO farmers_market_event(fm_event_id, fm_date) VALUES(@fMEventID, @fMDate)";
  
             var values = GetValues(fMEvent);
             db.Open();
