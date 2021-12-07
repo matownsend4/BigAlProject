@@ -175,7 +175,7 @@ function validateAdmin(foundAdmin)
     {
        // alert("Login Successful");
         hideAdminLogin();
-        window.location.href = "../indexAdmin.html";
+        window.location.href = "../AdminEvents.html";
         return false;
     }
     else
