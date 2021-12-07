@@ -198,6 +198,9 @@ function hideAdminLogin()
 // Handling Customer Account info and purchasing tickets
 var custobj;
 function searchCustomer(){
+    getFMEvents();
+    document.getElementById("eventTable").style.display = "none";
+
     const customersUrl = "https://localhost:5001/api/customer";
 
     fetch(customersUrl).then(function(response){
@@ -441,6 +444,9 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
 // Handling Vendor Account info and booth purchases
 var vendobj;
 function searchVendor(){
+    getFMEvents();
+    document.getElementById("eventTable").style.display = "none";
+
     const vendorUrl = "https://localhost:5001/api/vendor";
   
     fetch(vendorUrl).then(function(response){
@@ -549,6 +555,8 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
+    document.getElementById("eventTable").style.display = "block";
+    
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
 }
@@ -589,15 +597,18 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     })
 
     console.log("made it 2");
+    console.log(_vendorbusiness);
+    console.log(_businesstype);
+    console.log(_businessdesc);
 
     alert(`You have purchased a booth\n\n`);
 
     const doc = new jsPDF();
     const receiptheader = "Vendor Number: " + _vendorid;
-    const name = `Business Name: ${_vendorbusiness}`;
-    const type = `Business Type: ${_businesstype}`;
-    const desc = `Business Description: ${_businessdesc}`;
-    const total = `Total: $$50`;
+    const name = "Business Name: " + _vendorbusiness;
+    const type = "Business Type: "+ _businesstype;
+    const desc = "Business Description: "+_businessdesc;
+    const total = "Total: $50";
 
     doc.setFontSize(25);
     doc.setTextColor(85, 107, 47);
