@@ -629,12 +629,12 @@ function displayCalendar(){
 }
 
 function getDate(){
-    var date = document.getElementById("fmeventdate").value;
+    //var date = document.getElementById("fmeventdate").value;
     var datetime = document.getElementById("fmeventdateandtime").value;
-    var time = document.getElementById("fmeventtime").value;
-    console.log(date);
+    // var time = document.getElementById("fmeventtime").value;
+    //console.log(date);
     console.log(datetime);
-    console.log(time);
+    //console.log(time);
 
 }
 function renderRows(){
@@ -668,8 +668,9 @@ function renderRows(){
 function postFMEvent(){
     const eventUrl = "https://localhost:5001/api/fmevent";
 
-    const fmDate = document.getElementById("fmeventdateandtime").value;
-    console.log(fmDate);
+  //  const fmDate = document.getElementById("fmeventdateandtime").value;
+    const datetime = document.getElementById("fmeventdateandtime").value;
+    console.log(datetime);
     
     console.log("made it");
 
@@ -680,7 +681,7 @@ function postFMEvent(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            fmDate : fmeventdateandtime
+             fmeventdateandtime : datetime
         })
     })
     .then((response)=>{
@@ -692,7 +693,7 @@ function postFMEvent(){
 }
 
 function getBusinessTypeCount(){
-    const businessUrl = "https://localhost:5001/api/business";
+    const businessUrl = "https://localhost:5001/api/vendor";
     var foodbevCount;
     var attireCount;
     var artCount;
