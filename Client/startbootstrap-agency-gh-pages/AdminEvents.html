@@ -93,13 +93,13 @@
         });
       </script>
   </head>
-  <body onload="displayCalendar()">
+  <body onload="displayCalendar();getFMEvents()">
     <div class="text-center">
         <h2 class="section-heading text-uppercase">Manage Events</h2>
     </div>
     <div class = "center">
     <form id = addEvent onsubmit = "return false" method="POST" >
-      <input type="datetime-local" id=fmeventdateandtime class = "center">
+      <input type="date" id=fmeventdateandtime class = "center">
       <input type="submit" class="login-button" class = "center" onclick="postFMEvent()" onclick="getDate()"   class="signupbtn" value="Create Event"/>
     </form>
     </div>

@@ -681,7 +681,7 @@ function postFMEvent(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-             fmeventdateandtime : datetime
+            fmDate : datetime
         })
     })
     .then((response)=>{
