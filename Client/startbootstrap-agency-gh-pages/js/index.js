@@ -648,6 +648,14 @@ function renderRows(){
         }
     }))
 }
+
+function addEvent(event)
+{
+    calendar.addEvent( event [postFMEvent]);
+
+
+
+}
  // fm event  //
  function getFMEvents(){
     const eventsUrl = "https://localhost:5001/api/fmevent";
@@ -659,11 +667,13 @@ function renderRows(){
         var eventobj = json;
         console.log(eventobj);
         console.log(json);
+        displayEventTable(json);
         return eventobj;
     }).catch(function(error){
         console.log(error);
     });  
 }
+
 
 function postFMEvent(){
     const eventUrl = "https://localhost:5001/api/fmevent";
@@ -692,6 +702,19 @@ function postFMEvent(){
     console.log("made it 2");
 }
 
+function displayEventTable(json){
+    var eventTable = document.getElementById("eventTable");
+    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+   
+    json.forEach(fmEvent=> {
+        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
+    });
+    
+    html+= "</table>";
+
+    eventTable.innerHTML = html;
+}
+
 function getBusinessTypeCount(){
     const businessUrl = "https://localhost:5001/api/vendor";
     var foodbevCount;
@@ -699,27 +722,33 @@ function getBusinessTypeCount(){
     var artCount;
     var serviceCount;
     var miscCount;
-    foreach (businessType in  getVendorAccounts())
+    foreach (Vendor(businessType) in  getVendorAccounts())
     {
-        if(businessType = 'food/beverage')
+        
+        if(Vendor(businessType) = 'food/beverage')
         {
             foodbevCount++;
+            console.log(foodbevCount);
         }
         if(businessType = 'attire')
         {
             attireCount++;
+            console.log(attireCount);
         }
         if(businessType = 'arts/crafts')
         {
             artCount++;
+            console.log(artCount);
         }
         if(businessType = 'services')
         {
             serviceCount++;
+            console.log(serviceCount);
         }
         if(businessType = 'miscellaneous')
         {
             miscCount++;
+            console.log(miscCount);
         }
     }
 }
