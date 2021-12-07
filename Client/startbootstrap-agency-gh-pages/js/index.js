@@ -311,7 +311,7 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<h3 class=\"section-subheading text-muted\"></h3>';
     html+='<div class = \"row table-wrapper-scroll-y my-custom-scrollbar\">';
     html+='</div></div></div></section>';
-    
+   
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
 }
@@ -629,14 +629,10 @@ function displayCalendar(){
 }
 
 function getDate(){
-    //var date = document.getElementById("fmeventdate").value;
     var datetime = document.getElementById("fmeventdateandtime").value;
-    // var time = document.getElementById("fmeventtime").value;
-    //console.log(date);
     console.log(datetime);
-    //console.log(time);
-
 }
+
 function renderRows(){
     eventList.forEach(eventObj => {
         rendowRow(eventObj);
@@ -649,13 +645,6 @@ function renderRows(){
     }))
 }
 
-function addEvent(event)
-{
-    calendar.addEvent( event [postFMEvent]);
-
-
-
-}
  // fm event  //
  function getFMEvents(){
     const eventsUrl = "https://localhost:5001/api/fmevent";
@@ -668,6 +657,7 @@ function addEvent(event)
         console.log(eventobj);
         console.log(json);
         displayEventTable(json);
+        getBusinessTypeCount(json);
         return eventobj;
     }).catch(function(error){
         console.log(error);
@@ -678,7 +668,6 @@ function addEvent(event)
 function postFMEvent(){
     const eventUrl = "https://localhost:5001/api/fmevent";
 
-  //  const fmDate = document.getElementById("fmeventdateandtime").value;
     const datetime = document.getElementById("fmeventdateandtime").value;
     console.log(datetime);
     
@@ -715,91 +704,13 @@ function displayEventTable(json){
     eventTable.innerHTML = html;
 }
 
-function getBusinessTypeCount(){
-    const businessUrl = "https://localhost:5001/api/vendor";
-    var foodbevCount;
-    var attireCount;
-    var artCount;
-    var serviceCount;
-    var miscCount;
-    foreach (Vendor(businessType) in  getVendorAccounts())
-    {
-        
-        if(Vendor(businessType) = 'food/beverage')
-        {
-            foodbevCount++;
-            console.log(foodbevCount);
-        }
-        if(businessType = 'attire')
-        {
-            attireCount++;
-            console.log(attireCount);
-        }
-        if(businessType = 'arts/crafts')
-        {
-            artCount++;
-            console.log(artCount);
-        }
-        if(businessType = 'services')
-        {
-            serviceCount++;
-            console.log(serviceCount);
-        }
-        if(businessType = 'miscellaneous')
-        {
-            miscCount++;
-            console.log(miscCount);
-        }
-    }
+function dataEvent1(){
+    var x = document.getElementById("EventDate").selectedIndex;
+    const selectedDate = document.getElementsByName("EventDate")[x].value;
+    console.log(selectedDate);
 }
 
 
 
 
-// function editStatus(id){
-//    // const id = document.getElementById("edit").value;
-//     const putUrl = "https://localhost:7200/api/posts/" + id;
-//     const text = document.getElementById("update").value;
-//     // const date = document.getElementById("dateTime").innerHTML = new Date();
-
-//     fetch(putUrl, {
-//         method: "PUT",
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             postID: id,
-//             postText: text
-//             // stamp: date
-//         })
-//     })
-//     .then((response)=>{
-//         console.log(response);
-//         getPosts();
-//     })
-// }
-
-// function deleteStatus(id){
-//    // var id = document.getElementById("delete");
-//     const deleteUrl = "https://localhost:7200/api/posts/" + id;
-//    // postID: parseInt(text);
-
-//     fetch(deleteUrl, {
-//         method: "DELETE",
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             postID: id
-//             // stamp: date
-//         })
-
-//     })
-//     .then((response)=>{
-//         console.log(response);
-//         getPosts();
-//     })
-// }
 

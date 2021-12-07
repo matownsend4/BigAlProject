@@ -128,13 +128,14 @@
         <div class="business-type-report">
             <h4>Distribution of Business Type Report</h4>
             <label for="EventDate"><b>Choose Event Date: </b></label>
-                <select id="EventDate">
-                <option  name="EventDate" value="food/beverage">Date 1</option>
-                <option  name="EventDate" value="attire">Date 2</option>
-                <option  name="EventDate" value="arts/crafts">Date 3</option>
-                <option  name="EventDate" value="services">Date 4</option>
-                <option  name="EventDate" value="miscellaneous">Date 5</option>
+                <select id="EventDate" onclick="dataEvent1()">
+                <option  name="EventDate" value="date1" >10/9/2021</option>
+                <option  name="EventDate" value="date2">10/23/2021</option>
+                <option  name="EventDate" value="date3">11/6/2021</option>
+                <option  name="EventDate" value="date4">11/20/2021</option>
+                <option  name="EventDate" value="date5">12/4/2021</option>
                 </select>
+
             <div class = center style = "top: 60px; left: 10px; width: 1000px; height: 600px;">
             <canvas id="barChart" width fixed ="50" height fixed ="50"></canvas> 
         </div>
@@ -147,7 +148,7 @@
                 labels: ['Food/Beverage', 'Attire', 'Arts/Crafts', 'Services', 'Miscellaneous'],
                 datasets: [{
                 label: 'Number of Vendors per Category',
-                data: [5, 19, 3, 5, 2],
+                data: [2, 19, 3, 5, 2],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -178,12 +179,12 @@
         <div class="number-of-attendees-report">
             <h4>Number of Attendees Report</h4>
             <label for="EventDate"><b>Choose Event Date: </b></label>
-                <select id="EventDate">
-                <option  name="EventDate" value="date1">Date 1</option>
-                <option  name="EventDate" value="date2">Date 2</option>
-                <option  name="EventDate" value="date3">Date 3</option>
-                <option  name="EventDate" value="date4">Date 4</option>
-                <option  name="EventDate" value="date5">Date 5</option>
+            <select id="EventDate">
+                <option  name="EventDate" value="date1">10/9/2021</option>
+                <option  name="EventDate" value="date2">10/23/2021</option>
+                <option  name="EventDate" value="date3">11/6/2021</option>
+                <option  name="EventDate" value="date4">11/20/2021</option>
+                <option  name="EventDate" value="date5">12/4/2021</option>
                 </select>
                 <div class = "center" style = "top: 20px; left: 10px; width: 500px; height: 500px;">
                     <canvas id="pieChart" width fixed ="50" height fixed ="50"></canvas> 
@@ -213,11 +214,11 @@
             <h4>Total Revenue Report</h4>
             <label for="EventDate"><b>Choose Event Date: </b></label>
                 <select id="EventDate">
-                <option  name="EventDate" value="date1">Date 1</option>
-                <option  name="EventDate" value="date2">Date 2</option>
-                <option  name="EventDate" value="date3">Date 3</option>
-                <option  name="EventDate" value="date4">Date 4</option>
-                <option  name="EventDate" value="date5">Date 5</option>
+                <option  name="EventDate" value="date1">10/9/2021</option>
+                <option  name="EventDate" value="date2">10/23/2021</option>
+                <option  name="EventDate" value="date3">11/6/2021</option>
+                <option  name="EventDate" value="date4">11/20/2021</option>
+                <option  name="EventDate" value="date5">12/4/2021</option>
                 </select>
                 <div class = "center" style = "top: 20px; left: 10px; width: 1000px; height: 1000px;">
                     <canvas id="lineChart" width fixed ="50" height fixed ="50"></canvas> 
@@ -239,6 +240,9 @@
                         }, 
                     })
                 </script>
+               
+            </div>
+            </script>
         </div>
     </div>
             
