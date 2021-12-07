@@ -7,7 +7,7 @@ namespace api.Model
     public class FMEvent
     {
         public int FMEventID {get; set;}
-        public DateTime FMDate {get; set;}
+        public string FMDate {get; set;}
         
         public IFMEventDataHandler fMEventDataHandler {get; set;}
         public FMEvent()
