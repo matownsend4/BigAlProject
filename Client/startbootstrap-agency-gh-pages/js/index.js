@@ -307,9 +307,10 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<div class =\"tickets\">';
     html+='<div class=\"container\">';
     html+='<div class=\"text-center\">';
-    html+='<h2 class=\"section-heading text-uppercase\"></h2>'
+    html+='<h2 class=\"section-heading text-uppercase\">View Events</h2>'
     html+='<h3 class=\"section-subheading text-muted\"></h3>';
-    html+='</div></div></div></div></div></section>';
+    html+='<div class = \"row table-wrapper-scroll-y my-custom-scrollbar\">';
+    html+='</div></div></div></section>';
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
@@ -467,12 +468,19 @@ function searchVendor(){
         const vendorpassword = vendobj[emailIndex].vendorPassword;
 
         const vendorfirstname = vendobj[emailIndex].vendorFName;
+        console.log(vendorfirstname);
         const vendorlastname = vendobj[emailIndex].vendorLName;
+        console.log(vendorlastname);
         const vendorphoneno = vendobj[emailIndex].vendorPhoneNo;
+        console.log(vendorphoneno);
         const vendorid = vendobj[emailIndex].vendorID;
+        console.log(vendorid);
         const vendorbusiness = vendobj[emailIndex].businessName;
+        console.log(vendorbusiness);
         const businesstype = vendobj[emailIndex].businessType;
+        console.log(businesstype);
         const businessdesc = vendobj[emailIndex].businessDescription;
+        console.log(businessdesc);
     
         var vendorFound;
         if((emailIndex != -1) && (vendorEmailLogin == vendoremail) && (vendorPasswordLogin == vendorpassword))
@@ -519,6 +527,13 @@ function hideVendorLogin()
 function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
 {
     let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: ${_vendorfirstname} ${_vendorlastname}</h6>`
+    html+=`<h6>Phone Number: ${_vendorphoneno}</h6>`;
+    html+=`<h6>Email: ${_vendoremail}</h6>`;
+    html+='<br></br>';
+    html+=`<h6>Business: ${_vendorbusiness}</h6>`;
+    html+=`<h6>Type of Business: ${_businesstype}</h6>`;
+    html+=`<h6>Description: ${_businessdesc}</h6>`;
+    html+='<br></br>';
     html+='<section class=\"page-section bg-light\" id=\"PurchaseBooth\">';
     html+= '<div class =\"tickets\">';
     html+='<div class=\"container\">';
@@ -527,9 +542,10 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<div class=\"imgcontainer\">';
     html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
     html+='<div class=\"container\">'
+    html+='<br></br>';
     html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
     html+='<div class=\"clearfix\">';
-    html+=`<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth(${_vendorid})\" value=\"Purchase\"/>`;
+    html+="<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth("+_vendorid+","+_vendorbusiness+","+_businesstype+","+_businessdesc+")\" value=\"Purchase\"/>";
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
