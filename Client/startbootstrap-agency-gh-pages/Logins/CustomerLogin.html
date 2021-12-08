@@ -34,9 +34,7 @@
             <h2 class="section-heading text-uppercase" id="custloginheader">Customer Login</h2> 
             <!-- maybe change the inner html on the header instead -->
             <body>
-            <!-- <div class="signup"> -->
               <div class="login">
-                <!-- <form action="../index.html" method="post"> -->
                   <form onsubmit = "return false"; method="post">
                     <div class="container">
                       <label for="email" id="custemaillabel"><b>Email</b></label>
@@ -48,6 +46,7 @@
                       <input type="submit" class="login-button" onclick = "searchCustomer()" value="Login" id="customerlogin"/>
                     
                       <div id="customerprofileinfo"></div>
+                      <div id="eventTable"></div>
                       <div id="pastEventTable"></div>
                     </div>
                   </form> 

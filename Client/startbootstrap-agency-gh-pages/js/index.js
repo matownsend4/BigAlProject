@@ -204,6 +204,7 @@ function hideAdminLogin()
 var custobj;
 function searchCustomer(){
     getFMEvents();
+    document.getElementById("eventTable").style.display = "none";
     document.getElementById("pastEventTable").style.display = "none";
 
     const customersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
@@ -314,6 +315,10 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<br></br>';
 
     // view past and currently registered for events
+    html+='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>'
+    document.getElementById("eventTable").style.display = "block";
+
+    html+='<h2 class=\"section-heading text-uppercase\">Past Events</h2>'
     document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("customerlogout").innerHTML = "Logout";
@@ -446,6 +451,7 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
 var vendobj;
 function searchVendor(){
     getFMEvents();
+    document.getElementById("eventTable").style.display = "none";
     document.getElementById("pastEventTable").style.display = "none";
 
     //const vendorUrl = "https://localhost:5001/api/vendor";
@@ -557,6 +563,10 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
+    html+='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>'
+    document.getElementById("eventTable").style.display = "block";
+
+    html+='<h2 class=\"section-heading text-uppercase\">Past Events</h2>'
     document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
@@ -578,7 +588,6 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     });  
 }
 
-// _vendorid, _vendorbusiness, _businesstype, _businessdesc
 function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
     //const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
@@ -631,8 +640,6 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     doc.save('receipt.pdf');  
 }
 
-// ${_vendorid}, ${_vendorbusiness},${_businesstype}, ${_businessdesc}
-
 function displayCalendar(){
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar').value;
@@ -678,7 +685,6 @@ function renderRows(){
         console.log(error);
     });  
 }
-
 
 function postFMEvent(){
     //const eventUrl = "https://localhost:5001/api/fmevent";
