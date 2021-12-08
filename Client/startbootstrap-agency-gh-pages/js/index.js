@@ -715,9 +715,7 @@ function displayEventTable(json){
     var eventTable = document.getElementById("eventTable");
     var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
 
-        html+=`<tr><td>${json[0].fmEventID}</td><td>${json[0].fmDate}</td></tr>`;
-    
-    
+    html+=`<tr><td>${json[0].fmEventID}</td><td>${json[0].fmDate}</td></tr>`;
     html+= "</table>";
 
     eventTable.innerHTML = html;
@@ -725,10 +723,11 @@ function displayEventTable(json){
 
 function displayPastEventTable(json){
     var pastEventTable = document.getElementById("pastEventTable");
-    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
    
-    json.forEach(fmEvent=> {
-        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
+    json.forEach(fmEvent=>{
+        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
+        html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
         
     });
     
