@@ -379,7 +379,6 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     var pastEventTable = document.getElementById("pastEventTable");
     var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
     tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
-    //     html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
     tablehtml+= "</table>";
     pastEventTable.innerHTML = tablehtml;
 }
@@ -517,26 +516,61 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid, eventID)
 
 // Handling Vendor Account info and booth purchases
 var vendobj;
+var boothobj;
+var eventobj;
 function searchVendor(){
-    getFMEvents();
-    document.getElementById("eventTable").style.display = "none";
-    document.getElementById("pastEventTable").style.display = "none";
+        getFMEvents();
+        document.getElementById("eventTable").style.display = "none";
+        document.getElementById("pastEventTable").style.display = "none";
 
-    //const vendorUrl = "https://localhost:5001/api/vendor";
-    const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
-  
-    fetch(vendorUrl).then(function(response){
-        console.log(response);
-        return response.json();
-    }).then(function(json){
-        vendobj = json;
-        console.log(vendobj);
-        console.log(json);
-        return vendobj;
-    }).catch(function(error){
-        console.log(error);
-    });
-   
+        //const vendorUrl = "https://localhost:5001/api/vendor";
+        const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
+
+        fetch(vendorUrl).then(function(response){
+            console.log(response);
+            return response.json();
+        }).then(function(json){
+            vendobj = json;
+            console.log(vendobj);
+            console.log(json);
+            return vendobj;
+        }).catch(function(error){
+            console.log(error);
+        });
+
+        // to access booth id
+        //const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+        const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
+
+
+        fetch(allBoothsUrl).then(function(response){
+            console.log(response);
+            return response.json();
+        }).then(function(json){
+            boothobj = json;
+            console.log(boothobj);
+            console.log(json);
+        }).catch(function(error){
+            console.log(error);
+        });  
+
+
+        // to access event ID
+        //const eventsUrl = "https://localhost:5001/api/fmevent";
+        const eventsUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
+
+        fetch(eventsUrl).then(function(response){
+            console.log(response);
+            return response.json();
+        }).then(function(json){
+            eventobj = json;
+            console.log(eventobj);
+            console.log(json);
+            return eventobj;
+        }).catch(function(error){
+            console.log(error);
+        });  
+
         var vendorEmailLogin = document.getElementById("vendoremail").value;
         var vendorPasswordLogin = document.getElementById("vendorpsw").value;
     
@@ -563,6 +597,23 @@ function searchVendor(){
         console.log(businesstype);
         const businessdesc = vendobj[emailIndex].businessDescription;
         console.log(businessdesc);
+
+        const boothIndex = boothobj.findIndex(x => x.vendorID==vendorid);
+        console.log("hey");
+        console.log(boothIndex);
+        console.log("bye");
+    
+        const foundBoothEventID = boothobj[boothIndex].eventID;
+        console.log(foundBoothEventID);
+    
+        const eventIndex = eventobj.findIndex(y => y.fmEventID==foundBoothEventID);
+        console.log(eventIndex);
+    
+        console.log(eventobj[eventIndex].fmEventID);
+        console.log(eventobj[eventIndex].fmDate);
+    
+        const fmid = eventobj[eventIndex].fmEventID;
+        const fmdate = eventobj[eventIndex].fmDate;
     
         var vendorFound;
         if((emailIndex != -1) && (vendorEmailLogin == vendoremail) && (vendorPasswordLogin == vendorpassword))
@@ -578,16 +629,16 @@ function searchVendor(){
             vendorFound = false;
         }
     
-       validateVendor(vendorFound, vendoremail, vendorfirstname, vendorlastname, vendorphoneno, vendorid, vendorbusiness, businesstype, businessdesc);
+       validateVendor(vendorFound, vendoremail, vendorfirstname, vendorlastname, vendorphoneno, vendorid, vendorbusiness, businesstype, businessdesc, fmid, fmdate);
 }
 
-function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
+function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc, _fmid, _fmdate)
 {
     if(vendorFound)
     {
         //alert("Login Successful");
         hideVendorLogin();
-        displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc);
+        displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc, _fmid, _fmdate);
         return false;
     }
     else
@@ -606,7 +657,7 @@ function hideVendorLogin()
     document.getElementById("vendorloginbtn").style.display="none";
 }
 
-function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc)
+function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc, _fmid, _fmdate)
 {
     let html = `<h1>VENDOR ACCOUNT</h1><h6>Full Name: ${_vendorfirstname} ${_vendorlastname}</h6>`
     html+=`<h6>Phone Number: ${_vendorphoneno}</h6>`;
@@ -636,14 +687,20 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     
     html+='<h2 class="section-heading text-uppercase">Upcoming Events</h2>';
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
-    html+='</div><div class = "row"><div class = "col-md-12">';
+    html+='</div><div class = "row"><div class = "col-md-12">';    
 
-    html+='<h2 class="section-heading text-uppercase">Past Events</h2>';
+    html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
     html+='</div><div class = "row"><div class = "col-md-12">';
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
+
+    var pastEventTable = document.getElementById("pastEventTable");
+    var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
+    tablehtml+= "</table>";
+    pastEventTable.innerHTML = tablehtml;
 }
 
  // booth //
@@ -740,7 +797,6 @@ function getDate(){
         console.log(eventobj);
         console.log(json);
         displayEventTable(json);
-        displayPastEventTable(json);
         return eventobj;
     }).catch(function(error){
         console.log(error);
