@@ -390,7 +390,7 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
 
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+   //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
