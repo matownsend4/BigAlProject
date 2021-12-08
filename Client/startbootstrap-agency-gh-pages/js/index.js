@@ -204,7 +204,7 @@ function hideAdminLogin()
 var custobj;
 function searchCustomer(){
     getFMEvents();
-    document.getElementById("eventTable").style.display = "none";
+    document.getElementById("pastEventTable").style.display = "none";
 
     const customersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
     //const customersUrl = "https://localhost:5001/api/customer";
@@ -314,7 +314,7 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<br></br>';
 
     // view past and currently registered for events
-    document.getElementById("eventTable").style.display = "block";
+    document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
@@ -446,7 +446,7 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
 var vendobj;
 function searchVendor(){
     getFMEvents();
-    document.getElementById("eventTable").style.display = "none";
+    document.getElementById("pastEventTable").style.display = "none";
 
     //const vendorUrl = "https://localhost:5001/api/vendor";
     const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
@@ -557,7 +557,7 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
-    document.getElementById("eventTable").style.display = "block";
+    document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
@@ -644,14 +644,10 @@ function displayCalendar(){
 }
 
 function getDate(){
-    //var date = document.getElementById("fmeventdate").value;
     var datetime = document.getElementById("fmeventdateandtime").value;
-    // var time = document.getElementById("fmeventtime").value;
-    //console.log(date);
     console.log(datetime);
-    //console.log(time);
-
 }
+
 function renderRows(){
     eventList.forEach(eventObj => {
         rendowRow(eventObj);
@@ -664,13 +660,6 @@ function renderRows(){
     }))
 }
 
-function addEvent(event)
-{
-    calendar.addEvent( event [postFMEvent]);
-
-
-
-}
  // fm event  //
  function getFMEvents(){
     //const eventsUrl = "https://localhost:5001/api/fmevent";
@@ -714,8 +703,6 @@ function postFMEvent(){
         console.log(response);
         getFMEvents();
     })
-
-    console.log("made it 2");
 }
 
 function displayEventTable(json){
@@ -731,41 +718,15 @@ function displayEventTable(json){
     eventTable.innerHTML = html;
 }
 
-function getBusinessTypeCount(){
-    //const businessUrl = "https://localhost:5001/api/vendor";
-    const businessUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
-    var foodbevCount;
-    var attireCount;
-    var artCount;
-    var serviceCount;
-    var miscCount;
-    foreach (Vendor(businessType) in  getVendorAccounts())
-    {
-        
-        if(Vendor(businessType) = 'food/beverage')
-        {
-            foodbevCount++;
-            console.log(foodbevCount);
-        }
-        if(businessType = 'attire')
-        {
-            attireCount++;
-            console.log(attireCount);
-        }
-        if(businessType = 'arts/crafts')
-        {
-            artCount++;
-            console.log(artCount);
-        }
-        if(businessType = 'services')
-        {
-            serviceCount++;
-            console.log(serviceCount);
-        }
-        if(businessType = 'miscellaneous')
-        {
-            miscCount++;
-            console.log(miscCount);
-        }
-    }
+function displayPastEventTable(json){
+    var pastEventTable = document.getElementById("pastEventTable");
+    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+   
+    json.forEach(fmEvent=> {
+        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
+    });
+    
+    html+= "</table>";
+
+    pastEventTable.innerHTML = html;
 }
