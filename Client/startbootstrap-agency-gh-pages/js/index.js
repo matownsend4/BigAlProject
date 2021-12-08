@@ -1,6 +1,7 @@
 // customers //
 function getCustomerAccounts(){
-    const allCustomersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
+    const allCustomersUrl = "https://localhost:5001/api/customer";
+   // const allCustomersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
 
     fetch(allCustomersUrl).then(function(response){
         console.log(response);
@@ -16,7 +17,8 @@ function getCustomerAccounts(){
 }
 
 function postCustomerAccount(){
-    const customerUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
+    const customersUrl = "https://localhost:5001/api/customer";
+    //const customerUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
 
     const fname = document.getElementById("Fname").value;
     
@@ -28,7 +30,7 @@ function postCustomerAccount(){
     
     const psw = document.getElementById("psw").value;
     
-    fetch(customerUrl, {
+    fetch(customersUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -52,7 +54,8 @@ function postCustomerAccount(){
 
 // vendors //
 function getVendorAccounts(){
-    const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
+    const vendorUrl = "https://localhost:5001/api/vendor";
+    //const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
 
     fetch(vendorUrl).then(function(response){
         console.log(response);
@@ -66,7 +69,8 @@ function getVendorAccounts(){
 }
 
 function postVendorAccount(){
-    const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
+    const vendorUrl = "https://localhost:5001/api/vendor";
+   // const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
 
     const VendorFName = document.getElementById("VendorFName").value;
 
@@ -111,7 +115,8 @@ function postVendorAccount(){
 
 // tickets //
 function getTickets(){
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+    //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     fetch(allTicketsUrl).then(function(response){
         console.log(response);
@@ -125,7 +130,8 @@ function getTickets(){
 
 var adminobj;
 function searchAdmin(){
-    const adminUrl = "https://farmersmarketapi1.herokuapp.com/api/admin";
+    const adminUrl = "https://localhost:5001/api/admin";
+    //const adminUrl = "https://farmersmarketapi1.herokuapp.com/api/admin";
 
     fetch(adminUrl).then(function(response){
         console.log(response);
@@ -147,7 +153,7 @@ function searchAdmin(){
 
     var passwordIndex = adminobj.findIndex(obj => obj.adminPassword==passwordLogin);
     console.log(passwordIndex);
-    
+
     var foundAdmin;
     if((emailIndex == passwordIndex) && (emailIndex != -1))
     {
@@ -191,8 +197,8 @@ var custobj;
 function searchCustomer(){
     getFMEvents();
     document.getElementById("eventTable").style.display = "none";
-
-    const customersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
+    const customersUrl = "https://localhost:5001/api/customer";
+    //const customersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
 
     fetch(customersUrl).then(function(response){
         console.log(response);
@@ -210,8 +216,9 @@ function searchCustomer(){
     const customerPasswordLogin = document.getElementById("customerpsw").value;
 
     const emailIndex = custobj.findIndex(obj => obj.customerEmail==customerEmailLogin);
-
+    console.log(emailIndex);
     const passwordIndex = custobj.findIndex(obj => obj.customerPassword==customerPasswordLogin);
+    console.log(passwordIndex);
 
     console.log(custobj[emailIndex].customerID); //gets id of logged in customer
     console.log(custobj[emailIndex].customerFName);
@@ -292,6 +299,8 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='</div></div></div></div></div></section>';
     html+='<br></br>';
 
+    document.getElementById("eventTable").style.display = "block";
+
     // view past and currently registered for events
     html+='<br></br>';
     html+='<section class=\"page-section bg-light\">';
@@ -328,7 +337,8 @@ function postTicket(_customerid){
 }
 
 function postAdultTicket(selectedTicket, intNumTickets, _customerid){
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+    //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     console.log("made it");
 
@@ -379,6 +389,7 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
 }
 
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
     const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     console.log(intNumTickets);
@@ -432,7 +443,8 @@ function searchVendor(){
     getFMEvents();
     document.getElementById("eventTable").style.display = "none";
 
-    const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
+    const vendorUrl = "https://localhost:5001/api/vendor";
+    //const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
   
     fetch(vendorUrl).then(function(response){
         console.log(response);
@@ -490,6 +502,7 @@ function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlast
 {
     if(vendorFound)
     {
+        alert("Login Successful")
         hideVendorLogin();
         displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc);
         return false;
@@ -557,8 +570,8 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
 }
 
 function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
-    
-    const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
+   // const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
 
     console.log("made it");
     fetch(allBoothsUrl, {
@@ -637,7 +650,8 @@ function renderRows(){
 
  // fm event  //
  function getFMEvents(){
-    const eventsUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
+    const eventsUrl = "https://localhost:5001/api/fmevent";
+    //const eventsUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
 
     fetch(eventsUrl).then(function(response){
         console.log(response);
@@ -656,7 +670,8 @@ function renderRows(){
 
 
 function postFMEvent(){
-    const eventUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
+    const eventsUrl = "https://localhost:5001/api/fmevent";
+    //const eventUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
 
     const datetime = document.getElementById("fmeventdateandtime").value;
     console.log(datetime);
