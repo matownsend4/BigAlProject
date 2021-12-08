@@ -297,6 +297,9 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<br></br>';
     html+='<label for=\"NumTickets\"><b>Enter number of tickets: &emsp;</b></label>';
     html+='<input type=\"number\" placeholder=\"Number of Tickets\" min=\"1\" id=\"numberOfTickets\">';
+    html+='<br></br>';
+    html+='<label for=\"fmeventid\"><b>Enter Event ID: &emsp;</b></label>';
+    html+='<input type=\"number\" placeholder=\"Event ID\" min=\"1\" id=\"eventid\">';
     html+='<div class=\"clearfix\">';
     html+='<br></br>';
     html+=`<input type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postTicket(${_customerid})\" value=\"Purchase\"/>`;
@@ -306,21 +309,6 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
 
     // view past and currently registered for events
     document.getElementById("eventTable").style.display = "block";
-    // html+='<br></br>';
-    // html+='<section class=\"page-section bg-light\">';
-    // html+='<div class =\"tickets\">';
-    // html+='<div class=\"container\">';
-    // html+='<div class=\"text-center\">';
-    // html+='<h2 class=\"section-heading text-uppercase\">View Events</h2>'
-    // html+='<h3 class=\"section-subheading text-muted\"></h3>';
-    
-    // html+='<div id = \"eventTable\">';
-    // // html+='<div class = \"row table-wrapper-scroll-y my-custom-scrollbar\">';
-    // // html+='<div class = \"col-md-12"><div id = \"eventTable\"></div></div>';
-    // html+='</div>';
-    // // html+='<div class = \"row\">';
-    // // html+='<div class = \"col-md-12\">';
-    // html+='</div></div></div></section>';
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
