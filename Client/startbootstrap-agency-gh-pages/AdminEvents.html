@@ -41,33 +41,33 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Admin Account</h2>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://patch.com/img/cdn20/users/24390419/20210327/091102/styles/raw/public/processed_images/Screen%20Shot%202021-03-27%20at%208.10.51%20PM.png" alt="..." />
-                         <!-- <h4>Event 1</h4>
-                        <p class="text-muted">2 Weeks Away</p>  -->
-                    </div>
+                         <h4>Event 1</h4>
+                        <p class="text-muted">2 Weeks Away</p> -->
+                    <!-- </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://www.tuscaloosa.com/__aws/posts/2942_huge.jpg?1522853918" alt="..." />
-                        <!-- <h4>Event 2</h4>
+                        <h4>Event 2</h4>
                         <p class="text-muted">4 Weeks Away</p> -->
-                    </div>
-                </div>
+                    <!-- </div> -->
+                <!-- </div>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="https://food.unl.edu/newsletters/images/farmers-market-baskets.jpg" alt="..." />
-                            <!-- <h4>Event 3</h4> -->
-                        <!-- <p class="text-muted">6 Weeks Away</p> --> 
-                     </div> 
-                 </div>  
+                            <h4>Event 3</h4> -->
+                        <!-- <p class="text-muted">6 Weeks Away</p> -->
+                    <!-- </div> -->
+                <!-- </div>  -->
                 <!-- <div class="text-center">
                     <button class="Create-button" onclick=" window.location.href = './AddEvents.html';">Add Event</button>
                 </div> -->
-             </div>
-         </div> 
+            <!-- </div> -->
+        <!-- </div> --> 
     </section>
     <!-- Caldendar -->
     <section>   
@@ -80,7 +80,7 @@
           headerToolbar: {
               left: 'prev,next,today',
               center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
           },
           selectable: true,
   
@@ -175,10 +175,20 @@
         <div class="number-of-attendees-report">
             <h4>Number of Attendees Report</h4>
             <label for="EventDate"><b>Choose Event Date: </b></label>
+<<<<<<< HEAD
             <select id="EventDate">
                 <option  name="EventDate" value="date1">12/4/2021</option>
             </select>
             <h6>Total Attendees: 400</h6>
+=======
+                <select id="EventDate">
+                <option  name="EventDate" value="date1">Date 1</option>
+                <option  name="EventDate" value="date2">Date 2</option>
+                <option  name="EventDate" value="date3">Date 3</option>
+                <option  name="EventDate" value="date4">Date 4</option>
+                <option  name="EventDate" value="date5">Date 5</option>
+                </select>
+>>>>>>> f58f0726d8eb0b4775a28cdd3792dcd7e1d05779
                 <div class = "center" style = "top: 20px; left: 10px; width: 500px; height: 500px;">
                     <canvas id="pieChart" width fixed ="50" height fixed ="50"></canvas> 
                 </div>
@@ -205,6 +215,14 @@
         </div>
         <div class="total-revenue-report">
             <h4>Total Revenue Report</h4>
+            <label for="EventDate"><b>Choose Event Date: </b></label>
+                <select id="EventDate">
+                <option  name="EventDate" value="date1">Date 1</option>
+                <option  name="EventDate" value="date2">Date 2</option>
+                <option  name="EventDate" value="date3">Date 3</option>
+                <option  name="EventDate" value="date4">Date 4</option>
+                <option  name="EventDate" value="date5">Date 5</option>
+                </select>
                 <div class = "center" style = "top: 20px; left: 10px; width: 1000px; height: 1000px;">
                     <canvas id="lineChart" width fixed ="50" height fixed ="50"></canvas> 
                 </div>
@@ -214,7 +232,7 @@
                     const lineChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: ['10/9/2021', '10/23/2021', '11/6/2021', '11/20/2021', '12/4/2021'],
+                            labels: ['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5'],
                             datasets: [{
                             label: 'Total Revenue',
                             data: [4150, 3900, 3700, 3156, 4176],
@@ -225,9 +243,5 @@
                         }, 
                     })
                 </script>
-               
-            </div>
-            </script>
         </div>
     </div>
-            
