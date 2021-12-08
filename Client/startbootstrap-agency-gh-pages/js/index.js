@@ -311,10 +311,13 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<br></br>';
 
     // view past and currently registered for events
-    
-    document.getElementById("eventTable").style.display = "block";
+    html+='<h2 class="section-heading text-uppercase">Upcoming Event</h2>';
+    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
+    html+='</div><div class = "row"><div class = "col-md-12">';
 
-    document.getElementById("pastEventTable").style.display = "block";
+    html+='<h2 class="section-heading text-uppercase">Past Events</h2>';
+    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
+    html+='</div><div class = "row"><div class = "col-md-12">';
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
@@ -570,12 +573,16 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
-    
+    html+='<h2 class="section-heading text-uppercase">Upcoming Events</h2>';
+    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
+    html+='</div><div class = "row"><div class = "col-md-12">';
+
+    html+='<h2 class="section-heading text-uppercase">Past Events</h2>';
+    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
+    html+='</div><div class = "row"><div class = "col-md-12">';
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
-    document.getElementById("eventTable").style.display = "block";
-    document.getElementById("pastEventTable").style.display = "block";
 }
 
  // booth //
@@ -669,6 +676,7 @@ function getDate(){
         console.log(eventobj);
         console.log(json);
         displayEventTable(json);
+        displayPastEventTable(json);
         return eventobj;
     }).catch(function(error){
         console.log(error);
@@ -702,12 +710,10 @@ function postFMEvent(){
 
 function displayEventTable(json){
     var eventTable = document.getElementById("eventTable");
-    var html ='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>';
-    html += "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
-   
-    json.forEach(fmEvent=> {
-        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
-    });
+    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+
+        html+=`<tr><td>${json[0].fmEventID}</td><td>${json[0].fmDate}</td></tr>`;
+    
     
     html+= "</table>";
 
@@ -716,8 +722,7 @@ function displayEventTable(json){
 
 function displayPastEventTable(json){
     var pastEventTable = document.getElementById("pastEventTable");
-    var html ='<h2 class=\"section-heading text-uppercase\">Past Events</h2>';
-    html += "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
    
     json.forEach(fmEvent=> {
         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
