@@ -73,7 +73,6 @@ namespace api.Data
                 {"@vendorEmail", vendor.VendorEmail},
                 {"@vendorPassword", vendor.VendorPassword},
                 {"@vendorPhoneNo", vendor.VendorPhoneNo},
-                //{"@businessId", vendor.BusinessID},
                 {"@businessName", vendor.BusinessName},
                 {"@businessType", vendor.BusinessType},
                 {"@businessDescription", vendor.BusinessDescription},
