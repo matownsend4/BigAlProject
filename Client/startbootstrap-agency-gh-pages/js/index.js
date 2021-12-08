@@ -274,21 +274,32 @@ function searchCustomer(){
       
   
     const ticketIndex = ticketobj.findIndex(x => x.customerID==customerid);
+
     console.log("hey");
     console.log(ticketIndex);
     console.log("bye");
+    let fmid;
+    let fmdate;
+    if(ticketIndex == -1)
+    {
+        fmid = -1;
+        fmdate = -1;
+    }
+    else
+    {
+        const foundTicketEventID = ticketobj[ticketIndex].eventID;
+        console.log(foundTicketEventID);
 
-    const foundTicketEventID = ticketobj[ticketIndex].eventID;
-    console.log(foundTicketEventID);
+        const eventIndex = eventobj.findIndex(y => y.fmEventID==foundTicketEventID);
+        console.log(eventIndex);
 
-    const eventIndex = eventobj.findIndex(y => y.fmEventID==foundTicketEventID);
-    console.log(eventIndex);
+        console.log(eventobj[eventIndex].fmEventID);
+        console.log(eventobj[eventIndex].fmDate);
 
-    console.log(eventobj[eventIndex].fmEventID);
-    console.log(eventobj[eventIndex].fmDate);
-
-    const fmid = eventobj[eventIndex].fmEventID;
-    const fmdate = eventobj[eventIndex].fmDate;
+        fmid = eventobj[eventIndex].fmEventID;
+        fmdate = eventobj[eventIndex].fmDate;
+    }
+    
 
 
     var found;
@@ -369,18 +380,26 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
     html+='</div><div class = "row"><div class = "col-md-12">';
 
-    html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
-    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
-    html+='</div><div class = "row"><div class = "col-md-12">';
+
+    if(_fmid != -1 && _fmdate != -1)
+    {
+        html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
+        html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
+        html+='</div><div class = "row"><div class = "col-md-12">';
+    }
+    
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
 
-    var pastEventTable = document.getElementById("pastEventTable");
-    var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
-    tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
-    tablehtml+= "</table>";
-    pastEventTable.innerHTML = tablehtml;
+    if(_fmid != -1 && _fmdate != -1)
+    {
+        var pastEventTable = document.getElementById("pastEventTable");
+        var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+        tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
+        tablehtml+= "</table>";
+        pastEventTable.innerHTML = tablehtml;    
+    }
 }
 
 function postTicket(_customerid){
@@ -602,18 +621,28 @@ function searchVendor(){
         console.log("hey");
         console.log(boothIndex);
         console.log("bye");
-    
-        const foundBoothEventID = boothobj[boothIndex].eventID;
-        console.log(foundBoothEventID);
-    
-        const eventIndex = eventobj.findIndex(y => y.fmEventID==foundBoothEventID);
-        console.log(eventIndex);
-    
-        console.log(eventobj[eventIndex].fmEventID);
-        console.log(eventobj[eventIndex].fmDate);
-    
-        const fmid = eventobj[eventIndex].fmEventID;
-        const fmdate = eventobj[eventIndex].fmDate;
+        
+        let fmid;
+        let fmdate;
+        if(boothIndex == -1)
+        {
+            fmid = -1;
+            fmdate = -1;
+        }
+        else
+        {
+            const foundBoothEventID = boothobj[boothIndex].eventID;
+            console.log(foundBoothEventID);
+        
+            const eventIndex = eventobj.findIndex(y => y.fmEventID==foundBoothEventID);
+            console.log(eventIndex);
+        
+            console.log(eventobj[eventIndex].fmEventID);
+            console.log(eventobj[eventIndex].fmDate);
+        
+            fmid = eventobj[eventIndex].fmEventID;
+            fmdate = eventobj[eventIndex].fmDate;
+        }
     
         var vendorFound;
         if((emailIndex != -1) && (vendorEmailLogin == vendoremail) && (vendorPasswordLogin == vendorpassword))
@@ -689,18 +718,25 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
     html+='</div><div class = "row"><div class = "col-md-12">';    
 
-    html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
-    html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
-    html+='</div><div class = "row"><div class = "col-md-12">';
+
+    if(_fmid != -1 && _fmdate != -1)
+    {
+        html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
+        html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
+        html+='</div><div class = "row"><div class = "col-md-12">';
+    }
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
 
-    var pastEventTable = document.getElementById("pastEventTable");
-    var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
-    tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
-    tablehtml+= "</table>";
-    pastEventTable.innerHTML = tablehtml;
+    if(_fmid != -1 && _fmdate != -1)
+    {
+        var pastEventTable = document.getElementById("pastEventTable");
+        var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+        tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
+        tablehtml+= "</table>";
+        pastEventTable.innerHTML = tablehtml;
+    }
 }
 
  // booth //
@@ -828,6 +864,7 @@ function postFMEvent(){
     })
 }
 
+//display upcoming events
 function displayEventTable(json){
     var eventTable = document.getElementById("eventTable");
     var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
@@ -837,33 +874,3 @@ function displayEventTable(json){
 
     eventTable.innerHTML = html;
 }
-
-// function displayPastEventTable(json){
-//     var pastEventTable = document.getElementById("pastEventTable");
-//     var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
-   
-//     json.forEach(fmEvent=>{
-//         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
-//         html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
-        
-//     });
-    
-//     html+= "</table>";
-
-//     pastEventTable.innerHTML = html;
-// }
-
-// function displayPastEventTable(eventobj, _eventIndex){
-    // var pastEventTable = document.getElementById("pastEventTable");
-    // var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
-   
-    // json.forEach(fmEvent=>{
-    //     html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
-    //     html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
-        
-    // });
-    
-    // html+= "</table>";
-
-    // pastEventTable.innerHTML = html;
-// }
