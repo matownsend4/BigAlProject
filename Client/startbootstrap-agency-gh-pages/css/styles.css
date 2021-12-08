@@ -363,6 +363,12 @@ textarea {
   line-height: inherit;
 }
 
+#addEvent{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 button,
 select {
   text-transform: none;

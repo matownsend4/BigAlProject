@@ -1,7 +1,6 @@
 // customers //
 function getCustomerAccounts(){
     const allCustomersUrl = "https://localhost:5001/api/customer";
-   // const allCustomersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
 
     fetch(allCustomersUrl).then(function(response){
         console.log(response);
@@ -17,20 +16,22 @@ function getCustomerAccounts(){
 }
 
 function postCustomerAccount(){
-    const customersUrl = "https://localhost:5001/api/customer";
-    //const customerUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
+    const customerUrl = "https://localhost:5001/api/customer";
 
     const fname = document.getElementById("Fname").value;
-    
+    console.log(fname);
     const lname = document.getElementById("Lname").value;
-    
+    console.log(lname);
     const email = document.getElementById("email").value;
-    
+    console.log(email);
     const phone = document.getElementById("phone").value;
-    
+    console.log(phone);
     const psw = document.getElementById("psw").value;
-    
-    fetch(customersUrl, {
+    console.log(psw);
+
+    console.log("made it");
+
+    fetch(customerUrl, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -48,14 +49,13 @@ function postCustomerAccount(){
         console.log(response);
         getCustomerAccounts();
     })
-    alert("Account Made Successfully");
+
     console.log("made it 2");
 }
 
 // vendors //
 function getVendorAccounts(){
     const vendorUrl = "https://localhost:5001/api/vendor";
-    //const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
 
     fetch(vendorUrl).then(function(response){
         console.log(response);
@@ -70,24 +70,26 @@ function getVendorAccounts(){
 
 function postVendorAccount(){
     const vendorUrl = "https://localhost:5001/api/vendor";
-   // const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
 
     const VendorFName = document.getElementById("VendorFName").value;
-
+    console.log(VendorFName);
     const VendorLName = document.getElementById("VendorLName").value;
-
+    console.log(VendorLName);
     const VendorEmail = document.getElementById("VendorEmail").value;
- 
+    console.log(VendorEmail);
     const VendorPhone = document.getElementById("VendorPhone").value;
-
+    console.log(VendorPhone);
     const VendorPassword = document.getElementById("VendorPassword").value;
-
+    console.log(VendorPassword);
     const BusinessName = document.getElementById("BusinessName").value;
-  
+    console.log(BusinessName);
     var x = document.getElementById("BusinessType").selectedIndex;
     const selectedBusiness = document.getElementsByName("BusinessType")[x].value;
- 
+    console.log(selectedBusiness);
     const BusinessDescription = document.getElementById("BusinessDescription").value;
+    console.log(BusinessDescription);
+
+    console.log("made it"); 
 
     fetch(vendorUrl, {
         method: "POST",
@@ -109,14 +111,12 @@ function postVendorAccount(){
     .then((response)=>{
         console.log(response);
         getVendorAccounts();
-        alert("Account Made Successfully");
     })
 }
 
 // tickets //
 function getTickets(){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
-    //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     fetch(allTicketsUrl).then(function(response){
         console.log(response);
@@ -131,7 +131,6 @@ function getTickets(){
 var adminobj;
 function searchAdmin(){
     const adminUrl = "https://localhost:5001/api/admin";
-    //const adminUrl = "https://farmersmarketapi1.herokuapp.com/api/admin";
 
     fetch(adminUrl).then(function(response){
         console.log(response);
@@ -169,8 +168,12 @@ function searchAdmin(){
 
 function validateAdmin(foundAdmin)
 {
+    // var adminEmailLogin = document.getElementById("adminemail").value;
+    // var adminPasswordLogin = document.getElementById("adminpsw").value;
+
     if(foundAdmin)
     {
+       // alert("Login Successful");
         hideAdminLogin();
         window.location.href = "../AdminEvents.html";
         return false;
@@ -197,8 +200,8 @@ var custobj;
 function searchCustomer(){
     getFMEvents();
     document.getElementById("eventTable").style.display = "none";
+
     const customersUrl = "https://localhost:5001/api/customer";
-    //const customersUrl = "https://farmersmarketapi1.herokuapp.com/api/customer";
 
     fetch(customersUrl).then(function(response){
         console.log(response);
@@ -217,6 +220,7 @@ function searchCustomer(){
 
     const emailIndex = custobj.findIndex(obj => obj.customerEmail==customerEmailLogin);
     console.log(emailIndex);
+
     const passwordIndex = custobj.findIndex(obj => obj.customerPassword==customerPasswordLogin);
     console.log(passwordIndex);
 
@@ -247,6 +251,7 @@ function validateCustomer(found, _customerfirstname, _customerlastname, _custome
 {
     if(found)
     {
+        alert("Login Successful");
         hideCustomerLogin();
         displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno);
         return false;
@@ -302,23 +307,9 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='</div></div></div></div></div></section>';
     html+='<br></br>';
 
-    document.getElementById("eventTable").style.display = "block";
-<<<<<<< HEAD
-    
-=======
-
     // view past and currently registered for events
-    html+='<br></br>';
-    html+='<section class=\"page-section bg-light\">';
-    html+='<div class =\"tickets\">';
-    html+='<div class=\"container\">';
-    html+='<div class=\"text-center\">';
-    html+='<h2 class=\"section-heading text-uppercase\">View Events</h2>'
-    html+='<h3 class=\"section-subheading text-muted\"></h3>';
-    html+='<div class = \"row table-wrapper-scroll-y my-custom-scrollbar\">';
-    html+='</div></div></div></section>';
-   
->>>>>>> 7f2b7b223bcfb6a7ffeb53c9b3282c9ee2af92cd
+    document.getElementById("eventTable").style.display = "block";
+    
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
 }
@@ -345,7 +336,6 @@ function postTicket(_customerid){
 
 function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
-    //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     console.log("made it");
 
@@ -397,7 +387,8 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
 
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+
+   // console.log("made it");
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
@@ -418,6 +409,7 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
             console.log(response);
             getTickets();
         })
+       // console.log("made it 2"); 
     }
 
     alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
@@ -451,7 +443,6 @@ function searchVendor(){
     document.getElementById("eventTable").style.display = "none";
 
     const vendorUrl = "https://localhost:5001/api/vendor";
-    //const vendorUrl = "https://farmersmarketapi1.herokuapp.com/api/vendor";
   
     fetch(vendorUrl).then(function(response){
         console.log(response);
@@ -497,6 +488,10 @@ function searchVendor(){
         {
             vendorFound = true;
         }
+        // if((emailIndex == passwordIndex) && (emailIndex != -1))
+        // {
+        //     vendorFound = true;
+        // }
         else
         {
             vendorFound = false;
@@ -509,7 +504,7 @@ function validateVendor(vendorFound, _vendoremail, _vendorfirstname, _vendorlast
 {
     if(vendorFound)
     {
-        alert("Login Successful")
+        alert("Login Successful");
         hideVendorLogin();
         displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _vendorphoneno, _vendorid, _vendorbusiness, _businesstype, _businessdesc);
         return false;
@@ -563,8 +558,7 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
 
  // booth //
  function getBooths(){
-    //const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-    const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
+    const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
 
     fetch(allBoothsUrl).then(function(response){
         console.log(response);
@@ -576,9 +570,9 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     });  
 }
 
+// _vendorid, _vendorbusiness, _businesstype, _businessdesc
 function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-   // const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
 
     console.log("made it");
     fetch(allBoothsUrl, {
@@ -628,6 +622,8 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     doc.save('receipt.pdf');  
 }
 
+// ${_vendorid}, ${_vendorbusiness},${_businesstype}, ${_businessdesc}
+
 function displayCalendar(){
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar').value;
@@ -639,10 +635,14 @@ function displayCalendar(){
 }
 
 function getDate(){
+    //var date = document.getElementById("fmeventdate").value;
     var datetime = document.getElementById("fmeventdateandtime").value;
+    // var time = document.getElementById("fmeventtime").value;
+    //console.log(date);
     console.log(datetime);
-}
+    //console.log(time);
 
+}
 function renderRows(){
     eventList.forEach(eventObj => {
         rendowRow(eventObj);
@@ -655,10 +655,16 @@ function renderRows(){
     }))
 }
 
+function addEvent(event)
+{
+    calendar.addEvent( event [postFMEvent]);
+
+
+
+}
  // fm event  //
  function getFMEvents(){
     const eventsUrl = "https://localhost:5001/api/fmevent";
-    //const eventsUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
 
     fetch(eventsUrl).then(function(response){
         console.log(response);
@@ -668,7 +674,6 @@ function renderRows(){
         console.log(eventobj);
         console.log(json);
         displayEventTable(json);
-        getBusinessTypeCount(json);
         return eventobj;
     }).catch(function(error){
         console.log(error);
@@ -677,9 +682,9 @@ function renderRows(){
 
 
 function postFMEvent(){
-    const eventsUrl = "https://localhost:5001/api/fmevent";
-    //const eventUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
+    const eventUrl = "https://localhost:5001/api/fmevent";
 
+  //  const fmDate = document.getElementById("fmeventdateandtime").value;
     const datetime = document.getElementById("fmeventdateandtime").value;
     console.log(datetime);
     
@@ -716,13 +721,40 @@ function displayEventTable(json){
     eventTable.innerHTML = html;
 }
 
-function dataEvent1(){
-    var x = document.getElementById("EventDate").selectedIndex;
-    const selectedDate = document.getElementsByName("EventDate")[x].value;
-    console.log(selectedDate);
+function getBusinessTypeCount(){
+    const businessUrl = "https://localhost:5001/api/vendor";
+    var foodbevCount;
+    var attireCount;
+    var artCount;
+    var serviceCount;
+    var miscCount;
+    foreach (Vendor(businessType) in  getVendorAccounts())
+    {
+        
+        if(Vendor(businessType) = 'food/beverage')
+        {
+            foodbevCount++;
+            console.log(foodbevCount);
+        }
+        if(businessType = 'attire')
+        {
+            attireCount++;
+            console.log(attireCount);
+        }
+        if(businessType = 'arts/crafts')
+        {
+            artCount++;
+            console.log(artCount);
+        }
+        if(businessType = 'services')
+        {
+            serviceCount++;
+            console.log(serviceCount);
+        }
+        if(businessType = 'miscellaneous')
+        {
+            miscCount++;
+            console.log(miscCount);
+        }
+    }
 }
-
-
-
-
-
