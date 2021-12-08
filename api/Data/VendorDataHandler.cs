@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Vendor vendor)
         {
-            string sql = "INSERT INTO vendor(vendor_id, vendor_first_name, vendor_last_name, vendor_email, vendor_phone_no, vendor_password, business_name, business_type, business_description) VALUES(@vendorId, @vendorFName, @vendorLName, @vendorEmail, @vendorPassword, @vendorPhoneNo, @businessName, @businessType, @businessDescription)";
+            string sql = "INSERT INTO vendor(vendor_id, vendor_first_name, vendor_last_name, vendor_email, vendor_phone_no, vendor_password, business_name, business_type, business_description) VALUES(@vendorId, @vendorFName, @vendorLName, @vendorEmail, @vendorPhoneNo,@vendorPassword, @businessName, @businessType, @businessDescription)";
 
             var values = GetValues(vendor);
             db.Open();
@@ -46,8 +46,8 @@ namespace api.Data
                     VendorFName = item.vendor_first_name,
                     VendorLName = item.vendor_last_name,
                     VendorEmail = item.vendor_email,
-                    VendorPassword = item.vendor_password,
                     VendorPhoneNo = item.vendor_phone_no,
+                    VendorPassword = item.vendor_password,
                     BusinessName = item.business_name,
                     BusinessType = item.business_type,
                     BusinessDescription = item.business_description
@@ -71,8 +71,8 @@ namespace api.Data
                 {"@vendorFName", vendor.VendorFName},
                 {"@vendorLName", vendor.VendorLName},
                 {"@vendorEmail", vendor.VendorEmail},
-                {"@vendorPassword", vendor.VendorPassword},
                 {"@vendorPhoneNo", vendor.VendorPhoneNo},
+                {"@vendorPassword", vendor.VendorPassword},
                 {"@businessName", vendor.BusinessName},
                 {"@businessType", vendor.BusinessType},
                 {"@businessDescription", vendor.BusinessDescription},

@@ -10,8 +10,8 @@ namespace api.Model
         public string VendorFName {get; set;}
         public string VendorLName {get; set;}
         public string VendorEmail {get; set;}
-        public string VendorPassword {get; set;}
         public string VendorPhoneNo {get; set;}
+        public string VendorPassword {get; set;}
         public string BusinessName {get; set;}
         public string BusinessType {get; set;}
         public string BusinessDescription {get; set;}
