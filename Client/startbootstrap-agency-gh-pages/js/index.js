@@ -571,13 +571,11 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='</div></div></div></div></section>';
     
     
-    document.getElementById("eventTable").style.display = "block";
-
-    
-    document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
     document.getElementById("vendorprofileinfo").innerHTML = html;
+    document.getElementById("eventTable").style.display = "block";
+    document.getElementById("pastEventTable").style.display = "block";
 }
 
  // booth //
@@ -723,6 +721,7 @@ function displayPastEventTable(json){
    
     json.forEach(fmEvent=> {
         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
+        
     });
     
     html+= "</table>";
