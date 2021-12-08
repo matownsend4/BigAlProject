@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(Ticket ticket)
         {
-            string sql = "INSERT INTO ticket(ticket_id, ticket_type, ticket_price, customer_id) VALUES(@ticketId, @ticketType, @ticketPrice, @customerId)";
+            string sql = "INSERT INTO ticket(ticket_id, ticket_type, ticket_price, customer_id, event_id) VALUES(@ticketId, @ticketType, @ticketPrice, @customerId, @eventId)";
       
             var values = GetValues(ticket);
             db.Open();
@@ -45,7 +45,9 @@ namespace api.Data
                     TicketID = item.ticket_id,
                     TicketType = item.ticket_type,
                     TicketPrice = item.ticket_price,
-                    CustomerID = item.customer_id
+                    CustomerID = item.customer_id,
+                    EventID = item.event_id
+
                 };
             tickets.Add(temp);
             }
@@ -65,7 +67,8 @@ namespace api.Data
                 {"@ticketId", ticket.TicketID},
                 {"@ticketType", ticket.TicketType},
                 {"@ticketPrice", ticket.TicketPrice},
-                {"@customerId", ticket.CustomerID}
+                {"@customerId", ticket.CustomerID},
+                {"@eventId", ticket.EventID}
             };
             return values;
         }

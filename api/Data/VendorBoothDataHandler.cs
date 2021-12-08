@@ -23,7 +23,7 @@ namespace api.Data
 
         public void Insert(VendorBooth vendorBooth)
         {
-            string sql = "INSERT INTO vendor_booth(booth_id, booth_cost, vendor_id) VALUES(@boothId, @boothCost, @vendorId)";
+            string sql = "INSERT INTO vendor_booth(booth_id, booth_cost, vendor_id, event_id) VALUES(@boothId, @boothCost, @vendorId, @eventId)";
       
             var values = GetValues(vendorBooth);
             db.Open();
@@ -44,7 +44,8 @@ namespace api.Data
                 VendorBooth temp = new VendorBooth(){
                     BoothID = item.booth_id,
                     BoothCost = item.booth_cost,
-                    VendorID = item.vendor_id
+                    VendorID = item.vendor_id,
+                    EventID = item.event_id
                 };
             vendorBooths.Add(temp);
             }
@@ -63,7 +64,8 @@ namespace api.Data
             var values = new Dictionary<string,object>(){
                 {"@boothId", vendorBooth.BoothID},
                 {"@boothCost", vendorBooth.BoothCost},
-                {"@vendorId", vendorBooth.VendorID}
+                {"@vendorId", vendorBooth.VendorID},
+                {"@eventId", vendorBooth.EventID}
             };
             return values;
         }

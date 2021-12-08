@@ -173,12 +173,8 @@ function searchAdmin(){
 
 function validateAdmin(foundAdmin)
 {
-    // var adminEmailLogin = document.getElementById("adminemail").value;
-    // var adminPasswordLogin = document.getElementById("adminpsw").value;
-
     if(foundAdmin)
     {
-       // alert("Login Successful");
         hideAdminLogin();
         window.location.href = "../AdminEvents.html";
         return false;
@@ -332,22 +328,24 @@ function postTicket(_customerid){
 
     const numberOfTickets = document.getElementById("numberOfTickets").value;
     console.log(numberOfTickets);
+
+    const eventID = document.getElementById("eventid").value;
+    console.log(eventID); 
     
     var intNumTickets = parseInt(numberOfTickets);
 
     if(selectedTicket == "adult")
     {
-        postAdultTicket(selectedTicket, intNumTickets, _customerid);
+        postAdultTicket(selectedTicket, intNumTickets, _customerid, eventID);
     }
     else if(selectedTicket=="seniorchild")
     {
-        postSenChildTicket(selectedTicket, intNumTickets, _customerid);
+        postSenChildTicket(selectedTicket, intNumTickets, _customerid, eventID);
     }  
 }
 
-function postAdultTicket(selectedTicket, intNumTickets, _customerid){
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
-    //const allTicketsUrl = "https://localhost:5001/api/ticket";
+function postAdultTicket(selectedTicket, intNumTickets, _customerid, eventID){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
 
    
 
@@ -363,7 +361,8 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
             body: JSON.stringify({
                 ticketPrice: '5', 
                 ticketType: selectedTicket,
-                customerId: _customerid
+                customerId: _customerid,
+                eventId: eventID
             })
         })
         .then((response)=>{
@@ -374,10 +373,11 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
        
     }
 
-    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
+    alert(`Purchase Confirmation\n\nEvent ID: ${eventID}\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
     
     const doc = new jsPDF();
     const receiptheader = "Customer Number: " + _customerid;
+    const eventfor = "Event ID: " + eventID;
     const type = `Ticket type: ${selectedTicket}`;
     const qty = `Quantity: ${intNumTickets}`;
     const total = `Total: $${intNumTickets*5}`;
@@ -386,20 +386,21 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     doc.setTextColor(85, 107, 47);
     doc.setFont('helvetica');
     doc.setFontType('bold');
-    doc.text(20,20, receiptheader);
+    doc.setFontSize(20);
+    doc.text(20,30, eventfor);
     doc.setTextColor(0);
     doc.setFontType('normal');
     doc.setFontSize(16);
-    doc.text(20,30, type);
-    doc.text(20,40, qty);
-    doc.line(20, 43, 70, 43);
-    doc.text(20,50, total);
+    doc.text(20,40, type);
+    doc.text(20,50, qty);
+    doc.line(20, 53, 100, 53);
+    doc.text(20,60, total);
     doc.save('receipt.pdf');  
 }
 
-function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
-    //const allTicketsUrl = "https://localhost:5001/api/ticket";
-   const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+function postSenChildTicket(selectedTicket, intNumTickets, _customerid, eventID){
+    const allTicketsUrl = "https://localhost:5001/api/ticket";
+   //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
@@ -413,7 +414,8 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
             body: JSON.stringify({
                 ticketPrice: '3', 
                 ticketType: selectedTicket,
-                customerId: _customerid
+                customerId: _customerid,
+                eventId: eventID
             })
         })
         .then((response)=>{
@@ -423,10 +425,11 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
        
     }
 
-    alert(`Purchase Confirmation\n\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
+    alert(`Purchase Confirmation\n\nEvent ID: ${eventID}\nTicket type: ${selectedTicket}\nQuantity: ${intNumTickets}`);
 
-     const doc = new jsPDF();
+    const doc = new jsPDF();
     const receiptheader = "Customer Number: " + _customerid;
+    const eventfor = "Event ID: " + eventID;
     const type = `Ticket type: ${selectedTicket}`;
     const qty = `Quantity: ${intNumTickets}`;
     const total = `Total: $${intNumTickets*5}`;
@@ -436,13 +439,15 @@ function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
     doc.setFont('helvetica');
     doc.setFontType('bold');
     doc.text(20,20, receiptheader);
+    doc.setFontSize(20);
+    doc.text(20,30, eventfor);
     doc.setTextColor(0);
     doc.setFontType('normal');
     doc.setFontSize(16);
-    doc.text(20,30, type);
-    doc.text(20,40, qty);
-    doc.line(20, 43, 100, 43);
-    doc.text(20,50, total);
+    doc.text(20,40, type);
+    doc.text(20,50, qty);
+    doc.line(20, 53, 100, 53);
+    doc.text(20,60, total);
     doc.save('receipt.pdf');  
 }
 
@@ -557,9 +562,12 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<img class=\"rounded-circle img-fluid\" src=\"../assets/img/Booth.png\" alt=\"Avatar\" class=\"avatar\"></div>';
     html+='<div class=\"container\">'
     html+='<br></br>';
-    html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>';                   
+    html+='<h3 class=\"section-subheading text-muted\">Each booth costs $50. Limit 1 booth per vendor.</h3></div>'; 
+    html+='<label for=\"fmeventid\"><b>Enter Event ID: &emsp;</b></label>';
+    html+='<input type=\"number\" placeholder=\"Event ID\" min=\"1\" id=\"eventid\">';     
+    html+='<br></br><br></br>';             
     html+='<div class=\"clearfix\">';
-    html+="<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth("+_vendorid+","+_vendorbusiness+","+_businesstype+","+_businessdesc+")\" value=\"Purchase\"/>";
+    html+="<input id = \"boot\" type=\"submit\" class=\"login-button\" class=\"signupbtn\" onclick = \"postBooth("+_vendorid+")\" value=\"Purchase\"/>";
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
@@ -601,7 +609,8 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
         },
         body: JSON.stringify({
             boothCost : '50',
-           vendorID: _vendorid
+            vendorID: _vendorid,
+            eventId: eventID
         })
     })
     .then((response)=>{
@@ -610,17 +619,12 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     })
 
     console.log("made it 2");
-    console.log(_vendorbusiness);
-    console.log(_businesstype);
-    console.log(_businessdesc);
 
     alert(`You have purchased a booth\n\n`);
 
     const doc = new jsPDF();
     const receiptheader = "Vendor Number: " + _vendorid;
-    const name = "Business Name: " + _vendorbusiness;
-    const type = "Business Type: "+ _businesstype;
-    const desc = "Business Description: "+_businessdesc;
+    const eventfor = "Event ID: " + eventID;
     const total = "Total: $50";
 
     doc.setFontSize(25);
@@ -628,14 +632,14 @@ function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
     doc.setFont('helvetica');
     doc.setFontType('bold');
     doc.text(20,20, receiptheader);
+    doc.setFontSize(20);
+    doc.text(20,30, eventfor);
+    doc.setFontSize(18);
+    doc.text(20,40, "Purchase confirmation");
     doc.setTextColor(0);
     doc.setFontType('normal');
     doc.setFontSize(16);
-    doc.text(20,30, name);
-    doc.text(20,40, type);
-    doc.text(20,50, desc);
-    //doc.text(20,40, );
-    doc.line(20, 43, 100, 43);
+    doc.line(20, 45, 100, 45);
     doc.text(20,55, total);
     doc.save('receipt.pdf');  
 }
@@ -653,18 +657,6 @@ function displayCalendar(){
 function getDate(){
     var datetime = document.getElementById("fmeventdateandtime").value;
     console.log(datetime);
-}
-
-function renderRows(){
-    eventList.forEach(eventObj => {
-        rendowRow(eventObj);
-    })
-    draw(todoList.map(obj=>{
-        return {
-            title : obj.todo,
-            start : obj.date
-        }
-    }))
 }
 
  // fm event  //

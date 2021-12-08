@@ -9,6 +9,7 @@ namespace api.Model
         public string TicketPrice {get; set;}
         public string TicketType {get; set;}
         public int CustomerID {get; set;}
+         public int EventID {get; set;}
         public ITicketDataHandler ticketDataHandler {get; set;}
         public Ticket()
         {
