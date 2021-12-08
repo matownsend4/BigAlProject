@@ -608,6 +608,9 @@ function postBooth(_vendorid){
     console.log(eventID);
 
 
+    const eventID = document.getElementById("eventid").value;
+    console.log(eventID); 
+
     console.log("made it");
     fetch(allBoothsUrl, {
         method: "POST",
