@@ -339,14 +339,8 @@ function postTicket(_customerid){
     }  
 }
 
-<<<<<<< HEAD
 function postAdultTicket(selectedTicket, intNumTickets, _customerid, eventID){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
-=======
-function postAdultTicket(selectedTicket, intNumTickets, _customerid){
-    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
-    //const allTicketsUrl = "https://localhost:5001/api/ticket";
->>>>>>> b4453470b1b92ebbd782ff8eaca2a642e80c1758
 
    
 
@@ -399,15 +393,9 @@ function postAdultTicket(selectedTicket, intNumTickets, _customerid){
     doc.save('receipt.pdf');  
 }
 
-<<<<<<< HEAD
 function postSenChildTicket(selectedTicket, intNumTickets, _customerid, eventID){
     const allTicketsUrl = "https://localhost:5001/api/ticket";
    //const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
-=======
-function postSenChildTicket(selectedTicket, intNumTickets, _customerid){
-    //const allTicketsUrl = "https://localhost:5001/api/ticket";
-   const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
->>>>>>> b4453470b1b92ebbd782ff8eaca2a642e80c1758
 
     console.log(intNumTickets);
     for(let i=0; i<intNumTickets; i++)
@@ -599,14 +587,8 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
 }
 
 // _vendorid, _vendorbusiness, _businesstype, _businessdesc
-<<<<<<< HEAD
 function postBooth(_vendorid){
     const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
-=======
-function postBooth(_vendorid, _vendorbusiness, _businesstype, _businessdesc){
-    const allBoothsUrl = "https://farmersmarketapi1.herokuapp.com/api/vendorbooth";
-    //const allBoothsUrl = "https://localhost:5001/api/vendorbooth";
->>>>>>> b4453470b1b92ebbd782ff8eaca2a642e80c1758
 
     const eventID = document.getElementById("eventid").value;
     console.log(eventID); 
@@ -672,21 +654,6 @@ function getDate(){
     var datetime = document.getElementById("fmeventdateandtime").value;
     console.log(datetime);
 }
-<<<<<<< HEAD
-=======
-
-function renderRows(){
-    eventList.forEach(eventObj => {
-        rendowRow(eventObj);
-    })
-    draw(todoList.map(obj=>{
-        return {
-            title : obj.todo,
-            start : obj.date
-        }
-    }))
-}
->>>>>>> b4453470b1b92ebbd782ff8eaca2a642e80c1758
 
  // fm event  //
  function getFMEvents(){
