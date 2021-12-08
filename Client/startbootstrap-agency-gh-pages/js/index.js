@@ -198,6 +198,8 @@ function hideAdminLogin()
 
 // Handling Customer Account info and purchasing tickets
 var custobj;
+var ticketobj;
+var eventobj;
 function searchCustomer(){
     getFMEvents();
     document.getElementById("eventTable").style.display = "none";
@@ -218,6 +220,37 @@ function searchCustomer(){
         console.log(error);
     });
 
+    //gets tickets
+    const allTicketsUrl = "https://farmersmarketapi1.herokuapp.com/api/ticket";
+    //const allTicketsUrl = "https://localhost:5001/api/ticket";
+
+    fetch(allTicketsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        ticketobj = json;
+        console.log(ticketobj);
+        console.log(json);
+    }).catch(function(error){
+        console.log(error);
+    }); 
+
+    //const eventsUrl = "https://localhost:5001/api/fmevent";
+    const eventsUrl = "https://farmersmarketapi1.herokuapp.com/api/fmevent";
+
+    fetch(eventsUrl).then(function(response){
+        console.log(response);
+        return response.json();
+    }).then(function(json){
+        eventobj = json;
+        console.log(eventobj);
+        console.log(json);
+        return eventobj;
+    }).catch(function(error){
+        console.log(error);
+    });  
+  
+
     const customerEmailLogin = document.getElementById("customeremail").value;
     const customerPasswordLogin = document.getElementById("customerpsw").value;
 
@@ -231,11 +264,32 @@ function searchCustomer(){
     console.log(custobj[emailIndex].customerFName);
     console.log(custobj[emailIndex].customerLName);
 
+    // retrieve logged in customer's info using found index
     const customerfirstname = custobj[emailIndex].customerFName;
     const customerlastname = custobj[emailIndex].customerLName;
     const customeremail = custobj[emailIndex].customerEmail;
     const customerphoneno = custobj[emailIndex].customerPhoneNo;
     const customerid = custobj[emailIndex].customerID;
+
+      
+  
+    const ticketIndex = ticketobj.findIndex(x => x.customerID==customerid);
+    console.log("hey");
+    console.log(ticketIndex);
+    console.log("bye");
+
+    const foundTicketEventID = ticketobj[ticketIndex].eventID;
+    console.log(foundTicketEventID);
+
+    const eventIndex = eventobj.findIndex(y => y.fmEventID==foundTicketEventID);
+    console.log(eventIndex);
+
+    console.log(eventobj[eventIndex].fmEventID);
+    console.log(eventobj[eventIndex].fmDate);
+
+    const fmid = eventobj[eventIndex].fmEventID;
+    const fmdate = eventobj[eventIndex].fmDate;
+
 
     var found;
     if((emailIndex == passwordIndex) && (emailIndex != -1))
@@ -247,16 +301,16 @@ function searchCustomer(){
         found = false;
     }
 
-    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid, customerphoneno);
+    validateCustomer(found, customerfirstname, customerlastname, customeremail, customerid, customerphoneno, fmid, fmdate);
 }
 
-function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno)
+function validateCustomer(found, _customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno, _fmid, _fmdate)
 {
     if(found)
     {
         //alert("Login Successful");
         hideCustomerLogin();
-        displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno);
+        displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno, _fmid, _fmdate);
         return false;
     }
     else
@@ -276,7 +330,7 @@ function hideCustomerLogin()
     document.getElementById("customerlogin").style.display="none";
 }
 
-function displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno)
+function displayCustomerProfile(_customerfirstname, _customerlastname, _customeremail, _customerid, _customerphoneno, _fmid, _fmdate)
 {
     // Customer personal info
     let html = `<h1>CUSTOMER ACCOUNT</h1><br></br><h6>Full Name: ${_customerfirstname} ${_customerlastname}</h6>`
@@ -315,12 +369,19 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "eventTable"></div></div>';
     html+='</div><div class = "row"><div class = "col-md-12">';
 
-    html+='<h2 class="section-heading text-uppercase">Past Events</h2>';
+    html+='<h2 class="section-heading text-uppercase">Previous Event Attended</h2>';
     html+='<div class = "row table-wrapper-scroll-y my-custom-scrollbar"><div class = "col-md-12"><div id = "pastEventTable"></div></div>';
     html+='</div><div class = "row"><div class = "col-md-12">';
     
     document.getElementById("customerlogout").innerHTML = "Logout";
     document.getElementById("customerprofileinfo").innerHTML = html;
+
+    var pastEventTable = document.getElementById("pastEventTable");
+    var tablehtml = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    tablehtml+=`<tr><td>${_fmid}</td><td>${_fmdate}</td>`;
+    //     html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
+    tablehtml+= "</table>";
+    pastEventTable.innerHTML = tablehtml;
 }
 
 function postTicket(_customerid){
@@ -607,10 +668,6 @@ function postBooth(_vendorid){
     const eventID = document.getElementById("eventid").value;
     console.log(eventID);
 
-
-    const eventID = document.getElementById("eventid").value;
-    console.log(eventID); 
-
     console.log("made it");
     fetch(allBoothsUrl, {
         method: "POST",
@@ -725,17 +782,32 @@ function displayEventTable(json){
     eventTable.innerHTML = html;
 }
 
-function displayPastEventTable(json){
-    var pastEventTable = document.getElementById("pastEventTable");
-    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
+// function displayPastEventTable(json){
+//     var pastEventTable = document.getElementById("pastEventTable");
+//     var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
    
-    json.forEach(fmEvent=>{
-        html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
-        html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
+//     json.forEach(fmEvent=>{
+//         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
+//         html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
         
-    });
+//     });
     
-    html+= "</table>";
+//     html+= "</table>";
 
-    pastEventTable.innerHTML = html;
-}
+//     pastEventTable.innerHTML = html;
+// }
+
+// function displayPastEventTable(eventobj, _eventIndex){
+    // var pastEventTable = document.getElementById("pastEventTable");
+    // var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th><th> Ticket ID</th><th>Ticket Type</th>";
+   
+    // json.forEach(fmEvent=>{
+    //     html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td>`;
+    //     html+=`<td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td><tr>`;
+        
+    // });
+    
+    // html+= "</table>";
+
+    // pastEventTable.innerHTML = html;
+// }
