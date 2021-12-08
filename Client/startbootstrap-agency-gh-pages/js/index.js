@@ -29,8 +29,6 @@ function postCustomerAccount(){
     const psw = document.getElementById("psw").value;
     console.log(psw);
 
-    console.log("made it");
-
     fetch(customerUrl, {
         method: "POST",
         headers: {
@@ -49,8 +47,8 @@ function postCustomerAccount(){
         console.log(response);
         getCustomerAccounts();
     })
-
-    console.log("made it 2");
+    alert("Account was successfully created.");
+    window.location.href = "../Logins/CustomerLogin.html";
 }
 
 // vendors //
@@ -87,9 +85,7 @@ function postVendorAccount(){
     const selectedBusiness = document.getElementsByName("BusinessType")[x].value;
     console.log(selectedBusiness);
     const BusinessDescription = document.getElementById("BusinessDescription").value;
-    console.log(BusinessDescription);
-
-    console.log("made it"); 
+    console.log(BusinessDescription); 
 
     fetch(vendorUrl, {
         method: "POST",
@@ -112,6 +108,8 @@ function postVendorAccount(){
         console.log(response);
         getVendorAccounts();
     })
+    alert("Account was successfully created.");
+    window.location.href = "../Logins/VendorLogin.html";
 }
 
 // tickets //
