@@ -311,10 +311,9 @@ function displayCustomerProfile(_customerfirstname, _customerlastname, _customer
     html+='<br></br>';
 
     // view past and currently registered for events
-    html+='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>'
+    
     document.getElementById("eventTable").style.display = "block";
 
-    html+='<h2 class=\"section-heading text-uppercase\">Past Events</h2>'
     document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("customerlogout").innerHTML = "Logout";
@@ -571,10 +570,10 @@ function displayVendorProfile(_vendoremail, _vendorfirstname, _vendorlastname, _
     html+='<button class=\"login-button\" type=\"button\" class=\"cancelbtn\" onclick=\" window.location.href = \'../index.html\';\">Cancel</button>'
     html+='</div></div></div></div></section>';
     
-    html+='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>'
+    
     document.getElementById("eventTable").style.display = "block";
 
-    html+='<h2 class=\"section-heading text-uppercase\">Past Events</h2>'
+    
     document.getElementById("pastEventTable").style.display = "block";
     
     document.getElementById("vendorlogout").innerHTML = "Logout";
@@ -705,7 +704,8 @@ function postFMEvent(){
 
 function displayEventTable(json){
     var eventTable = document.getElementById("eventTable");
-    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    var html ='<h2 class=\"section-heading text-uppercase\">Upcoming Events</h2>';
+    html += "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
    
     json.forEach(fmEvent=> {
         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
@@ -718,7 +718,8 @@ function displayEventTable(json){
 
 function displayPastEventTable(json){
     var pastEventTable = document.getElementById("pastEventTable");
-    var html = "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
+    var html ='<h2 class=\"section-heading text-uppercase\">Past Events</h2>';
+    html += "<table class='table table-hover'><tr><th>Event ID</th><th>Event Date</th>";
    
     json.forEach(fmEvent=> {
         html+=`<tr><td>${fmEvent.fmEventID}</td><td>${fmEvent.fmDate}</td></tr>`;
